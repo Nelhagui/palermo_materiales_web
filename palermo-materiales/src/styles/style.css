@@ -21,7 +21,6 @@
 .navbar-sm a:hover,
 .playstore p:hover {
   border-bottom: 1px solid #000;
-  padding-bottom: 2px;
   transition: all 0.2s ease-out !important;
 }
 
@@ -80,6 +79,11 @@
   justify-content: center;
   align-items: center;
   gap: 1em 0;
+  color:#fff;
+}
+.image-titles h2{
+
+    font-weight:bold;
 }
 .images-container .img1,
 .images-container .img2 {
@@ -91,13 +95,38 @@
 .btn-primary,
 .btn-secondary {
   width: 60%;
-  height: auto;
+  height: 4em;
+}
+.btn-primary {
+  background: #fff;
+  color: #ff9817;
+  border: none;
+  transition: all 0.2s ease-out !important;
+}
+.btn-secondary {
+  color: #fff;
+  background: #ff9817;
+  border: none;
+  transition: all 0.2s ease-out !important;
+}
+
+.btn-primary:hover{
+    color: #fff;
+    background: #ff9817;
+    border: none;
+    transition: all 0.2s ease-out !important;
+}
+.btn-secondary:hover{
+    background: #fff;
+  color: #ff9817;
+  border: none;
+  transition: all 0.2s ease-out !important;
 }
 .categories-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+
 }
 .categories {
   display: flex;
@@ -107,13 +136,29 @@
   gap: 5em;
   margin: 1em 0;
 }
+.categories img{
+    width:32px;
+
+}
+.categories .categorie-items{
+    display:flex;
+    justify-content:center;
+    align-items: baseline;
+    gap:0 .5em;
+}
+.categories .categorie-items:hover {
+  border-bottom: 1px solid #ff9817;
+  fill:#ff9817 !important;
+  color: #ff9817;
+  padding-bottom: 0px;
+  transition: all 0.2s ease-out !important;
+}
 .products {
   display: flex;
   flex-direction: row;
-  width: 100%;
   margin: 0em;
   overflow: scroll;
-  justify-content: space-between;
+  margin: auto;
   overflow: scroll;
 }
 .product-card {
@@ -145,6 +190,7 @@
   display: flex;
   justify-content: space-around;
   width: 100%;
+  padding: 1em 5em;
 }
 .footer .direction-container p {
   margin: 0 !important;
@@ -183,18 +229,21 @@
 
 @media (max-width: 900px) {
   .footer {
-    margin:2em 0;
+    margin: 2em 0;
     display: flex;
-    text-align:center;
-    gap:1em;
+    text-align: center;
+    gap: 1em;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
   .footer-image {
-    display:none;
+    display: none;
   }
   .footer .pay-methods img {
     width: 42px;
+  }
+  .products {
+    width: 100%;
   }
 }

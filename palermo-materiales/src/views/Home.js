@@ -1,5 +1,9 @@
 import React from 'react'
 import ProductCard from '../components/ProductCard'
+import Techo from '../assets/img/techo.svg'
+import Pared from '../assets/img/pared.svg'
+import Terminacion from '../assets/img/terminacion.svg'
+import Impermeabilizar from '../assets/img/Impermeabilizacion.svg'
 
 const Home = () => {
   return (
@@ -22,17 +26,17 @@ const Home = () => {
       </div>
       <br />
       <div className="categories-container">
-        <h1>Productos más buscados</h1>
+        <h1 className='mx-auto'>Productos más buscados</h1>
         <div className="categories">
-          <p>Techo</p>
-          <p>Pared</p>
-          <p>Terminación</p>
-          <p>Impermeabilizar</p>
+          <div className='categorie-items'><img src={Techo} alt='techo-icon' /><p>Techo</p></div>
+          <div className='categorie-items'><img src={Pared} alt='Pared-icon' /><p>Pared</p></div>
+          <div className='categorie-items'><img src={Terminacion} alt='Terminacion-icon' /><p>Terminacion</p></div>
+          <div className='categorie-items'><img src={Impermeabilizar} style={{width: "20px"}} alt='Impermeabilizar-icon' /><p>Impermeabilizar</p></div>
         </div>
         <div className="products">
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          <ProductCard className="col" />
+          <ProductCard className="col" />
+          <ProductCard className="col" />
         </div>
       </div>
       <div className="footer-image">
