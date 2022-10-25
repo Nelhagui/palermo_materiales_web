@@ -3,7 +3,7 @@ import ProductCard from '../components/ProductCard'
 
 const Home = () => {
   return (
-    <div className=''>
+    <div className="">
       <div className="images-container">
         <div className="col-6 img1">
           <div className="image-titles">
@@ -19,22 +19,29 @@ const Home = () => {
             <button className="btn-primary">BUSCAR POR CATEGORIAS</button>
           </div>
         </div>
-      </div><br/>
-      <div className='categories-container'>
-            <h1>Productos más buscados</h1>
-            <div className='categories'>
-                <p>Techo</p>
-                <p>Pared</p>
-                <p>Terminación</p>
-                <p>Impermeabilizar</p>
-            </div>
-            <div className='products'>
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-            </div>
       </div>
-      
+      <br />
+      <div className="categories-container">
+        <h1>Productos más buscados</h1>
+        <div className="categories">
+          <p>Techo</p>
+          <p>Pared</p>
+          <p>Terminación</p>
+          <p>Impermeabilizar</p>
+        </div>
+        <div className="products">
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+        </div>
+      </div>
+      <div className="footer-image">
+        <p style={{ margin: '2em 0 0 10em' }}>Te acompañamos</p>
+        <br />
+        <p style={{ margin: '2.5em 0px 0px 13em' }}>
+          todos tus <strong>proyectos</strong>
+        </p>
+      </div>
     </div>
   )
 }

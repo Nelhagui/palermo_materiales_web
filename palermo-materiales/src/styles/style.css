@@ -59,27 +59,6 @@
   width: 7em;
 }
 
-@media (max-width: 900px) {
-  .nav-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 2em 1em;
-    align-items: center;
-    height: 3em;
-  }
-  .navbar-xl {
-    display: none;
-  }
-  .navbar-sm {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    text-decoration: none !important;
-    margin-top: 1em;
-  }
-}
-
 .images-container {
   display: flex;
   position: static;
@@ -111,8 +90,8 @@
 }
 .btn-primary,
 .btn-secondary {
-  width: 15em;
-  height: 4em;
+  width: 60%;
+  height: auto;
 }
 .categories-container {
   display: flex;
@@ -123,22 +102,99 @@
 .categories {
   display: flex;
   justify-content: center;
+  width: 100%;
+  overflow: scroll;
   gap: 5em;
-  margin: 2em 0;
+  margin: 1em 0;
 }
-.products{
-    display:flex;
-    flex-direction:row;
-    justify-content:space-around;
-    gap:5em;
+.products {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 0em;
+  overflow: scroll;
+  justify-content: space-between;
+  overflow: scroll;
 }
 .product-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 1em;
+  margin: 1em;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
-.product-card img{
-    height:15em;
-    padding:2em;
+.product-card img {
+  height: 15em;
+  padding: 2em;
+}
+.footer-image {
+  margin: 2em 0;
+  width: 100%;
+  height: 15em;
+  background-color: red;
+  color: white;
+  text-align: center;
+}
+.footer-image p {
+  position: absolute;
+  font-size: 2.5em;
+}
+.footer {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+.footer .direction-container p {
+  margin: 0 !important;
+}
+.footer .pay-methods {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+.footer .pay-methods img {
+  width: 64px;
+}
+
+@media (max-width: 900px) {
+  .nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2em 1em;
+    align-items: center;
+    height: 3em;
+  }
+  .navbar-xl {
+    display: none;
+  }
+  .navbar-sm {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-decoration: none !important;
+    margin-top: 1em;
+  }
+}
+
+@media (max-width: 900px) {
+  .footer {
+    margin:2em 0;
+    display: flex;
+    text-align:center;
+    gap:1em;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer-image {
+    display:none;
+  }
+  .footer .pay-methods img {
+    width: 42px;
+  }
 }
