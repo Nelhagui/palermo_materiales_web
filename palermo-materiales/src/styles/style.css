@@ -1,0 +1,144 @@
+* {
+  text-decoration: none !important;
+}
+.navbar-xl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5em;
+  text-decoration: none !important;
+}
+.navbar-sm {
+  display: none;
+}
+
+.navbar-xl a,
+.navbar-sm a {
+  color: black !important;
+  transition: all 0.2s ease-out !important;
+}
+.navbar-xl a:hover,
+.navbar-sm a:hover,
+.playstore p:hover {
+  border-bottom: 1px solid #000;
+  padding-bottom: 2px;
+  transition: all 0.2s ease-out !important;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 3em;
+  margin: 1em 0;
+}
+.nav-container img {
+  width: 1em;
+}
+.shop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+.vl {
+  border-left: 0.5px solid black;
+  height: 24px;
+}
+.playstore {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+.playstore p {
+  margin: 0 !important;
+}
+.logo-container img {
+  width: 7em;
+}
+
+@media (max-width: 900px) {
+  .nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2em 1em;
+    align-items: center;
+    height: 3em;
+  }
+  .navbar-xl {
+    display: none;
+  }
+  .navbar-sm {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-decoration: none !important;
+    margin-top: 1em;
+  }
+}
+
+.images-container {
+  display: flex;
+  position: static;
+  margin: 1em 0;
+  height: 25em;
+}
+.images-container .img1 {
+  height: 25em;
+  background-color: #ccc;
+}
+.images-container .img2 {
+  height: 25em;
+  background-color: #3ff;
+}
+.image-titles {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 1em 0;
+}
+.images-container .img1,
+.images-container .img2 {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+.btn-primary,
+.btn-secondary {
+  width: 15em;
+  height: 4em;
+}
+.categories-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.categories {
+  display: flex;
+  justify-content: center;
+  gap: 5em;
+  margin: 2em 0;
+}
+.products{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+    gap:5em;
+}
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.product-card img{
+    height:15em;
+    padding:2em;
+}
