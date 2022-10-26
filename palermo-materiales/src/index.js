@@ -3,19 +3,21 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from './views/Home'
-import NavBar from './components/NavBar'
-import Footer from './components/Footer'
+import Home from './views/Home.js'
+import NavBar from './components/NavBar.js'
+import Footer from './components/Footer.js'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
+  <React.StrictMode>
   <BrowserRouter>
     <NavBar />
     <Routes>
       <Route path="" element={<Home />} />
     </Routes>
     <Footer />
-  </BrowserRouter>,
+  </BrowserRouter>
+  </React.StrictMode>,
 )
 
 // If you want to start measuring performance in your app, pass a function

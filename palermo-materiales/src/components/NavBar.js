@@ -7,7 +7,7 @@ import logo from '../assets/img/logo_informacion.png'
 
 const NavBar = () => {
   return (
-    <div>
+    <div className='container'>
       <div className="nav-container ">
         <div className="logo-container ">
           <img src={logo} alt="logo" />

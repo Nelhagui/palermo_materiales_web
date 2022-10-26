@@ -9,8 +9,8 @@ import Playstore from '../assets/img/playstore2.png'
 
 const Footer = () => {
   return (
-    <div className="footer">
-        <div className='logo-container col'>
+    <div className="footer container">
+        <div className='logo-container col-2'>
             <img src={logo} alt='logo' />
         </div>
         <div className='direction-container col'>
