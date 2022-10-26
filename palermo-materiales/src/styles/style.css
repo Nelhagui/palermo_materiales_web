@@ -72,8 +72,8 @@
 .images-container .img2 {
   height: 25em;
   background: url('../assets/banners/img2.png') no-repeat;
-  width:50%;
-  background-size: cover;   
+  width: 50%;
+  background-size: cover;
 }
 .image-titles {
   display: flex;
@@ -102,7 +102,7 @@
 .btn-primary {
   background: transparent;
   color: #fff;
-  border: solid 1px ;
+  border: solid 1px;
   transition: all 0.2s ease-out !important;
 }
 .btn-secondary {
@@ -185,7 +185,7 @@
   width: 100%;
   height: 200px;
   background: url('../assets/banners/te-acompañamos.png') no-repeat;
-  background-size: cover;   
+  background-size: cover;
   color: white;
   text-align: center;
 }
@@ -198,6 +198,7 @@
   justify-content: space-around;
   width: 100%;
   padding: 1em 5em;
+  z-index: 100 !important;
 }
 .footer .direction-container p {
   margin: 0 !important;
@@ -253,4 +254,110 @@
   .products {
     width: 100%;
   }
+}
+
+.about-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.app-titles {
+  margin: 3.5em;
+}
+.about-container .about-text {
+  margin: 5em;
+}
+.app-boxes .box,
+.app-boxes {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3em;
+}
+.app-boxes .box {
+  border: 1px solid #ccc;
+  padding: 0em 1em;
+  border-radius: 10px;
+  gap: 2em;
+}
+.app-boxes .box p {
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .app-boxes .box,
+  .app-boxes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+    padding: 1em;
+  }
+  .box {
+    text-align: center;
+    width: 40em;
+    height: 10em;
+  }
+  .box img {
+    padding: 0;
+    margin: 0;
+  }
+
+  .about-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .about-image {
+    display: none;
+  }
+}
+
+.downloads {
+  display: flex;
+  position: absolute;
+  left: 70%;
+  gap: 1em;
+}
+.downloads img {
+  width: 10em;
+}
+
+.contact-info {
+  padding: 1em;
+  height: 50em;
+  width: fit-content;
+  right: 0;
+  margin-left: auto;
+  background: #fff;
+}
+
+.contact-info h4 {
+  color: #ff9817;
+}
+.contact-info h5 {
+  font-weight: 300;
+}
+.contact-info img {
+  width: 32px;
+}
+.contact-info .info-box {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.info-body {
+  display: flex;
+  flex-direction: row;
+  height:100%;
 }

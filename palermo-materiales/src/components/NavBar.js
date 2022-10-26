@@ -7,7 +7,7 @@ import logo from '../assets/img/logo_informacion.png'
 
 const NavBar = () => {
   return (
-    <div className='container'>
+    <div className='container' >
       <div className="nav-container ">
         <div className="logo-container ">
           <img src={logo} alt="logo" />
@@ -18,7 +18,7 @@ const NavBar = () => {
           <Link to="/about">COMPRAR</Link>
           <Link to="/about">COTIZAR</Link>
           <Link to="/about">EMPRESA</Link>
-          <Link to="/about">CONTACTO</Link>
+          <Link to="/contact">CONTACTO</Link>
         </div>
 
         <div className="shop ">
