@@ -8,7 +8,7 @@ import UbiNaranja from '../assets/img/Ubicacion_naranja.svg'
 
 const Contacto = () => {
   return (
-    <div className='wrapper'>
+    <div className="wrapper">
       <div style={{ backgroundColor: '#F6F6F6' }} className="info-body">
         <div className="contact-container">
           <div className="contact-title m-5">
@@ -42,7 +42,7 @@ const Contacto = () => {
           </div>
         </div>
         <aside className="contact-info  ">
-          <h1 className="mt-4 pt-3 px-3">Contactate con nosotros</h1>
+          <h1 className="mt-4 pt-3 px-3 h2">Contactate con nosotros</h1>
           <div className="container-info">
             <div className="info-box my-5 ">
               <img src={TelefonoNaranja} className="my-auto " alt="img" />

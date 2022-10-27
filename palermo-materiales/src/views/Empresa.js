@@ -12,7 +12,7 @@ const Empresa = () => {
     <div className='wrapper'>
       <div className="about-container my-5">
         <div className="col-5 about-image">
-        <video src={Video} autoplay style={{width:'100%'}} >
+        <video src={Video} autoPlay style={{width:'100%'}} >
   Tu navegador no admite el elemento <code>video</code>.
 </video>
         </div>
