@@ -8,7 +8,7 @@ import UbiNaranja from '../assets/img/Ubicacion_naranja.svg'
 
 const Contacto = () => {
   return (
-    <div>
+    <div className='wrapper'>
       <div style={{ backgroundColor: '#F6F6F6' }} className="info-body">
         <div className="contact-container">
           <div className="contact-title m-5">
@@ -18,9 +18,9 @@ const Contacto = () => {
               emprendedores.{' '}
             </p>
           </div>
-          <div className="card m-5 p-5 form-container col-7">
+          <div className="card m-5 p-5 form-container col-3">
             <Form className="row">
-              <FormGroup className="col-6">
+              <FormGroup className="col-5">
                 <Label for="name">Ingresa tu nombre</Label>
                 <Input type="name" name="name" id="name" />
               </FormGroup>

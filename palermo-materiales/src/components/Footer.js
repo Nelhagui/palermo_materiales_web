@@ -9,12 +9,12 @@ import Playstore from '../assets/img/playstore2.png'
 
 const Footer = () => {
   return (
-    <div className="footer container">
+    <div className="footer">
         <div className='logo-container col-2'>
             <img src={logo} alt='logo' />
         </div>
         <div className='direction-container col'>
-            <p><strong>Av. Juan B. Justo 1700(C1414BHB) CABA, Argentina</strong></p><br/>
+            <p><strong>Av. Juan B. Justo 1700 (C1414BHB) CABA, Argentina</strong></p><br/>
             <p>Lunes a Viernes de 7.30 a 12 y de 13 a 17hs</p>
         </div>
         <div className='pay-methods col'>

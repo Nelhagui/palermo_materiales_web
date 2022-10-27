@@ -23,7 +23,7 @@ const Home = () => {
   }, [catId])
 
   return (
-    <div className="">
+    <div className="wrapper">
       <div className="images-container">
         <div className=" img1">
           <div className="image-titles">

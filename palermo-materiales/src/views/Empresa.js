@@ -9,7 +9,7 @@ import AndroidDownload from '../assets/img/playstore2.png'
 
 const Empresa = () => {
   return (
-    <div>
+    <div className='wrapper'>
       <div className="about-container my-5">
         <div className="col-5 about-image">
         <video src={Video} autoplay style={{width:'100%'}} >
