@@ -15,10 +15,10 @@ const NavBar = () => {
 
         <div className="navbar-xl  ">
           <Link to="/">HOME</Link>
-          <Link to="/about">COMPRAR</Link>
-          <Link to="/about">COTIZAR</Link>
-          <Link to="/about">EMPRESA</Link>
-          <Link to="/contact">CONTACTO</Link>
+          <Link to="/comprar">COMPRAR</Link>
+          <Link to="/cotizar">COTIZAR</Link>
+          <Link to="/sobre-nosotros">EMPRESA</Link>
+          <Link to="/contacto">CONTACTO</Link>
         </div>
 
         <div className="shop ">
@@ -32,10 +32,10 @@ const NavBar = () => {
       </div>
       <div className="navbar-sm">
         <Link to="/">Home</Link>
-        <Link to="/about">Comprar</Link>
+        <Link to="/buy">Comprar</Link>
         <Link to="/about">Cotizar</Link>
         <Link to="/about">Empresa</Link>
-        <Link to="/about">Contacto</Link>
+        <Link to="/contact">Contacto</Link>
       </div>
     </div>
   )

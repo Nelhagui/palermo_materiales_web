@@ -8,19 +8,25 @@ import Empresa from './views/Empresa.js'
 import NavBar from './components/NavBar.js'
 import Footer from './components/Footer.js'
 import Contacto from './views/Contacto.js'
+import Comprar from './views/Comprar.js'
+import Cotizar from './views/Cotizar.js'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
-  <BrowserRouter>
-    <NavBar style={{  boxShadow:' 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important'}} />
-    <Routes>
-      <Route path="" element={<Home />} />
-      <Route path="/about" element={<Empresa />} />
-      <Route path="/contact" element={<Contacto />} />
-    </Routes>
-    <Footer />
-  </BrowserRouter>
+    <BrowserRouter>
+      <NavBar
+        style={{ boxShadow: ' 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important' }}
+      />
+      <Routes>
+        <Route path="" element={<Home />} />
+        <Route path="/sobre-nosotros" element={<Empresa />} />
+        <Route path="/contacto" element={<Contacto />} />
+        <Route path="/comprar" element={<Comprar />} />
+        <Route path="/cotizar" element={<Cotizar />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   </React.StrictMode>,
 )
 

@@ -41,7 +41,7 @@ const Contacto = () => {
             </Form>
           </div>
         </div>
-        <aside className="contact-info  ">
+        <aside className="contact-info col  ">
           <h1 className="mt-4 pt-3 px-3 h2">Contactate con nosotros</h1>
           <div className="container-info">
             <div className="info-box my-5 ">
