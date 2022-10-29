@@ -4,7 +4,8 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
 import TelefonoNaranja from '../assets/img/telefono_naranja.svg'
 import MailNaranja from '../assets/img/Mail_naranja.svg'
 import HorarioNaranja from '../assets/img/Horario_naranja.svg'
-import UbiNaranja from '../assets/img/Ubicacion_naranja.svg'
+import UbiNaranja from '../assets/img/icon-ubicacion.svg'
+import MapView from '../components/MapView.js'
 
 const Contacto = () => {
   return (
@@ -75,7 +76,7 @@ const Contacto = () => {
           </div>
         </aside>
       </div>
-      <div className="maps-container"></div>
+      <MapView/>
     </div>
   )
 }

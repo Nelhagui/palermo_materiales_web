@@ -376,6 +376,9 @@
   gap: 1em;
   flex-wrap: wrap;
 }
+.map-container {
+  height: 25vh;
+}
 .form-container {
   display: flex;
   justify-content: center;

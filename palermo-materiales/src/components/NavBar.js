@@ -32,10 +32,10 @@ const NavBar = () => {
       </div>
       <div className="navbar-sm">
         <Link to="/">Home</Link>
-        <Link to="/buy">Comprar</Link>
-        <Link to="/about">Cotizar</Link>
-        <Link to="/about">Empresa</Link>
-        <Link to="/contact">Contacto</Link>
+        <Link to="/comprar">Comprar</Link>
+        <Link to="/cotizar">Cotizar</Link>
+        <Link to="/sobre-nosotros">Empresa</Link>
+        <Link to="/contacto">Contacto</Link>
       </div>
     </div>
   )
