@@ -33,12 +33,8 @@ const Cotizar = () => {
       <div className="cotizar-categorias mt-5">
         {categories?.map((c) => {
           return (
-            <div
-              key={c.id}
-              style={{ height: '10em' }}
-              className="cotizar-items"
-            >
-              <img src={c?.foto} style={{ height: '10em' }} />
+            <div key={c.id} className="cotizar-items">
+              <img src={c?.foto} />
               <p>{c.titulo}</p>
             </div>
           )
@@ -61,9 +57,7 @@ const Cotizar = () => {
             <strong>Descargate</strong> nuestra app
           </p>
           <br />
-          <p style={{ margin: '1.5em 0px 0px 8em' }}>
-            y comenzá a operar
-          </p>
+          <p style={{ margin: '1.5em 0px 0px 8em' }}>y comenzá a operar</p>
         </div>
       </div>
     </div>

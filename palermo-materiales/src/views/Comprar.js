@@ -28,9 +28,6 @@ const Comprar = () => {
     }
   }, [catId])
 
-  const showClass = () => {
-
-  }
 
   return (
     <div className="wrapper">

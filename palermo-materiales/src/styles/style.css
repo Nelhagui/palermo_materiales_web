@@ -465,14 +465,28 @@
   display:flex;
   justify-content: space-evenly;
   flex-wrap:wrap;
+  margin-bottom:2em;
 }
 .cotizar-items{
-
+  height:15em;
+  width:15em;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-bottom:2em;
 }
 .cotizar-items p{
   position:absolute;
+  width:10em;
+  text-align:center;
+  padding:1em;
+  z-index:100;
   color:#fff;
-  border: 1px solid #ccc !important;
-  padding:1em 3em;
-  background:transparent;
+  border: 1px solid #fff !important;
+
+}
+.cotizar-items img{
+  z-index:0;
+  height:100%;
+  width:100%;
 }
