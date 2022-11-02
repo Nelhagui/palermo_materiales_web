@@ -286,12 +286,20 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  background-color: #f6f6f6;
 }
 .app-titles {
   margin: 3.5em;
 }
+.app-information {
+  padding: 0px 4em;
+}
+.app-information .text-container h3 {
+  color: #f1972d;
+  font-size: 1.5rem
+}
 .about-container .about-text {
-  margin: 5em;
+  padding: 2em 5em;
 }
 .app-boxes .box,
 .app-boxes {
@@ -489,4 +497,5 @@
   z-index:0;
   height:100%;
   width:100%;
+  object-fit: cover;
 }

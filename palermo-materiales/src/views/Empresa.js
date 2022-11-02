@@ -6,6 +6,7 @@ import FormaIcon from '../assets/img/FormDePago_naranja.svg'
 
 import IosDownload from '../assets/img/ios store.svg'
 import AndroidDownload from '../assets/img/playstore2.png'
+import NavBar from '../components/NavBar.js'
 
 const Empresa = () => {
   return (
@@ -17,27 +18,22 @@ const Empresa = () => {
 </video>
         </div>
         <div className="col about-text">
-          <h1>Lorem ipsum dolor sit</h1>
+          <h1>Palermo Materiales</h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-            auctor lacus tristique justo fermentum condimentum. Quisque dolor
-            augue, luctus feugiat ipsum vel, vestibulum tincidunt turpis. Sed
-            pretium nisi eu lacus pulvinar, sed fringilla lacus vestibulum.
-            Phasellus maximus ut elit at tempus. Vestibulum porta mauris eu
-            ipsum accumsan tristique. Fusce eros risus, vulputate at porta
-            vitae, dapibus eu lectus. Praesent consequat ullamcorper velit quis
-            vehicula. Proin consectetur nibh vel odio condimentum condimentum.
-            Vivamus sed tempus mi. Suspendisse hendrerit neque tellus. Aliquam
-            erat volutpat. Nulla id vestibulum eros.
+            A finales de la década de los 70 surge esta empresa familiar, hoy con la segunda generación a cargo.
+            Situados en el corazón de Palermo Hollywood desde 2003, comercializamos y distribuimos a toda CABA y Gran Bs. As. materiales de construcción.
+          </p>
+          <p>
+            Nuestra experiencia nos permite asesorar y participar con usted en la mejor selección de productos que se adecue a sus necesidades.
           </p>
         </div>
       </div>
       <div className="app-information">
         <div className="app-titles">
-          <h1>Descargá nuestra aplicación</h1>
-          <h3>
+          <h2>Descargá nuestra aplicación</h2>
+          <p>
             Obtené tu presupuesto al instante, comprá y elegí tu forma de pago
-          </h3>
+          </p>
         </div>
         <div className="app-boxes m-5">
           <div className="box col">
@@ -45,7 +41,7 @@ const Empresa = () => {
               <img src={EcommerceIcon} alt="icon" />
             </div>
             <div className="text-container my-auto col">
-              <h1>E-commerce</h1>
+              <h3>E-commerce</h3>
               <p>Encontrá los productos</p>
               <p>adecuados para la construccion</p>
             </div>
@@ -56,7 +52,7 @@ const Empresa = () => {
               <img src={PresuIcon} alt="icon" />
             </div>
             <div className="text-container my-5 col">
-              <h1>Presupuesto online</h1>
+              <h3>Presupuesto online</h3>
               <p>Calculá la cantidad y el precio de</p>
 
               <p>los materiales para realizar tu obra</p>
@@ -68,7 +64,7 @@ const Empresa = () => {
               <img src={FormaIcon} alt="icon" />
             </div>
             <div className="text-container my-auto col">
-              <h1>Forma de pago</h1>
+              <h3>Forma de pago</h3>
               <p>Pagá con Mercado Pago</p>
 
               <p>o tarjeta de crédito</p>
