@@ -10,6 +10,7 @@ import Footer from './components/Footer.js'
 import Contacto from './views/Contacto.js'
 import Comprar from './views/Comprar.js'
 import Cotizar from './views/Cotizar.js'
+import TyC from './components/TyC.js'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
@@ -25,7 +26,10 @@ root.render(
         <Route path="/comprar" element={<Comprar />} />
         <Route path="/cotizar" element={<Cotizar />} />
       </Routes>
+      <hr/>
       <Footer />
+      <hr/>
+      <TyC />
     </BrowserRouter>
   </React.StrictMode>,
 )
