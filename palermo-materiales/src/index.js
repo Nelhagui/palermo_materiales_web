@@ -11,6 +11,7 @@ import Contacto from './views/Contacto.js'
 import Comprar from './views/Comprar.js'
 import Cotizar from './views/Cotizar.js'
 import TyC from './components/TyC.js'
+import Checkout from './views/Checkout.js'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
@@ -25,6 +26,7 @@ root.render(
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/comprar" element={<Comprar />} />
         <Route path="/cotizar" element={<Cotizar />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
       <hr/>
       <Footer />

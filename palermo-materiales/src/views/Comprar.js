@@ -52,7 +52,7 @@ const Comprar = () => {
                   />
                   <p className="my-auto">{c.titulo}</p>
                 </div>
-                {subcategories?.map((s) => {
+                {[subcategories]?.map((s) => {
                   return (
                     <div key={s.id} className='d-none'>
                       <p style={{ marginLeft: '2em' }}>{s.titulo}</p>

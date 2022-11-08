@@ -5,22 +5,28 @@ import Techo from '../assets/img/techo.svg'
 
 const Home = () => {
   const [categories, setCategories] = useState([])
-  const [catId, setCatId] = useState(null)
-  const [subcategories, setSubCategories] = useState({})
+  // const [catId, setCatId] = useState(null)
+  // const [subcategories, setSubCategories] = useState({})
 
   useEffect(() => {
-    if (!catId) {
-      axios
-        .get('https://test.api.palermomateriales.com.ar/api/categoria')
-        .then((response) => setCategories(response.data))
-    } else {
-      axios
-        .get(
-          `https://api.palermomateriales.com.ar/api/categoria/cotizable/${catId}`,
-        )
-        .then((res) => setCategories(res.data))
-    }
-  }, [catId])
+    axios
+          .get('https://test.api.palermomateriales.com.ar/api/categoria')
+          .then((response) => setCategories(response.data))
+  }, [])
+
+  // useEffect(() => {
+  //   if (!catId) {
+  //     axios
+  //       .get('https://test.api.palermomateriales.com.ar/api/categoria')
+  //       .then((response) => setCategories(response.data))
+  //   } else {
+  //     axios
+  //       .get(
+  //         `https://api.palermomateriales.com.ar/api/categoria/cotizable/${catId}`,
+  //       )
+  //       .then((res) => setCategories(res.data))
+  //   }
+  // }, [catId])
 
   return (
     <div className="wrapper">
@@ -50,7 +56,7 @@ const Home = () => {
                 key={c.id}
                 className="categorie-items"
                 // onClick={setCatId(idx + 1)}
-                onClick={() => setCatId(c.id)}
+                // onClick={() => setCatId(c.id)}
               >
                 <img src={c.foto} alt="techo-icon" />
                 <p>{c.titulo}</p>
