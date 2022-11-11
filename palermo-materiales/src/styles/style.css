@@ -559,3 +559,113 @@ hr{
 .stepper-checkout img{
   height:24px ;
 }
+.table-expandable{
+  display:block;
+  background:#F8F8F8;
+}
+.table-header{
+  display: grid;
+  gap:10px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: minmax(auto, auto);
+}
+.table-header{
+  background: #FFF0DD;
+  padding:1.5em;
+  font-weight:bold;
+}
+.table-body{
+  display: grid;
+  gap:20px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: minmax(auto, auto);
+  padding:1.5em;
+
+}
+.table-container{
+  display: grid;
+  border-radius:10px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+.icon-container{
+  display:flex;
+  gap:1em;
+  margin-bottom:1em;
+
+}
+.last-container{
+  display:flex;
+  align-items:center;
+  gap:5em;
+}
+.table-expandable{
+   display:flex;
+   flex-direction:column;
+    gap:1em;
+    padding:1em;
+}
+.expandable-data{
+  display: grid;
+  gap:20px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: minmax(auto, auto);
+  padding:1.5em;
+}
+.checkout-container{
+  display:flex;
+  flex-direction:row;
+  justify-content:space-around;
+}
+.price-container{
+  display:flex;
+  flex-direction:row;
+  justify-content:space-around;
+  align-items:center;
+  background: #F3F3F3;
+}
+.button-container{
+  display:flex;
+  justify-content:space-evenly;
+  gap:1em;
+}
+.stepper-checkout .active p{
+  color: #FF9817;
+  border-bottom: 1px solid #FF9817;
+  padding-bottom:5px;
+}
+.stepper-checkout .active img{
+  filter: invert(61%) sepia(99%) saturate(1337%) hue-rotate(347deg) brightness(101%) contrast(101%);
+}
+.login-title{
+  color: #FF9817;
+  border-bottom: 1px solid #FF9817;
+  padding-bottom:1em;
+}
+.log-window{
+  display:flex;
+}
+.order-container{
+  display:flex;
+  margin:0 5em;
+  padding:1em;
+  justify-content:space-evenly;
+
+}
+.download-order{
+  display:flex;
+  justify-content:flex-end;
+  margin-right:2em;
+}
+.payment-top{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  border: 1px solid #FF9817;
+  border-radius:5px;
+  margin:0 5em;
+}
+.payment-method .radio-payment{
+  border: 1px solid gray;
+  border-radius:5px;
+  padding:1em;
+}
