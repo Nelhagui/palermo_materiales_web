@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import ProductCard from '../components/ProductCard.js'
 import Techo from '../assets/img/techo.svg'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   const [categories, setCategories] = useState([])
@@ -38,7 +39,7 @@ const Home = () => {
           <div className="image-titles">
             <h2>BUSCAR PRODUCTOS</h2>
             <h4>¿Estás buscando un producto puntual?</h4>
-            <button className="btn-secondary">BUSCAR POR PRODUCTOS</button>
+            <button className="btn-secondary"><Link to="/comprar">BUSCAR POR PRODUCTOS</Link></button>
           </div>
         </div>
         <div className=" img2">
