@@ -665,7 +665,15 @@ hr{
   margin:0 5em;
 }
 .payment-method .radio-payment{
-  border: 1px solid gray;
+  border: 1px solid #FF9817;
   border-radius:5px;
   padding:1em;
+}
+
+input[type=radio]:checked {
+  background-color: #FF9817;
+  color: #FF9817 !important;
+  content: '';
+  border: 1px solid #FF9817 !important;
+  background-clip: content-box !important;
 }

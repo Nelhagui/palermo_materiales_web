@@ -5,28 +5,31 @@ import Techo from '../assets/img/techo.svg'
 
 const Home = () => {
   const [categories, setCategories] = useState([])
-  // const [catId, setCatId] = useState(null)
-  // const [subcategories, setSubCategories] = useState({})
+  const [catId, setCatId] = useState(2)
+  const [subcategories, setSubCategories] = useState({})
+  const [products, setProducts] = useState([])
 
   useEffect(() => {
     axios
-          .get('https://test.api.palermomateriales.com.ar/api/categoria')
-          .then((response) => setCategories(response.data))
+      .get('https://test.api.palermomateriales.com.ar/api/categoria')
+      .then((response) => setCategories(response.data))
   }, [])
 
-  // useEffect(() => {
-  //   if (!catId) {
-  //     axios
-  //       .get('https://test.api.palermomateriales.com.ar/api/categoria')
-  //       .then((response) => setCategories(response.data))
-  //   } else {
-  //     axios
-  //       .get(
-  //         `https://api.palermomateriales.com.ar/api/categoria/cotizable/${catId}`,
-  //       )
-  //       .then((res) => setCategories(res.data))
-  //   }
-  // }, [catId])
+  useEffect(() => {
+    axios
+      .get('https://mocki.io/v1/0900f38f-514e-4462-9de7-44071dbd866f')
+      .then((response) => setProducts(response.data[catId].productos))
+  }, [catId])
+
+  useEffect(() => {
+    products.map((c) => {
+      setSubCategories(c.productos_simples)
+    })
+  }, [products])
+  console.log(subcategories)
+  
+
+ 
 
   return (
     <div className="wrapper">
@@ -55,8 +58,7 @@ const Home = () => {
               <div
                 key={c.id}
                 className="categorie-items"
-                // onClick={setCatId(idx + 1)}
-                // onClick={() => setCatId(c.id)}
+                onClick={() => setCatId(c.id)}
               >
                 <img src={c.foto} alt="techo-icon" />
                 <p>{c.titulo}</p>
@@ -65,9 +67,12 @@ const Home = () => {
           })}
         </div>
         <div className="products">
-          <ProductCard className="col" />
-          <ProductCard className="col" />
-          <ProductCard className="col" />
+      {subcategories?.slice(0, 4).map((p => {
+        return(
+          <ProductCard title={p.titulo} img={p.foto} price={p.precio_x_unidad} className="col" />
+        )
+      }))}
+          
         </div>
       </div>
       <div className="footer-image">

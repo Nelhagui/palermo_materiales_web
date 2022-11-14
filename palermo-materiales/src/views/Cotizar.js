@@ -20,17 +20,17 @@ const Cotizar = () => {
     }
   }, [catId])
   return (
-    <div className="wrapper ">
+    <div className="wrapper  ">
       <div className="text-center cotizar-title">
         <h1 className="fw-bold">CALCULAR PRODUCTOS</h1>
         <h4>¿Querés saber cuánto material necesitás cubrir?</h4>
         <h4>Comienza eligiendo una categoria</h4>
       </div>
-      <div className="mt-5">
+      <div className="mt-5 container">
         <h1 className="fw-bold">Nuestras categorias</h1>
         <h4>Seleccioná el tipo de proyecto a realizar</h4>
       </div>
-      <div className="cotizar-categorias mt-5">
+      <div className="cotizar-categorias mt-5 container">
         {categories?.map((c) => {
           return (
             <div key={c.id} className="cotizar-items">
@@ -40,7 +40,7 @@ const Cotizar = () => {
           )
         })}
       </div>
-      <div>
+      <div className='container'>
         <h1 className="fw-bold">Productos más buscados</h1>
         <div className="products d-flex flex-wrap justify-content-center">
           <ProductCard className="col-3" />
