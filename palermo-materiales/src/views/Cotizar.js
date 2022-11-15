@@ -4,21 +4,28 @@ import ProductCard from '../components/ProductCard.js'
 
 const Cotizar = () => {
   const [categories, setCategories] = useState([])
-  const [catId, setCatId] = useState(null)
+  const [catId, setCatId] = useState(1)
+  const [subcategories, setSubCategories] = useState([])
+  const [products, setProducts] = useState([])
 
   useEffect(() => {
-    if (!catId) {
-      axios
-        .get('https://test.api.palermomateriales.com.ar/api/categoria')
-        .then((response) => setCategories(response.data))
-    } else {
-      axios
-        .get(
-          `https://api.palermomateriales.com.ar/api/categoria/cotizable/${catId}`,
-        )
-        .then((res) => setCategories(res.data))
-    }
+    axios
+      .get('https://test.api.palermomateriales.com.ar/api/categoria')
+      .then((response) => setCategories(response.data))
+      .then((response) => setCatId(response.data.id))
+  }, [])
+
+  useEffect(() => {
+    axios
+      .get('https://mocki.io/v1/0900f38f-514e-4462-9de7-44071dbd866f')
+      .then((response) => setProducts(response.data[catId].productos))
   }, [catId])
+
+  useEffect(() => {
+    products.map((c) => {
+      setSubCategories(c.productos_simples)
+    })
+  }, [products])
   return (
     <div className="wrapper  ">
       <div className="text-center cotizar-title">
@@ -43,12 +50,16 @@ const Cotizar = () => {
       <div className='container'>
         <h1 className="fw-bold">Productos más buscados</h1>
         <div className="products d-flex flex-wrap justify-content-center">
-          <ProductCard className="col-3" />
-          <ProductCard className="col-3" />
-          <ProductCard className="col-3" />
-          <ProductCard className="col-3" />
-          <ProductCard className="col-3" />
-          <ProductCard className="col-3" />
+        {subcategories?.map((p) => {
+              return (
+                <ProductCard
+                  title={p.titulo}
+                  img={p.foto}
+                  price={p.precio_x_unidad}
+                  className="col-auto"
+                />
+              )
+            })}
         </div>
       </div>
       <div className="footer-image-cotizar">

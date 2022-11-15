@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 const Home = () => {
   const [categories, setCategories] = useState([])
   const [catId, setCatId] = useState(2)
-  const [subcategories, setSubCategories] = useState({})
+  const [subcategories, setSubCategories] = useState([])
   const [products, setProducts] = useState([])
 
   useEffect(() => {

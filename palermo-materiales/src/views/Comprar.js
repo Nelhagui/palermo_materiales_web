@@ -18,7 +18,13 @@ const Comprar = () => {
     updatedList = updatedList.filter((item) => {
       return item.titulo.toLowerCase().indexOf(query.toLowerCase()) !== -1
     })
-    setSubCategories(updatedList)
+    if (query) {
+      setSubCategories(updatedList)
+    } else {
+      products.map((c) => {
+        setSubCategories(c.productos_simples)
+      })
+    }
   }
   useEffect(() => {
     filterBySearch()
