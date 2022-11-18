@@ -53,6 +53,7 @@ const Cotizar = () => {
         {subcategories?.map((p) => {
               return (
                 <ProductCard
+                id={p.id}
                   title={p.titulo}
                   img={p.foto}
                   price={p.precio_x_unidad}

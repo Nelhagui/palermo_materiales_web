@@ -15,9 +15,12 @@ import Checkout from './views/Checkout.js'
 import Datos from './views/Datos.js'
 import Pago from './views/Pago.js'
 
+import CartState from './context/CartState.js'
+
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
+    <CartState>
     <BrowserRouter>
       <NavBar
         style={{ boxShadow: ' 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important' }}
@@ -37,6 +40,7 @@ root.render(
       <hr />
       <TyC />
     </BrowserRouter>
+    </CartState>
   </React.StrictMode>,
 )
 

@@ -52,6 +52,9 @@
   margin-right: 2em;
   gap: 1em;
 }
+.shop img{
+  width:1.75em;
+}
 .vl {
   border-left: 0.5px solid black;
   height: 24px;
@@ -678,4 +681,19 @@ input[type=radio]:checked {
   content: '';
   border: 1px solid #FF9817 !important;
   background-clip: content-box !important;
+}
+
+.cart-circle{
+  position:absolute;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  width:1.5em;
+  height:1.5em;
+  z-index:100;
+  right:20.75em;
+  top:1em;
+  background:black;
+  border-radius:100%;
 }

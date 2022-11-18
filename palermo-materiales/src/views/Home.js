@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useContext } from 'react'
 import axios from 'axios'
 import ProductCard from '../components/ProductCard.js'
 import Techo from '../assets/img/techo.svg'
 import { Link } from 'react-router-dom'
+import CartContext from '../context/CartContext.js'
 
 const Home = () => {
   const [categories, setCategories] = useState([])
-  const [catId, setCatId] = useState(2)
+  const [catId, setCatId] = useState(0)
   const [subcategories, setSubCategories] = useState([])
   const [products, setProducts] = useState([])
 
@@ -27,10 +28,9 @@ const Home = () => {
       setSubCategories(c.productos_simples)
     })
   }, [products])
-  console.log(subcategories)
+  const {setCart} = useContext(CartContext)
   
 
- 
 
   return (
     <div className="wrapper">
@@ -39,7 +39,9 @@ const Home = () => {
           <div className="image-titles">
             <h2>BUSCAR PRODUCTOS</h2>
             <h4>¿Estás buscando un producto puntual?</h4>
-            <button className="btn-secondary"><Link to="/comprar">BUSCAR POR PRODUCTOS</Link></button>
+            <button className="btn-secondary">
+              <Link to="/comprar">BUSCAR POR PRODUCTOS</Link>
+            </button>
           </div>
         </div>
         <div className=" img2">
@@ -68,12 +70,17 @@ const Home = () => {
           })}
         </div>
         <div className="products">
-      {subcategories?.slice(0, 4).map((p => {
-        return(
-          <ProductCard title={p.titulo} img={p.foto} price={p.precio_x_unidad} className="col" />
-        )
-      }))}
-          
+          {subcategories?.slice(0, 4).map((p) => {
+            return (
+              <ProductCard
+                id={p.id}
+                title={p.titulo}
+                img={p.foto}
+                price={p.precio_x_unidad}
+                className="col"
+              />
+            )
+          })}
         </div>
       </div>
       <div className="footer-image">

@@ -4,10 +4,20 @@ import { Link } from 'react-router-dom'
 import carrito from '../assets/img/carrito.svg'
 import playstore from '../assets/img/playstore.svg'
 import logo from '../assets/img/logo_informacion.png'
+import CartContext from '../context/CartContext.js'
+import { useContext } from 'react'
+import { useEffect } from 'react'
 
 const NavBar = () => {
+  const { cart } = useContext(CartContext)
+
+  let cartLength = cart.length
+  let cartNotification = document.getElementById('cart-circle')
+  console.log(cartLength)
+  console.log(cartNotification)
+
   return (
-    <div className='nav-root ' >
+    <div className="nav-root ">
       <div className="nav-container container">
         <div className="logo-container ">
           <img src={logo} alt="logo" />
@@ -22,7 +32,14 @@ const NavBar = () => {
         </div>
 
         <div className="shop ">
-          <img src={carrito} alt="carrito" />
+          <Link to='/checkout/detail'><img src={carrito} alt="carrito" /></Link>
+          <div
+            className="cart-circle"
+            id="cart-circle"
+            style={{ display: 'none' }}
+          >
+            {cartLength}
+          </div>
           <div className="vl"></div>
           <div className="playstore">
             <img src={playstore} alt="playstore-logo" />
