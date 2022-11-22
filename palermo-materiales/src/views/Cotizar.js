@@ -8,21 +8,37 @@ const Cotizar = () => {
   const [subcategories, setSubCategories] = useState([])
   const [products, setProducts] = useState([])
 
+
+
+  useEffect(() => {
+    if (!catId) {
+      axios
+        .get('https://test.api.palermomateriales.com.ar/api/categoria')
+        .then((response) => setCategories(response.data))
+    } else {
+      axios
+        .get(
+          `https://api.palermomateriales.com.ar/api/categoria/cotizable/${catId}`,
+        )
+        .then((res) => setCategories(res.data))
+    }
+  }, [catId])
+
   useEffect(() => {
     axios
       .get('https://test.api.palermomateriales.com.ar/api/categoria')
-      .then((response) => setCategories(response.data))
-      .then((response) => setCatId(response.data.id))
+      .then((response) => setCategories(response?.data))
+      .then((response) => setCatId(response?.data?.id))
   }, [])
 
   useEffect(() => {
     axios
       .get('https://mocki.io/v1/0900f38f-514e-4462-9de7-44071dbd866f')
-      .then((response) => setProducts(response.data[catId].productos))
+      .then((response) => setProducts(response?.data[catId]?.productos))
   }, [catId])
 
   useEffect(() => {
-    products.map((c) => {
+    products?.map((c) => {
       setSubCategories(c.productos_simples)
     })
   }, [products])
@@ -40,8 +56,8 @@ const Cotizar = () => {
       <div className="cotizar-categorias mt-5 container">
         {categories?.map((c) => {
           return (
-            <div key={c.id} className="cotizar-items">
-              <img src={c?.foto} />
+            <div key={c.id} className="cotizar-items button" onClick={() => setCatId(c.id)}>
+              <img src={c?.foto} alt="foto" />
               <p>{c.titulo}</p>
             </div>
           )
@@ -53,6 +69,7 @@ const Cotizar = () => {
         {subcategories?.map((p) => {
               return (
                 <ProductCard
+                key={p.id}
                 id={p.id}
                   title={p.titulo}
                   img={p.foto}
