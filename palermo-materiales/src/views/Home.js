@@ -73,7 +73,7 @@ const Home = () => {
             return (
               <ProductCard
                 id={p.id}
-                title={p.titulo}
+                title={p.titulo.toLowerCase()}
                 img={p.foto}
                 price={p.precio_x_unidad}
                 className="col"

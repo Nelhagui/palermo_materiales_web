@@ -21,7 +21,7 @@ const ProductCard = (props) => {
       <p className="price">${props.price}</p>
       <p className="title">{props.title}</p>
       <button onClick={handleClick} className="btn-secondary">
-        Agregar al carrito
+        AGREGAR AL CARRITO
       </button>
     </div>
   )
