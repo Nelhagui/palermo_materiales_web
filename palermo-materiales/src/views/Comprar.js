@@ -63,7 +63,7 @@ const Comprar = () => {
               <div>
                 <div className="d-flex align-items-center my-2 side-categories">
                   <img
-                    src={Techo}
+                    src={c.icon}
                     alt="icon"
                     className="my-auto"
                     style={{ width: '1.5em' }}

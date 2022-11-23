@@ -1,7 +1,6 @@
 import React, { useEffect, useState,useContext } from 'react'
 import axios from 'axios'
 import ProductCard from '../components/ProductCard.js'
-import Techo from '../assets/img/techo.svg'
 import { Link } from 'react-router-dom'
 import CartContext from '../context/CartContext.js'
 
@@ -63,7 +62,7 @@ const Home = () => {
                 className="categorie-items"
                 onClick={() => setCatId(c.id)}
               >
-                <img src={c.foto} alt="techo-icon" />
+                <img src={c.icon} alt="techo-icon" />
                 <p>{c.titulo}</p>
               </div>
             )
