@@ -201,15 +201,21 @@ a {
   align-items: center;
   justify-content: center;
   height:auto;
-  width: 18em;
-  padding: 1em;
+  width: 15em;
   margin: 1em;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
-.product-card img {
-  height: 15em;
-  padding: 2em;
+.product-card .img-card-container {
+  height: 100%;
 }
+.product-card > div > img {
+  object-fit: cover;
+  width: 15em;
+}
+.product-card .title, .product-card .price {
+  margin-left: .8rem;;
+}
+
 .footer-image {
   margin: 2em 0;
   width: 100%;
