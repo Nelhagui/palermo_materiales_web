@@ -17,7 +17,6 @@ const Footer = () => {
         <p>
           <strong>Av. Juan B. Justo 1700 (C1414BHB) CABA, Argentina</strong>
         </p>
-        <br />
         <p>Lunes a Viernes de 7.30 a 12 y de 13 a 17hs</p>
       </div>
       <div className="pay-methods col">
@@ -27,7 +26,7 @@ const Footer = () => {
         <img src={Visa} alt="visa" />
         <img src={Amex} alt="amex" />
         <div className="vl"></div>
-        <img src={Playstore} alt="playstore" />
+        <img src={Playstore} alt="playstore" className="playstore" />
       </div>
     </div>
   )
