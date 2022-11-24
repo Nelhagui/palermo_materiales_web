@@ -1,4 +1,4 @@
-import React, { useEffect, useState,useContext } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import axios from 'axios'
 import ProductCard from '../components/ProductCard.js'
 import { Link } from 'react-router-dom'
@@ -27,9 +27,7 @@ const Home = () => {
       setSubCategories(c.productos_simples)
     })
   }, [products])
-  const {setCart} = useContext(CartContext)
-  
-
+  const { setCart } = useContext(CartContext)
 
   return (
     <div className="wrapper">
@@ -72,6 +70,7 @@ const Home = () => {
           {subcategories?.slice(0, 4).map((p) => {
             return (
               <ProductCard
+                key={p.id}
                 id={p.id}
                 title={p.titulo.toLowerCase()}
                 img={p.foto}

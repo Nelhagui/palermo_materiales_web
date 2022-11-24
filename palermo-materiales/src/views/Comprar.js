@@ -32,18 +32,18 @@ const Comprar = () => {
   useEffect(() => {
     axios
       .get('https://test.api.palermomateriales.com.ar/api/categoria')
-      .then((response) => setCategories(response.data))
-      .then((response) => setCatId(response.data.id))
+      .then((response) => setCategories(response?.data))
+      .then((response) => setCatId(response?.data.id))
   }, [])
 
   useEffect(() => {
     axios
       .get('https://mocki.io/v1/0900f38f-514e-4462-9de7-44071dbd866f')
-      .then((response) => setProducts(response.data[catId].productos))
+      .then((response) => setProducts(response?.data[catId]?.productos))
   }, [catId])
 
   useEffect(() => {
-    products.map((c) => {
+    products?.map((c) => {
       setSubCategories(c.productos_simples)
     })
   }, [products])
@@ -60,8 +60,8 @@ const Comprar = () => {
           <h4>Categorías</h4>
           {categories?.map((c, idx) => {
             return (
-              <div>
-                <div className="d-flex align-items-center my-2 side-categories">
+              <div key={Math.random()}>
+                <div  className="d-flex align-items-center my-2 gap-2 side-categories">
                   <img
                     src={c.icon}
                     alt="icon"
@@ -74,7 +74,7 @@ const Comprar = () => {
                 </div>
                 {[subcategories]?.map((s) => {
                   return (
-                    <div key={s.id} className="d-none">
+                    <div key={Math.random()} className="">
                       <p style={{ marginLeft: '2em' }}>{s.titulo}</p>
                     </div>
                   )
@@ -88,6 +88,7 @@ const Comprar = () => {
             {subcategories?.map((p) => {
               return (
                 <ProductCard
+                  key={p.id}
                   id={p.id}
                   title={p.titulo}
                   img={p.foto}

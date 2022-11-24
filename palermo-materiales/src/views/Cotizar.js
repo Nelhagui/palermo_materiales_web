@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import ProductCard from '../components/ProductCard.js'
+import Techo from '../assets/img/techo.svg'
+import { useContext } from 'react'
+import CartContext from '../context/CartContext.js'
 
 const Cotizar = () => {
   const [categories, setCategories] = useState([])
@@ -9,8 +12,31 @@ const Cotizar = () => {
   const [selectedCategory, setSelectedCategory] = useState([])
   const [products, setProducts] = useState([])
 
-  let selectedCategoryContainer = document.querySelector('.categories-cotizar')
-    .classList
+  const [selectedFilter, setSelectedFilter] = useState([])
+
+  let selectedCategoryContainer = document.querySelector(
+    '.cotizar-subcategorias',
+  )
+  let categorySelected = document.querySelector('.cotizar-categorias')
+
+  const { addFilter, cotizarFilter } = useContext(CartContext)
+
+
+  useEffect(() => {
+    if (!catId) {
+      axios
+        .get('https://test.api.palermomateriales.com.ar/api/categoria')
+        .then((response) => setSelectedFilter(response.data))
+    } else {
+      axios
+        .get(
+          `https://api.palermomateriales.com.ar/api/categoria/cotizable/${catId}`,
+        )
+        .then((res) => setSelectedFilter(res.data))
+    }
+    
+  }, [catId])
+
   useEffect(() => {
     axios
       .get('https://test.api.palermomateriales.com.ar/api/categoria')
@@ -18,7 +44,10 @@ const Cotizar = () => {
   }, [])
   useEffect(() => {
     if (catId) {
-      selectedCategoryContainer.add('selected')
+      selectedCategoryContainer?.classList.add('selected')
+      categorySelected?.classList.add('selected')
+      console.log(selectedCategoryContainer)
+      console.log(categorySelected)
       axios
         .get(
           `https://api.palermomateriales.com.ar/api/categoria/cotizable/${catId}`,
@@ -45,6 +74,10 @@ const Cotizar = () => {
       setSubCategories(c.productos_simples)
     })
   }, [products])
+
+  useEffect(() => {
+    console.log(selectedFilter)
+  }, [selectedFilter])
   return (
     <div className="wrapper  ">
       <div className="text-center cotizar-title">
@@ -70,14 +103,25 @@ const Cotizar = () => {
           )
         })}
       </div>
-      <div
-        className="cotizar-categorias mt-5 container"
-      >
+      <div className="filtro-aplicado">
+        {[selectedFilter]?.map((f) => {
+          return (
+            <div className="filter-container"  key={Math.random()} >
+              <p>{f.titulo}</p>
+            </div>
+          )
+        })}
+      </div>
+      <div className="cotizar-subcategorias mt-5 container">
         {selectedCategory.map((k) => {
           return (
-            <div className="cotizar-items">
-              <img alt="icon" src={k.foto} />
-              <p>{k.titulo}</p>
+            <div className="cotizar-subitems" onClick={() => setCatId(k.id)}>
+              <div className="circle-subcategorias">
+                <img src={Techo} alt="icon" />
+              </div>
+              <div className="title-subcategorias">
+                <p className="h6">{k.titulo}</p>
+              </div>
             </div>
           )
         })}

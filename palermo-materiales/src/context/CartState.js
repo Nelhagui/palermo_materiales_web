@@ -5,6 +5,7 @@ import CartReducer from './CartReducer.js' // ⬅️
 const CartState = (props) => {
   const initialState = {
     cart: [],
+    cotizarFilter: [],
   }
 
   const [globalState, dispatch] = useReducer(CartReducer, initialState) // ⬅️
@@ -23,12 +24,21 @@ const CartState = (props) => {
       payload: cart,
     })
   }
+
+  function addFilter(cotizarFilter) {
+    dispatch({
+      type: 'ADD_FILTER',
+      payload: cotizarFilter,
+    })
+  }
   return (
     <CartContext.Provider
       value={{
         cart: globalState.cart,
+        cotizarFilter: globalState.cotizar,
         addProduct,
         deleteProduct,
+        addFilter,
       }}
     >
       {props.children}
