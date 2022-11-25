@@ -92,7 +92,8 @@ const Comprar = () => {
                   id={p.id}
                   title={p.titulo}
                   img={p.foto}
-                  price={p.precio_x_unidad}
+                  price={`$${p.precio_x_unidad}`}
+                  buttonTitle={"AGREGAR AL CARRITO"}
                   className="col-auto"
                 />
               )

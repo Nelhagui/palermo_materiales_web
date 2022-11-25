@@ -21,13 +21,13 @@ const Cotizar = () => {
   function handleClick(k) {
     setCatId(k?.id)
     selectedFilter.push(k)
-    if (isCombinado.tipo == 'categoria') {
-      console.log('categoria')
-    } else {
-      localStorage.setItem("productItemCotizar", isCombinado.id)
-      navigate(`/producto/${isCombinado.id}`)
-      console.log('no categoria')
-    }
+    // if (isCombinado.tipo == 'categoria') {
+    //   console.log('categoria')
+    // } else {
+    //   localStorage.setItem("productItemCotizar", isCombinado.id)
+    //   navigate(`/producto/${isCombinado.id}`)
+    //   console.log('no categoria')
+    // }
     console.log('SELECTED FILTER', selectedFilter)
   }
   function handleCategories(c) {
@@ -35,7 +35,6 @@ const Cotizar = () => {
     selectedFilter.push(c)
     setCatId(c?.id)
     console.log(selectedFilter)
-
   }
   useEffect(() => {
     handleCategories()
@@ -70,7 +69,6 @@ const Cotizar = () => {
       setIsCombinado(producto)
       return isCombinado
     })
-
   }, [selectedCategory])
   useEffect(() => {
     axios
@@ -134,16 +132,29 @@ const Cotizar = () => {
       </div>
       <div className="cotizar-subcategorias mt-5 container">
         {selectedCategory.map((k) => {
-          return (
-            <div className="cotizar-subitems" onClick={() => handleClick(k)}>
-              <div className="circle-subcategorias">
-                <img src={Techo} alt="icon" />
+          if (isCombinado.tipo == 'categoria') {
+            return (
+              <div className="cotizar-subitems" onClick={() => handleClick(k)}>
+                <div className="circle-subcategorias">
+                  <img src={Techo} alt="icon" />
+                </div>
+                <div className="title-subcategorias">
+                  <p className="h6">{k.titulo}</p>
+                </div>
               </div>
-              <div className="title-subcategorias">
-                <p className="h6">{k.titulo}</p>
-              </div>
-            </div>
-          )
+            )
+          } else {
+            return (
+              <ProductCard
+                key={k.id}
+                id={k.id}
+                title={k.titulo}
+                img={k.foto}
+                className="col-auto"
+                buttonTitle={"COTIZAR"}
+              />
+            )
+          }
         })}
       </div>
       <div className="container">
@@ -156,7 +167,8 @@ const Cotizar = () => {
                 id={p.id}
                 title={p.titulo}
                 img={p.foto}
-                price={p.precio_x_unidad}
+                price={`$${p.precio_x_unidad}`}
+                buttonTitle={"AGREGAR AL CARRITO"}
                 className="col-auto"
               />
             )
