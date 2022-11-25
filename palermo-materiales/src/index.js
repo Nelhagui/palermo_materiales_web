@@ -16,6 +16,7 @@ import Datos from './views/Datos.js'
 import Pago from './views/Pago.js'
 
 import CartState from './context/CartState.js'
+import Producto from './views/Producto.js'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
@@ -34,6 +35,7 @@ root.render(
         <Route path="/checkout/detail" element={<Checkout />} />
         <Route path="/checkout/data" element={<Datos />} />
         <Route path='/checkout/payment' element={<Pago/>} />
+        <Route path='/producto/:id' element={<Producto/>}/>
       </Routes>
       <hr />
       <Footer />
