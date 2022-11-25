@@ -152,6 +152,7 @@ const Cotizar = () => {
                 img={k.foto}
                 className="col-auto"
                 buttonTitle={"COTIZAR"}
+                categoria_id={k.categoria_id}
               />
             )
           }

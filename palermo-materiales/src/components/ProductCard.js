@@ -11,7 +11,7 @@ const ProductCard = (props) => {
 
   function handleClick() {
    if (props.buttonTitle == 'COTIZAR') {
-    navigate(`/producto/${props.id}`)
+    navigate(`/producto/${props.categoria_id}`)
    } else {
     data.push({id:props.id, title: props.title, price: props.price})
     setData(data)
