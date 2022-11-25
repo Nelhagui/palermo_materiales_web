@@ -1,41 +1,54 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import axios from 'axios'
 import ProductCard from '../components/ProductCard.js'
 import Techo from '../assets/img/techo.svg'
-import { useContext } from 'react'
-import CartContext from '../context/CartContext.js'
 
 const Cotizar = () => {
   const [categories, setCategories] = useState([])
-  const [catId, setCatId] = useState(1)
+  const [catId, setCatId] = useState([])
   const [subcategories, setSubCategories] = useState([])
   const [selectedCategory, setSelectedCategory] = useState([])
   const [products, setProducts] = useState([])
-
   const [selectedFilter, setSelectedFilter] = useState([])
 
-  let selectedCategoryContainer = document.querySelector(
-    '.cotizar-subcategorias',
-  )
+  let selectedCategoryContainer = document.querySelector('.cotizar-subcategorias',)
   let categorySelected = document.querySelector('.cotizar-categorias')
 
-  const { addFilter, cotizarFilter } = useContext(CartContext)
-
-
+  function handleClick(k) {
+    setCatId(k?.id)
+    selectedFilter.push(k)
+    setCatId(k?.id)
+  }
+  function handleCategories(c){
+    setSelectedFilter([])
+    setCatId(c?.id)
+  }
   useEffect(() => {
-    if (!catId) {
-      axios
-        .get('https://test.api.palermomateriales.com.ar/api/categoria')
-        .then((response) => setSelectedFilter(response.data))
-    } else {
+    handleCategories()
+  }, [])
+
+  function clearFilter(idx, f) {
+    if (selectedFilter.length > 0) {
+      selectedFilter.length = idx + 1
+      setSelectedFilter(selectedFilter)
+      setCatId(f?.id)
+      console.log(f)
+    }
+    
+  }
+  function fetchCategories(){
+    if (catId) {
+      selectedCategoryContainer?.classList.add('selected')
+      categorySelected?.classList.add('selected')
       axios
         .get(
           `https://api.palermomateriales.com.ar/api/categoria/cotizable/${catId}`,
         )
-        .then((res) => setSelectedFilter(res.data))
+        .then((res) => setSelectedCategory(res.data))
     }
-    
-  }, [catId])
+  }
+
+
 
   useEffect(() => {
     axios
@@ -43,17 +56,7 @@ const Cotizar = () => {
       .then((response) => setCategories(response.data))
   }, [])
   useEffect(() => {
-    if (catId) {
-      selectedCategoryContainer?.classList.add('selected')
-      categorySelected?.classList.add('selected')
-      console.log(selectedCategoryContainer)
-      console.log(categorySelected)
-      axios
-        .get(
-          `https://api.palermomateriales.com.ar/api/categoria/cotizable/${catId}`,
-        )
-        .then((res) => setSelectedCategory(res.data))
-    }
+    fetchCategories()
   }, [catId])
 
   useEffect(() => {
@@ -74,10 +77,6 @@ const Cotizar = () => {
       setSubCategories(c.productos_simples)
     })
   }, [products])
-
-  useEffect(() => {
-    console.log(selectedFilter)
-  }, [selectedFilter])
   return (
     <div className="wrapper  ">
       <div className="text-center cotizar-title">
@@ -95,7 +94,7 @@ const Cotizar = () => {
             <div
               key={c.id}
               className="cotizar-items button"
-              onClick={() => setCatId(c.id)}
+              onClick={() => handleCategories(c)}
             >
               <img src={c?.foto} alt="foto" />
               <p>{c.titulo}</p>
@@ -104,10 +103,14 @@ const Cotizar = () => {
         })}
       </div>
       <div className="filtro-aplicado">
-        {[selectedFilter]?.map((f) => {
+        {selectedFilter.map((f, idx) => {
           return (
-            <div className="filter-container"  key={Math.random()} >
-              <p>{f.titulo}</p>
+            <div
+              className="filter-container"
+              id={`filter${idx}`}
+              onClick={() => clearFilter(idx, f)}
+            >
+              <p className="">{f?.titulo}</p>&nbsp;&nbsp; <h1>-></h1>
             </div>
           )
         })}
@@ -115,7 +118,7 @@ const Cotizar = () => {
       <div className="cotizar-subcategorias mt-5 container">
         {selectedCategory.map((k) => {
           return (
-            <div className="cotizar-subitems" onClick={() => setCatId(k.id)}>
+            <div className="cotizar-subitems" onClick={() => handleClick(k)}>
               <div className="circle-subcategorias">
                 <img src={Techo} alt="icon" />
               </div>

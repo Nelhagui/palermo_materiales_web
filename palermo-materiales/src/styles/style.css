@@ -784,3 +784,18 @@ input[type="radio"]:checked {
   background-color:#FF9817;
   z-index:0;
 }
+.filtro-aplicado{
+  display:flex;
+  gap:2em;
+  margin-left:6em;
+}
+.filter-container{
+  display:flex;
+  flex-direction:row !important;
+  justify-content:flex-start;
+
+}
+.filter-container p{
+  padding: 1em 3em;
+  border: 1px solid #D8D8D8;
+}
