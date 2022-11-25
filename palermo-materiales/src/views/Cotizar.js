@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 import ProductCard from '../components/ProductCard.js'
 import Techo from '../assets/img/techo.svg'
 
@@ -10,18 +11,31 @@ const Cotizar = () => {
   const [selectedCategory, setSelectedCategory] = useState([])
   const [products, setProducts] = useState([])
   const [selectedFilter, setSelectedFilter] = useState([])
-
-  let selectedCategoryContainer = document.querySelector('.cotizar-subcategorias',)
+  const [isCombinado, setIsCombinado] = useState([])
+  let navigate = useNavigate()
+  let selectedCategoryContainer = document.querySelector(
+    '.cotizar-subcategorias',
+  )
   let categorySelected = document.querySelector('.cotizar-categorias')
 
   function handleClick(k) {
     setCatId(k?.id)
     selectedFilter.push(k)
-    setCatId(k?.id)
+    if (isCombinado.tipo == 'categoria') {
+      console.log('categoria')
+    } else {
+      localStorage.setItem("productItemCotizar", isCombinado.id)
+      navigate(`/producto/${isCombinado.id}`)
+      console.log('no categoria')
+    }
+    console.log('SELECTED FILTER', selectedFilter)
   }
-  function handleCategories(c){
-    setSelectedFilter([])
+  function handleCategories(c) {
+    setSelectedFilter([c])
+    selectedFilter.push(c)
     setCatId(c?.id)
+    console.log(selectedFilter)
+
   }
   useEffect(() => {
     handleCategories()
@@ -29,14 +43,13 @@ const Cotizar = () => {
 
   function clearFilter(idx, f) {
     if (selectedFilter.length > 0) {
-      selectedFilter.length = idx + 1
+      selectedFilter.length = idx
       setSelectedFilter(selectedFilter)
-      setCatId(f?.id)
-      console.log(f)
+      setCatId(selectedFilter[idx - 1]?.id)
     }
-    
+    console.log(selectedFilter)
   }
-  function fetchCategories(){
+  function fetchCategories() {
     if (catId) {
       selectedCategoryContainer?.classList.add('selected')
       categorySelected?.classList.add('selected')
@@ -47,17 +60,23 @@ const Cotizar = () => {
         .then((res) => setSelectedCategory(res.data))
     }
   }
+  function productSet() {
+    axios
+      .get('https://mocki.io/v1/0900f38f-514e-4462-9de7-44071dbd866f')
+      .then((response) => setProducts(response?.data[catId]?.productos))
+  }
+  useEffect(() => {
+    selectedCategory.map((producto) => {
+      setIsCombinado(producto)
+      return isCombinado
+    })
 
-
-
+  }, [selectedCategory])
   useEffect(() => {
     axios
       .get('https://test.api.palermomateriales.com.ar/api/categoria')
       .then((response) => setCategories(response.data))
   }, [])
-  useEffect(() => {
-    fetchCategories()
-  }, [catId])
 
   useEffect(() => {
     axios
@@ -67,9 +86,7 @@ const Cotizar = () => {
   }, [])
 
   useEffect(() => {
-    axios
-      .get('https://mocki.io/v1/0900f38f-514e-4462-9de7-44071dbd866f')
-      .then((response) => setProducts(response?.data[catId]?.productos))
+    fetchCategories()
   }, [catId])
 
   useEffect(() => {
@@ -110,7 +127,7 @@ const Cotizar = () => {
               id={`filter${idx}`}
               onClick={() => clearFilter(idx, f)}
             >
-              <p className="">{f?.titulo}</p>&nbsp;&nbsp; <h1>-></h1>
+              <p className="">{f?.titulo}&nbsp;&nbsp;X</p>
             </div>
           )
         })}
