@@ -21,9 +21,9 @@ const ProductCard = (props) => {
       <div className="img-card-container">
         <img alt="producto" src={props.img} />
       </div>
-      <div>
+      <div className="produc-card-info">
         <p className="price">${props.price}</p>
-        <p className="title">{props.title}</p>
+        <p className="title">{props.title.toLowerCase()}</p>
         <button onClick={handleClick} className="btn-secondary">
           AGREGAR AL CARRITO
         </button>

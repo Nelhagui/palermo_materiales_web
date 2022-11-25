@@ -120,32 +120,41 @@ a {
   width: 60%;
   min-width: max-content;
   padding: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.btn-secondary.white {
+  color: white;
+  border-color: white;
 }
 .btn-primary {
-  background: transparent;
-  color: #fff;
-  border: solid 1px;
-  transition: all 0.2s ease-out !important;
-}
-.btn-secondary {
   color: #fff;
   background: #ff9817;
-  border: none;
+  border: .5px solid #ff9817;
   transition: all 0.2s ease-out !important;
-  margin: 0.8rem;
+
+  /* viejo */
+  
+}
+.btn-secondary {
+  background: transparent;
+  color: #ff9817;
+  border: solid 1px #ff9817;
+  transition: all 0.2s ease-out !important;
 }
 
 .btn-primary:hover {
-  color: #fff;
-  background: #ff9817;
-  border: none;
-  transition: all 0.2s ease-out !important;
-}
-.btn-secondary:hover {
   background: #fff;
   color: #ff9817;
   border: none;
   transition: all 0.2s ease-out !important;
+}
+.btn-secondary:hover {
+
+  color: #fff;
+  background: #ff9817;
+  border: solid 1px #ff9817;
+  transition: all 0.2s ease-out !important
 }
 .categories-container {
   display: flex;
@@ -203,19 +212,36 @@ a {
   height: auto;
   width: 15em;
   margin: 1em;
+  border-radius: 5px;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+.produc-card-info {
+  width: 100%;
+  padding: 1rem;
+  padding: 1rem 1rem 0 1rem;
+}
+.product-card .btn-secondary {
+  width: 100%;
 }
 .product-card .img-card-container {
   height: 100%;
+  width: 100%;
 }
 .product-card > div > img {
   object-fit: cover;
-  width: 15em;
+  width: 100%;
+  height: 12rem;
+  border-radius: 5px 5px 0 0;
+  border-bottom: 0.5px solid #dfdfdf;
 }
-.product-card .title,
 .product-card .price {
-  margin-left: 0.8rem;
+  margin-top: .3rem;
+  margin-bottom: 0.4rem !important;
 }
+.title {
+  margin-bottom: 0.7rem !important;
+}
+
 
 .footer-image {
   margin: 2em 0;
@@ -248,7 +274,7 @@ a {
   display: flex;
   justify-content: space-around;
   width: 100%;
-  padding: 2em 5em;
+  padding: 1em 10em;
   z-index: 100 !important;
 }
 .footer .direction-container p {
@@ -262,7 +288,16 @@ a {
   gap: 1em;
 }
 .footer .pay-methods img {
-  width: 64px;
+    width: 45px;
+    height: 33px;
+    background: whitesmoke;
+    box-sizing: border-box;
+    padding: 0.3rem;
+}
+img.playstore {
+  width: auto !important;
+  background: none !important;
+  padding: 0 !important;
 }
 
 @media (max-width: 900px) {
@@ -504,7 +539,7 @@ a {
 hr {
   margin-left: auto;
   margin-right: auto;
-  width: 90%;
+  width: 81%;
 }
 
 .table-container {
