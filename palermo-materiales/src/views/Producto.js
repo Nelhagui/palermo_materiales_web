@@ -9,6 +9,11 @@ const Producto = () => {
   const [product, setProduct] = useState()
   const [cont, setCont] = useState(0)
   console.log(id)
+  const handleRest = () => {
+    if (cont > 0) {
+      setCont(cont-1)
+    }
+  }
   function fetchCategories() {
     if (id) {
       axios
@@ -43,7 +48,11 @@ const Producto = () => {
               <div className='mt-5'>
                 <p>Ingresar metro cuadrado:</p>
                 <div className="button-container mt-4">
-                  <div>CUADRO CONTADOR</div>
+                  <div className='contador'>
+                    <div className='h4' onClick={() => handleRest()}>-</div>
+                    <div>{cont}</div>
+                    <div className='h4' onClick={() => setCont(cont+1)}>+</div>
+                  </div>
                   <button className="btn-primary">COTIZAR</button>
                 </div>
               </div>

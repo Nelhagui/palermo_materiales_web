@@ -17,7 +17,10 @@ const Cotizar = () => {
     '.cotizar-subcategorias',
   )
   let categorySelected = document.querySelector('.cotizar-categorias')
-
+  function onLoad(){
+    selectedFilter.length(0)
+  }
+  window.onload = onLoad()
   function handleClick(k) {
     setCatId(k?.id)
     selectedFilter.push(k)
@@ -117,7 +120,7 @@ const Cotizar = () => {
           )
         })}
       </div>
-      <div className="filtro-aplicado">
+      <div className="filtro-aplicado container">
         {selectedFilter.map((f, idx) => {
           return (
             <div

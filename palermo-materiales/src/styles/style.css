@@ -729,7 +729,7 @@ input[type="radio"]:checked {
 
 .cotizar-categorias {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   flex-wrap: wrap;
   margin-bottom: 2em;
 }
@@ -851,4 +851,15 @@ input[type="radio"]:checked {
   height:100%;
   width:100%;
 
+}
+.contador{
+  border: 1px solid #D8D8D8;
+  width: 40%;
+  min-width: max-content;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+}
+.contador{
+  display:flex;
+  justify-content:space-between;
 }
