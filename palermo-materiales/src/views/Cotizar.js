@@ -17,10 +17,7 @@ const Cotizar = () => {
     '.cotizar-subcategorias',
   )
   let categorySelected = document.querySelector('.cotizar-categorias')
-  function onLoad(){
-    selectedFilter.length(0)
-  }
-  window.onload = onLoad()
+
   function handleClick(k) {
     setCatId(k?.id)
     selectedFilter.push(k)
@@ -47,7 +44,15 @@ const Cotizar = () => {
     if (selectedFilter.length > 0) {
       selectedFilter.length = idx
       setSelectedFilter(selectedFilter)
-      setCatId(selectedFilter[idx - 1]?.id)
+      if (idx > 0) {
+        setCatId(selectedFilter[idx - 1]?.id)
+        document.querySelector(`#filter${idx}`).style.display = 'none'
+
+      }else{
+        setSelectedFilter([])
+        // selectedCategoryContainer?.classList.remove('selected')
+        // categorySelected?.classList.remove('selected')
+      }
     }
     console.log(selectedFilter)
   }
@@ -88,6 +93,7 @@ const Cotizar = () => {
 
   useEffect(() => {
     fetchCategories()
+    productSet()
   }, [catId])
 
   useEffect(() => {
@@ -120,7 +126,7 @@ const Cotizar = () => {
           )
         })}
       </div>
-      <div className="filtro-aplicado container">
+      <div className="filtro-aplicado">
         {selectedFilter.map((f, idx) => {
           return (
             <div
