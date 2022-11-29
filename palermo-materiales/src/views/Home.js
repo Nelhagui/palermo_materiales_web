@@ -11,22 +11,24 @@ const Home = () => {
   const [products, setProducts] = useState([])
 
   useEffect(() => {
+    setCatId(categories[0]?.id);
+  }, [categories])
+
+  useEffect(() => {
     axios
       .get('https://test.api.palermomateriales.com.ar/api/categoria')
-      .then((response) => setCategories(response.data))
+      .then((response) => {
+        setCategories(response.data)
+      })
   }, [])
 
   useEffect(() => {
     axios
-      .get('https://mocki.io/v1/0900f38f-514e-4462-9de7-44071dbd866f')
-      .then((response) => setProducts(response.data[catId].productos))
+      .get(`https://test.api.palermomateriales.com.ar/api/categoria/${catId}/mas-vendidos`)
+      .then((response) => setProducts(response.data))
   }, [catId])
 
-  useEffect(() => {
-    products.map((c) => {
-      setSubCategories(c.productos_simples)
-    })
-  }, [products])
+ 
   const { setCart } = useContext(CartContext)
 
   return (
@@ -67,14 +69,14 @@ const Home = () => {
           })}
         </div>
         <div className="products">
-          {subcategories?.slice(0, 4).map((p) => {
+          {products?.map((p) => {
             return (
               <ProductCard
                 key={p.id}
                 id={p.id}
-                title={p.titulo.toLowerCase()}
-                img={p.foto}
-                price={`$${p.precio_x_unidad}`}
+                title={p.productos_simples[0].titulo.toLowerCase()}
+                img={p.productos_simples[0].foto}
+                price={`$${p.productos_simples[0].precio_x_unidad}`}
                 buttonTitle={"AGREGAR AL CARRITO"}
                 className="col"
               />
