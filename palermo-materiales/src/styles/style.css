@@ -196,6 +196,7 @@ a {
   color: #ff9817;
   padding-bottom: 0.4rem;
   transition: all 0.2s ease-out !important;
+  cursor: pointer;
 }
 .products {
   display: flex;
@@ -531,6 +532,7 @@ img.playstore {
 .side-categories img:hover {
   color: #ff9817;
   fill: #ff9817 !important;
+  cursor: pointer;
 }
 
 .tyc {
@@ -750,6 +752,7 @@ input[type="radio"]:checked {
   justify-content: center;
   align-items: center;
   margin-bottom: 1em;
+  transition-duration: .2s;
 }
 .cotizar-items p {
   position: absolute;
@@ -863,3 +866,42 @@ input[type="radio"]:checked {
   display:flex;
   justify-content:space-between;
 }
+
+/* loading product */
+.btn-category.loading {
+  width: 10rem;
+  height: 2.3rem;
+}
+.loading-content {
+  padding: .5rem;
+}
+.loading-content .img-card-container {
+  height: 12rem;
+}
+.loading-content .product-card {
+  padding: 0.5rem;
+  width: 14em;
+}
+.loading-content .produc-card-info {
+  padding: .5rem 0;
+}
+
+.loading-content .price {
+  width: 50%;
+  height: 1rem;
+}
+
+.loading-content .title {
+  width: 90%;
+  height: 2.5rem;
+}
+
+.loading-content .btn {
+  height: 40px;
+  width: 100%;
+}
+/* efecto loading */ .loading { position: relative; background-color: #e2e2e2; border-radius: 3px; }
+/* movimiento */ .loading::after { display: block; content: ""; position: absolute; width: 100%; height: 100%; transform: translateX(-100%); background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(rgba(255, 255, 255, 0.2)), to(transparent)); background: linear-gradient(90deg, transparent,  rgba(255, 255, 255, 0.2), transparent);
+/* agregando animacion */animation: loading 0.8s infinite; }
+/* loading animacion */ @keyframes loading { 100% { transform: translateX(100%); } }
+
