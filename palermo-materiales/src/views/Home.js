@@ -17,7 +17,7 @@ const Home = () => {
   }, [categories])
 
   useEffect(() => {
-    products.length > 0 ? setIsLoading(true) : setIsLoading(true);
+    products.length > 0 ? setIsLoading(false) : setIsLoading(true);
   }, [products])
 
   useEffect(() => {
