@@ -103,7 +103,7 @@ const Home = () => {
             products?.map((p) => {
               return (
                 <ProductCard
-                  key={p.id}
+                  key={Math.random()}
                   id={p.id}
                   title={p.productos_simples[0].titulo.toLowerCase()}
                   img={p.productos_simples[0].foto}
