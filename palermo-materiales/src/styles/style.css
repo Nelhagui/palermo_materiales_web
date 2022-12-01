@@ -193,6 +193,7 @@ a {
   color: #ff9817;
   padding-bottom: 0.4rem;
   transition: all 0.2s ease-out !important;
+  cursor: pointer;
 }
 .products {
   display: flex;
@@ -527,6 +528,7 @@ img.playstore {
 .side-categories img:hover {
   color: #ff9817;
   fill: #ff9817 !important;
+  cursor: pointer;
 }
 
 .tyc {
@@ -746,6 +748,7 @@ input[type="radio"]:checked {
   justify-content: center;
   align-items: center;
   margin-bottom: 1em;
+  transition-duration: .2s;
 }
 .cotizar-items p {
   position: absolute;

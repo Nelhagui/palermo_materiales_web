@@ -9,20 +9,20 @@ const Comprar = () => {
   const [catId, setCatId] = useState(1)
   const [subcategories, setSubCategories] = useState([])
   const [products, setProducts] = useState([])
-  const [filteredList, setFilteredList] = new useState(subcategories)
+  const [isLoadingCategories, setIsLoadingCategories] = useState(true)
 
   const filterBySearch = (e) => {
     const query = e?.target?.value
     console.log(e?.target?.value)
-    var updatedList = [...subcategories]
+    var updatedList = [...products]
     updatedList = updatedList.filter((item) => {
       return item.titulo.toLowerCase().indexOf(query.toLowerCase()) !== -1
     })
     if (query) {
-      setSubCategories(updatedList)
+      setProducts(updatedList)
     } else {
       products.map((c) => {
-        setSubCategories(c.productos_simples)
+        setProducts(c.productos_simples)
       })
     }
   }
@@ -33,13 +33,23 @@ const Comprar = () => {
     axios
       .get('https://test.api.palermomateriales.com.ar/api/categoria')
       .then((response) => setCategories(response?.data))
-      .then((response) => setCatId(response?.data.id))
+      .then((response) => {
+        setCatId(response?.data.id)
+        setIsLoadingCategories(false);
+      })
   }, [])
 
   useEffect(() => {
-    axios
-      .get('https://mocki.io/v1/0900f38f-514e-4462-9de7-44071dbd866f')
-      .then((response) => setProducts(response?.data[catId]?.productos))
+    setCatId(categories[0]?.id);
+  }, [categories])
+
+  useEffect(() => {
+    if(catId)
+    {
+      axios
+        .get(`https://test.api.palermomateriales.com.ar/api/categoria/${catId}/comprar`)
+        .then((response) => setProducts(response.data))
+    }
   }, [catId])
 
   useEffect(() => {
@@ -58,41 +68,52 @@ const Comprar = () => {
       <div className="d-flex mt-5 mx-5">
         <div className="categories-filter col-3">
           <h4>Categorías</h4>
-          {categories?.map((c, idx) => {
-            return (
-              <div key={Math.random()}>
-                <div  className="d-flex align-items-center my-2 gap-2 side-categories">
-                  <img
-                    src={c.icon}
-                    alt="icon"
-                    className="my-auto"
-                    style={{ width: '1.5em' }}
-                  />
-                  <p className="my-auto" onClick={() => setCatId(c.id)}>
-                    {c.titulo}
-                  </p>
-                </div>
-                {[subcategories]?.map((s) => {
-                  return (
-                    <div key={Math.random()} className="">
-                      <p style={{ marginLeft: '2em' }}>{s.titulo}</p>
+          {
+            isLoadingCategories
+            ?
+              <>
+                <div className="btn-category loading"></div>
+                <div className="btn-category loading"></div>
+                <div className="btn-category loading"></div>
+                <div className="btn-category loading"></div>
+              </>
+            :
+              categories?.map((c, idx) => {
+                return (
+                  <div key={Math.random()}>
+                    <div  className="d-flex align-items-center my-2 gap-2 side-categories">
+                      <img
+                        src={c.icon}
+                        alt="icon"
+                        className="my-auto"
+                        style={{ width: '1.5em' }}
+                      />
+                      <p className="my-auto" onClick={() => setCatId(c.id)}>
+                        {c.titulo}
+                      </p>
                     </div>
-                  )
-                })}
-              </div>
-            )
-          })}
+                    {[subcategories]?.map((s) => {
+                      return (
+                        <div key={Math.random()} className="">
+                          <p style={{ marginLeft: '2em' }}>{s.titulo}</p>
+                        </div>
+                      )
+                    })}
+                  </div>
+                )
+              })
+          }
         </div>
         <div className="col-10">
           <div className="products d-flex flex-wrap justify-content-center">
-            {subcategories?.map((p) => {
+            {products?.map((p) => {
               return (
                 <ProductCard
                   key={p.id}
                   id={p.id}
-                  title={p.titulo}
-                  img={p.foto}
-                  price={`$${p.precio_x_unidad}`}
+                  title={p.productos_simples[0].titulo}
+                  img={p.productos_simples[0].foto}
+                  price={`$${p.productos_simples[0].precio_x_unidad}`}
                   buttonTitle={"AGREGAR AL CARRITO"}
                   className="col-auto"
                 />

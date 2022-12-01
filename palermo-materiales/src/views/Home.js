@@ -3,26 +3,34 @@ import axios from 'axios'
 import ProductCard from '../components/ProductCard.js'
 import { Link } from 'react-router-dom'
 import CartContext from '../context/CartContext.js'
+import ProductCardLoading from '../components/ProductCardLoading.js'
 
 const Home = () => {
   const [categories, setCategories] = useState([])
   const [catId, setCatId] = useState(0)
-  const [subcategories, setSubCategories] = useState([])
   const [products, setProducts] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [isLoadingCategories, setIsLoadingCategories] = useState(true)
 
   useEffect(() => {
     setCatId(categories[0]?.id);
   }, [categories])
 
   useEffect(() => {
+    products.length > 0 ? setIsLoading(false) : setIsLoading(true);
+  }, [products])
+
+  useEffect(() => {
     axios
       .get('https://test.api.palermomateriales.com.ar/api/categoria')
       .then((response) => {
         setCategories(response.data)
+        setIsLoadingCategories(false);
       })
   }, [])
 
   useEffect(() => {
+    setIsLoading(true);
     axios
       .get(`https://test.api.palermomateriales.com.ar/api/categoria/${catId}/mas-vendidos`)
       .then((response) => setProducts(response.data))
@@ -55,33 +63,55 @@ const Home = () => {
       <div className="categories-container">
         <h1 className="mx-auto">Productos más buscados</h1>
         <div className="categories">
-          {categories?.map((c) => {
-            return (
-              <div
-                key={c.id}
-                className="categorie-items"
-                onClick={() => setCatId(c.id)}
-              >
-                <img src={c.icon} alt="techo-icon" />
-                <p>{c.titulo}</p>
-              </div>
-            )
-          })}
+          {
+            isLoadingCategories
+            ?
+            <>
+              <div className="btn-category loading"></div>
+              <div className="btn-category loading"></div>
+              <div className="btn-category loading"></div>
+              <div className="btn-category loading"></div>
+            </>
+            :
+            categories?.map((c) => {
+              return (
+                <div
+                  key={c.id}
+                  className="categorie-items"
+                  onClick={() => setCatId(c.id)}
+                >
+                  <img src={c.icon} alt="techo-icon" />
+                  <p>{c.titulo}</p>
+                </div>
+              )
+            })
+          }
         </div>
         <div className="products">
-          {products?.map((p) => {
-            return (
-              <ProductCard
-                key={p.id}
-                id={p.id}
-                title={p.productos_simples[0].titulo.toLowerCase()}
-                img={p.productos_simples[0].foto}
-                price={`$${p.productos_simples[0].precio_x_unidad}`}
-                buttonTitle={"AGREGAR AL CARRITO"}
-                className="col"
-              />
-            )
-          })}
+          {
+            isLoading 
+            ?  
+              <>
+                <ProductCardLoading />
+                <ProductCardLoading />
+                <ProductCardLoading />
+                <ProductCardLoading />
+              </>
+            : 
+            products?.map((p) => {
+              return (
+                <ProductCard
+                  key={p.id}
+                  id={p.id}
+                  title={p.productos_simples[0].titulo.toLowerCase()}
+                  img={p.productos_simples[0].foto}
+                  price={`$${p.productos_simples[0].precio_x_unidad}`}
+                  buttonTitle={"AGREGAR AL CARRITO"}
+                  className="col"
+                />
+              )
+            })
+          }
         </div>
       </div>
       <div className="footer-image">
