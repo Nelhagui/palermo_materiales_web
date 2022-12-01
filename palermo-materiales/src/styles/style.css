@@ -703,19 +703,26 @@ input[type="radio"]:checked {
   background-clip: content-box !important;
 }
 
+.link-carrito {
+  position: relative;
+}
 .cart-circle {
   position: absolute;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   color: white;
   width: 1.5em;
   height: 1.5em;
   z-index: 100;
-  right: 20.75em;
-  top: 1em;
+  right: -7px;
+  top: -4px;
   background: black;
   border-radius: 100%;
+  font-size: .7rem;
+}
+.cart-circle.active {
+  display: flex;
 }
 .cotizar-title {
   display: flex;
@@ -840,6 +847,9 @@ input[type="radio"]:checked {
 .filter-container p {
   padding: 0.5em 1em;
   border: 1px solid #D8D8D8;
+}
+.delete-item-filter {
+  cursor: pointer;
 }
 .card-product{
   display:flex;

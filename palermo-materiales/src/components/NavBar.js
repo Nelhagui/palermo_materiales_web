@@ -6,15 +6,16 @@ import playstore from '../assets/img/playstore.svg'
 import logo from '../assets/img/logo_informacion.png'
 import CartContext from '../context/CartContext.js'
 import { useContext } from 'react'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 const NavBar = () => {
   const { cart } = useContext(CartContext)
-
   let cartLength = cart.length
-  let cartNotification = document.getElementById('cart-circle')
-  console.log(cartLength)
-  console.log(cartNotification)
+  let classNameIconCartCount = 'cart-circle';
+  if (cartLength > 0) {
+    classNameIconCartCount += ' active';
+  }
+  console.log('cantidad en carrito',cartLength)
 
   return (
     <div className="nav-root ">
@@ -32,14 +33,21 @@ const NavBar = () => {
         </div>
 
         <div className="shop ">
-          <Link to='/checkout/detail'><img src={carrito} alt="carrito" /></Link>
-          <div
-            className="cart-circle"
-            id="cart-circle"
-            style={{ display: 'none' }}
-          >
-            {cartLength}
-          </div>
+          {
+            (cartLength > 0)
+              ?
+            <Link to='/checkout/detail' className="link-carrito">
+                <div
+                  className={classNameIconCartCount}
+                  id="cart-circle"
+                >
+                  {cartLength}
+                </div>
+              <img src={carrito} alt="carrito" />
+            </Link>
+            :
+            <img src={carrito} alt="carrito" />
+          }
           <div className="vl"></div>
           <div className="playstore">
             <img src={playstore} alt="playstore-logo" />

@@ -62,7 +62,7 @@ const Cotizar = () => {
       categorySelected?.classList.add('selected')
       axios
         .get(
-          `https://api.palermomateriales.com.ar/api/categoria/cotizable/${catId}`,
+          `https://test.api.palermomateriales.com.ar/api/categoria/cotizable/${catId}`,
         )
         .then((res) => setSelectedCategory(res.data))
     }
@@ -134,7 +134,7 @@ const Cotizar = () => {
               id={`filter${idx}`}
               onClick={() => clearFilter(idx, f)}
             >
-              <p className="">{f?.titulo}&nbsp;&nbsp;X</p>
+              <p className="">{f?.titulo}&nbsp;&nbsp; <span className="delete-item-filter">X</span></p>
             </div>
           )
         })}

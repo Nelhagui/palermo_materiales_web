@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Input } from 'reactstrap'
 import ProductCard from '../components/ProductCard.js'
-import Techo from '../assets/img/techo.svg'
 import axios from 'axios'
 
 const Comprar = () => {
@@ -11,29 +10,33 @@ const Comprar = () => {
   const [products, setProducts] = useState([])
   const [isLoadingCategories, setIsLoadingCategories] = useState(true)
 
-  const filterBySearch = (e) => {
-    const query = e?.target?.value
-    console.log(e?.target?.value)
-    var updatedList = [...products]
-    updatedList = updatedList.filter((item) => {
-      return item.titulo.toLowerCase().indexOf(query.toLowerCase()) !== -1
-    })
-    if (query) {
-      setProducts(updatedList)
-    } else {
-      products.map((c) => {
-        setProducts(c.productos_simples)
-      })
+  const searchProduct = (e) => {
+    const query = e?.target?.value;
+    if(e?.key == "Enter")
+    {
+      if(query.length > 2)
+      {
+        
+          axios
+          .get(`https://test.api.palermomateriales.com.ar/api/productocombinado/simple/buscar?q=${query}`)
+          .then((response) => {
+            setProducts(response?.data);
+          })
+        console.log('envio esto: ', query);
+        
+      }
+      else
+      {
+        console.log('ingrese al menos 3 caracteres');
+      }
     }
   }
-  useEffect(() => {
-    filterBySearch()
-  }, [])
+
   useEffect(() => {
     axios
       .get('https://test.api.palermomateriales.com.ar/api/categoria')
-      .then((response) => setCategories(response?.data))
       .then((response) => {
+        setCategories(response?.data)
         setCatId(response?.data.id)
         setIsLoadingCategories(false);
       })
@@ -63,7 +66,7 @@ const Comprar = () => {
       <div className="img-container text-center">
         <h3 className="fw-bold">BUSCAR PRODUCTOS</h3>
         <h5>¿Estás buscando un producto puntual? Utiliza nuestro buscador</h5>
-        <Input onChange={filterBySearch} className=" mx-auto " />
+        <Input onKeyUp={searchProduct} className=" mx-auto " />
       </div>
       <div className="d-flex mt-5 mx-5">
         <div className="categories-filter col-3">

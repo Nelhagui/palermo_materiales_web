@@ -55,7 +55,9 @@ const Home = () => {
           <div className="image-titles">
             <h2>CALCULAR PRODUCTOS</h2>
             <h4>¿Querés saber cuánto material necesitás cubrir?</h4>
-            <button className="btn-secondary white">BUSCAR POR CATEGORIAS</button>
+              <button className="btn-secondary white">
+                <Link to="/cotizar">BUSCAR POR CATEGORIAS</Link>
+              </button>
           </div>
         </div>
       </div>
