@@ -1,9 +1,8 @@
 * {
   text-decoration: none !important;
-
 }
-body{
-  background-color:#F7F7F7 !important;
+body {
+  background-color: #f7f7f7 !important;
 }
 p {
   margin-bottom: 0 !important;
@@ -134,11 +133,10 @@ a {
 .btn-primary {
   color: #fff;
   background: #ff9817;
-  border: .5px solid #ff9817;
+  border: 0.5px solid #ff9817;
   transition: all 0.2s ease-out !important;
 
   /* viejo */
-  
 }
 .btn-secondary {
   background: transparent;
@@ -154,11 +152,10 @@ a {
   transition: all 0.2s ease-out !important;
 }
 .btn-secondary:hover {
-
   color: #fff;
   background: #ff9817;
   border: solid 1px #ff9817;
-  transition: all 0.2s ease-out !important
+  transition: all 0.2s ease-out !important;
 }
 .categories-container {
   display: flex;
@@ -239,13 +236,12 @@ a {
   border-bottom: 0.5px solid #dfdfdf;
 }
 .product-card .price {
-  margin-top: .3rem;
+  margin-top: 0.3rem;
   margin-bottom: 0.4rem !important;
 }
 .title {
   margin-bottom: 0.7rem !important;
 }
-
 
 .footer-image {
   margin: 2em 0;
@@ -292,11 +288,11 @@ a {
   gap: 1em;
 }
 .footer .pay-methods img {
-    width: 45px;
-    height: 33px;
-    background: whitesmoke;
-    box-sizing: border-box;
-    padding: 0.3rem;
+  width: 45px;
+  height: 33px;
+  background: whitesmoke;
+  box-sizing: border-box;
+  padding: 0.3rem;
 }
 img.playstore {
   width: auto !important;
@@ -774,8 +770,8 @@ input[type="radio"]:checked {
   justify-content: flex-start;
   flex-wrap: wrap;
   margin-bottom: 2em;
-  gap:2em;
-  overflow:hidden;
+  gap: 2em;
+  overflow: hidden;
 }
 .categories-cotizar {
   justify-content: space-around;
@@ -792,9 +788,9 @@ input[type="radio"]:checked {
   color: #000;
   transition: all 0.2s linear !important;
 }
-.cotizar-subitems:hover{
-  color:#fff !important;
-  background-color:#FF9817;
+.cotizar-subitems:hover {
+  color: #fff !important;
+  background-color: #ff9817;
   transition: all 0.2s linear !important;
 }
 .cotizar-subitems p {
@@ -802,64 +798,96 @@ input[type="radio"]:checked {
   text-align: right;
   padding: 1em;
   z-index: 100;
-
-
 }
 .cotizar-subitems img {
   z-index: 1 !important;
   height: 100%;
   width: 40%;
-  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%)
+    contrast(103%);
 }
 
-.circle-subcategorias{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:10em;
-  width:10em;
-  margin-right:1em;
-  border-radius:0 100% 100% 0 ;
-  background-color:#FF9817;
-  z-index:0;
+.circle-subcategorias {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10em;
+  width: 10em;
+  margin-right: 1em;
+  border-radius: 0 100% 100% 0;
+  background-color: #ff9817;
+  z-index: 0;
 }
-.filtro-aplicado{
-  display:flex;
+.filtro-aplicado {
+  display: flex;
   gap: 0.5em;
-  margin-left:6em;
+  margin-left: 6em;
 }
-.filter-container{
-  display:flex;
-  flex-direction:row !important;
-  justify-content:flex-start;
-
+.filter-container {
+  display: flex;
+  flex-direction: row !important;
+  justify-content: flex-start;
 }
 .filter-container p {
   padding: 0.5em 1em;
-  border: 1px solid #D8D8D8;
+  border: 1px solid #d8d8d8;
 }
-.card-product{
-  display:flex;
-  justify-content:center;
-  align-content:center;
+.card-product {
+  display: flex;
+  justify-content: center;
+  align-content: center;
   gap: 10em;
-  width:70%;
+  width: 70%;
   margin: 5em auto;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
-.card-product img{
-  height:100%;
-  width:100%;
-
+.card-product img {
+  height: 100%;
+  width: 100%;
 }
-.contador{
-  border: 1px solid #D8D8D8;
+.contador {
+  border: 1px solid #d8d8d8;
   width: 40%;
   min-width: max-content;
   padding: 0.8rem;
   margin-bottom: 1rem;
 }
-.contador{
-  display:flex;
-  justify-content:space-between;
+.contador {
+  display: flex;
+  justify-content: space-between;
+}
+.cotizar-table {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  width: fit-content;
+  height: auto;
+  padding: 0 !important;
+  gap: 1em;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+.cotizar-table .header {
+  padding: 2em 0;
+  color: #000;
+  background-color: #fdf3ea;
+}
+.cotizar-table .header {
+
+  height: 5em;
+  width: 60em;
+  display: grid;
+  grid-template-columns: 40% auto auto;
+  justify-content: space-around;
+}
+.items-container{
+  width: 60em;
+  gap:14em;
+  display: grid;
+  grid-template-columns: 40% auto auto;
+  justify-content: start;
+  align-items:center;
+}
+.items-container div{
+  margin-bottom:2em;
 }
