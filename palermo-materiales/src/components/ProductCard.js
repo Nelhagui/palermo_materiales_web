@@ -1,4 +1,5 @@
 import { useState, useContext, useEffect } from 'react'
+import SinImagen from '../assets/img/no-img.png';
 import CartContext from '../context/CartContext.js'
 import { useNavigate } from 'react-router-dom'
 
@@ -43,7 +44,7 @@ const ProductCard = (props) => {
   return (
     <div className="product-card " key={props?.producto.id}>
       <div className="img-card-container">
-        <img alt="producto" src={props?.producto.foto} />
+        <img alt="producto" src={(props?.producto.foto) ? props?.producto.foto : SinImagen} />
       </div>
       <div className="produc-card-info">
         <p className="price">{props?.producto.productos_simples[0].precio_x_unidad}</p>

@@ -41,20 +41,20 @@ const Home = () => {
 
   return (
     <div className="wrapper">
-      <div className="images-container">
-        <div className=" img1">
+      <div className="images-container row">
+        <div className="col-12 col-md-6 img1 img-home">
           <div className="image-titles">
-            <h2>BUSCAR PRODUCTOS</h2>
-            <h4>¿Estás buscando un producto puntual?</h4>
+            <h2 className="text-img">BUSCAR PRODUCTOS</h2>
+            <h4 className="text-img">¿Estás buscando un producto puntual?</h4>
             <button className="btn-primary">
               <Link to="/comprar">BUSCAR POR PRODUCTOS</Link>
             </button>
           </div>
         </div>
-        <div className=" img2">
+        <div className="col-12 col-md-6 img2 img-home">
           <div className="image-titles">
-            <h2>CALCULAR PRODUCTOS</h2>
-            <h4>¿Querés saber cuánto material necesitás cubrir?</h4>
+            <h2 className="text-img">CALCULAR PRODUCTOS</h2>
+            <h4 className="text-img">¿Querés saber cuánto material necesitás cubrir?</h4>
               <button className="btn-secondary white">
                 <Link to="/cotizar">BUSCAR POR CATEGORIAS</Link>
               </button>
