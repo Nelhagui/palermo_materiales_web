@@ -103,11 +103,9 @@ const Home = () => {
             products?.map((p) => {
               return (
                 <ProductCard
+                  producto={p}
+                  seccion={"home"}
                   key={Math.random()}
-                  id={p.id}
-                  title={p.productos_simples[0].titulo.toLowerCase()}
-                  img={p.productos_simples[0].foto}
-                  price={`$${p.productos_simples[0].precio_x_unidad}`}
                   buttonTitle={"AGREGAR AL CARRITO"}
                   className="col"
                 />

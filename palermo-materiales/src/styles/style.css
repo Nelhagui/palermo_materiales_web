@@ -120,7 +120,7 @@ a {
 }
 .btn-primary,
 .btn-secondary {
-  width: 60%;
+  width: 100%;
   min-width: max-content;
   padding: 0.8rem;
   margin-bottom: 1rem;
@@ -199,6 +199,7 @@ a {
   display: flex;
   flex-direction: row;
   margin: 0em;
+  padding-bottom: 2rem;
   overflow: scroll;
   margin: auto;
   overflow: scroll;
@@ -301,7 +302,8 @@ img.playstore {
   padding: 0 !important;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 900px) 
+{
   .nav-container {
     display: flex;
     flex-direction: row;
@@ -861,7 +863,6 @@ input[type="radio"]:checked {
 }
 .contador {
   border: 1px solid #d8d8d8;
-  width: 40%;
   min-width: max-content;
   padding: 0.8rem;
   margin-bottom: 1rem;
@@ -944,3 +945,79 @@ input[type="radio"]:checked {
 /* movimiento */ .loading::after { display: block; content: ""; position: absolute; width: 100%; height: 100%; transform: translateX(-100%); background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(rgba(255, 255, 255, 0.2)), to(transparent)); background: linear-gradient(90deg, transparent,  rgba(255, 255, 255, 0.2), transparent);
 /* agregando animacion */animation: loading 0.8s infinite; }
 /* loading animacion */ @keyframes loading { 100% { transform: translateX(100%); } }
+
+.history-set-product {
+  width: 100%;
+  max-width: 1000px;
+}
+
+.container-history-set-product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 7rem;
+}
+
+
+.cont-gral-set-product {
+  background: white;
+  border-radius: 5px;
+  padding: 2rem 5rem 4rem;
+}
+.cont-contador-buttom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cont-caract-prod {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.title-price {
+  border-bottom: .5px solid black;
+  margin-bottom: 1.2rem;
+  padding-bottom: 1.2rem;
+}
+
+.img-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: .5px solid black;
+  padding-bottom: 1.3rem;
+}
+
+.details-product {
+  margin-top: 2rem;
+}
+
+.cont-img {
+  border: .5px solid #d8d8d9;
+  border-radius: 5px;
+  padding: 0;
+}
+.cont-img img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+@media (max-width: 700px) {
+  .container-history-set-product {
+    padding: 1rem 1rem;
+  }
+  .btn-secondary, .btn-primary {
+    width: 100%;
+  }
+  .cont-gral-set-product {
+    padding: 2rem 2rem ;
+  }
+    .cont-img {
+      height: 13rem;
+      width: 13rem;
+      margin: auto;
+      margin-bottom: 1rem;
+  }
+}
