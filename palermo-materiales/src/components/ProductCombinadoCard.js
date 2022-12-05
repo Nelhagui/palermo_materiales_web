@@ -3,7 +3,7 @@ import SinImagen from '../assets/img/no-img.png';
 import CartContext from '../context/CartContext.js'
 import { useNavigate } from 'react-router-dom'
 
-const ProductCard = (props) => {
+const ProductCombinadoCard = (props) => {
 
 
   // id={p.id}
@@ -42,13 +42,12 @@ const ProductCard = (props) => {
   
 
   return (
-    <div className="product-card " key={props?.producto?.id}>
+    <div className="product-card " key={props?.id}>
       <div className="img-card-container">
-        <img alt="producto" src={(props?.producto.foto) ? props?.producto.foto : SinImagen} />
+        <img alt="producto" src={(props?.foto) ? props?.foto : SinImagen} />
       </div>
       <div className="produc-card-info">
-        <p className="price">{props?.producto?.productos_simples[0]?.precio_x_unidad}</p>
-        <p className="title">{props?.producto?.productos_simples[0]?.alias?.toLowerCase()}</p>
+        <p className="title">{props?.title}</p>
         <button onClick={handleClick} className="btn-secondary">
           {props.buttonTitle}
         </button>
@@ -57,4 +56,4 @@ const ProductCard = (props) => {
   )
 }
 
-export default ProductCard
+export default ProductCombinadoCard

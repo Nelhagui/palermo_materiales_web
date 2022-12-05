@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useContext } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import ProductCard from '../components/ProductCard.js'
+import ProductCombinadoCard from '../components/ProductCombinadoCard.js'
+import ProductSimpleCard from '../components/ProductSimpleCard.js'
 import Techo from '../assets/img/techo.svg'
 
 const Cotizar = () => {
@@ -154,11 +155,11 @@ const Cotizar = () => {
             )
           } else {
             return (
-              <ProductCard
+              <ProductCombinadoCard
                 key={k.id}
                 id={k.id}
                 title={k.titulo}
-                img={k.foto}
+                foto={k?.foto}
                 className="col-auto"
                 buttonTitle={"COTIZAR"}
                 categoria_id={k.categoria_id}
@@ -172,7 +173,7 @@ const Cotizar = () => {
         <div className="products d-flex flex-wrap justify-content-center">
           {subcategories?.map((p) => {
             return (
-              <ProductCard
+              <ProductSimpleCard
                 key={p.id}
                 id={p.id}
                 title={p.titulo}

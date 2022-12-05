@@ -89,12 +89,12 @@ const Comprar = () => {
         <Input onKeyDown={filterBySearch} className=" mx-auto " />
       </div>
       { isSetCant ? <ProductCardSetCant></ProductCardSetCant> :
-        <div className="d-flex mt-5 mx-5">
-            <div className="categories-filter col-2">
+        <div className="d-flex mt-5 mx-5 row">
+            <div className="categories-filter col-12 col-md-2">
                 <h4>Categorías</h4>
                 <ListCategories categories={categories} subcategories={subcategories} setCatId={setCatId}></ListCategories>
             </div>
-            <div className="col-10">
+            <div className="col-12 col-md-10">
                 <div className="products d-flex flex-wrap justify-content-center">
                 <ListProducts products={products}></ListProducts>
                 </div>

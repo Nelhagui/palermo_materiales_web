@@ -1037,4 +1037,7 @@ input[type="radio"]:checked {
   .products {
     justify-content: flex-start;
   }
+  .img-container Input {
+    width: 80%;
+  }
 }

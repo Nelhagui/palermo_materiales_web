@@ -1,8 +1,7 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import ProductCard from '../components/ProductCard.js'
+import ProductSimpleCard from '../components/ProductSimpleCard.js'
 import { Link } from 'react-router-dom'
-import CartContext from '../context/CartContext.js'
 import ProductCardLoading from '../components/ProductCardLoading.js'
 
 const Home = () => {
@@ -35,9 +34,6 @@ const Home = () => {
       .get(`https://test.api.palermomateriales.com.ar/api/categoria/${catId}/mas-vendidos`)
       .then((response) => setProducts(response.data))
   }, [catId])
-
- 
-  const { setCart } = useContext(CartContext)
 
   return (
     <div className="wrapper">
@@ -102,7 +98,7 @@ const Home = () => {
             : 
             products?.map((p) => {
               return (
-                <ProductCard
+                <ProductSimpleCard
                   producto={p}
                   seccion={"home"}
                   key={Math.random()}
