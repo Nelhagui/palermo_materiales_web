@@ -44,9 +44,9 @@ const ProductCombinadoCard = (props) => {
   return (
     <div className="product-card " key={props?.id}>
       <div className="img-card-container">
-        <img alt="producto" src={(props??.foto) ? props??.foto : SinImagen} />
+        <img alt="producto" src={(props?.foto) ? props?.foto : SinImagen} />
       </div>
-      <div className="produc-card-info">
+      <div className="produc-card-info" >
         <p className="title">{props?.title}</p>
         <button onClick={handleClick} className="btn-secondary">
           {props.buttonTitle}

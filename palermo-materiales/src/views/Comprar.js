@@ -10,7 +10,6 @@ const Comprar = () => {
   const [catId, setCatId] = useState(1)
   const [subcategories, setSubCategories] = useState([])
   const [products, setProducts] = useState([]);
-  const [productSelected, setProductSelected] = useState({});
   const [isSetCant, setIsSetCant] = useState(false);
 
   const reorganizoData = (data) => {

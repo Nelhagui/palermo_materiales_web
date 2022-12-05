@@ -1,11 +1,11 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
-import CartContext from '../context/CartContext.js'
+
 import ProductCardSetCant from '../components/ProductCardSetCant.js';
 
 const AgregarProducto = () => {
     
-    const { setCart } = useContext(CartContext)
+
 
     return (
         <div className="wrapper">

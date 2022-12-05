@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import DeleteIcon from '../assets/img/Carrito_Eliminar.svg'
-import ChevronDown from '../assets/img/Felcha_haciaabajo.svg'
 import DetailIcon from '../assets/img/Carrito_Detalle.svg'
 import DataIcon from '../assets/img/Carrito_Datos.svg'
 import PaymentIcon from '../assets/img/FormDePago_negro.svg'
@@ -29,16 +27,17 @@ const Checkout = () => {
   // useEffect(() => {
   //   openRow()
   // }, [])
+  //
 
   useEffect(() => {
     cart.map((e) => {
-      console.log(e[0])
       setItems(e[0].price)
+      return console.log(e[0])
     })
   }, [cart])
 
   useEffect(() => {
-    setTotalPrice([items].reduce((a,b) => a + b, 0))
+    setTotalPrice([items].reduce((a, b) => a + b, 0))
   }, [items])
   console.log(totalPrice)
 
@@ -67,19 +66,19 @@ const Checkout = () => {
           <p>Precio Final</p>
         </div>
 
-          {cart.map((c) => {
-           return(
+        {cart.map((c) => {
+          return (
             <div key={c[0].id} className="table-body">
-            <p>{c[0].title}</p>
-            <p>1 m2</p>
-            <p>-</p>
-            <p>-</p>
-            <div className="last-container">
-              <p>${c[0].price}</p>{' '}
+              <p>{c[0].alias}</p>
+              <p>1 m2</p>
+              <p>-</p>
+              <p>-</p>
+              <div className="last-container">
+                <p>${c[0].price}</p>{' '}
+              </div>
             </div>
-          </div>
-           )
-          })}
+          )
+        })}
 
         {/* <div className="icon-container">
               <img alt="icon" style={{ width: '1em' }} src={DeleteIcon} />

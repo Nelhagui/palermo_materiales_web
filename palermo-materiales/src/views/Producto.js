@@ -1,22 +1,42 @@
 import axios from 'axios'
 import React from 'react'
+import CartContext from '../context/CartContext.js'
+import { useContext } from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 const Producto = () => {
   let { id } = useParams()
+  const { cart, addProduct } = useContext(CartContext)
+
   const [product, setProduct] = useState()
   const [cont, setCont] = useState(0)
   const [postRes, setPostRes] = useState([])
   const [total, setTotal] = useState([])
   const [data, setData] = useState([])
+  const [item, setItem] = useState([])
 
   let itemId = localStorage.getItem('item-id')
+
+  const addToCart = () => {
+    item.push({ id: data.id, title: data.title, price: data.price })
+    setItem(data)
+    cart.push(data)
+    addProduct(cart)
+  }
+
   const handleRest = () => {
     if (cont > 0) {
+      document.querySelector('.cotizar-table').style.display = 'none'
+      document.querySelector('.button-add').style.display = 'none'
       setCont(cont - 1)
     }
+  }
+  const handleAdd = () => {
+    document.querySelector('.cotizar-table').style.display = 'none'
+    document.querySelector('.button-add').style.display = 'none'
+    setCont(cont + 1)
   }
 
   function fetchCategories() {
@@ -35,6 +55,8 @@ const Producto = () => {
     if (cont === 0) {
       alert('La cantidad no puede ser 0')
     } else {
+      document.querySelector('.cotizar-table').style.display = 'flex'
+      document.querySelector('.button-add').style.display = 'flex'
       const cotizarBody = {
         cantidad: cont,
         producto_combinado_id: itemId,
@@ -84,12 +106,15 @@ const Producto = () => {
               <div className="mt-5">
                 <p>Ingresar metro cuadrado:</p>
                 <div className="button-container mt-4">
-                  <div className="contador col-4" style={{minWidth: 'fit-content'}}>
+                  <div
+                    className="contador col-4"
+                    style={{ minWidth: 'fit-content' }}
+                  >
                     <div className="h4" onClick={() => handleRest()}>
                       -
                     </div>
                     <div>{cont}</div>
-                    <div className="h4" onClick={() => setCont(cont + 1)}>
+                    <div className="h4" onClick={() => handleAdd()}>
                       +
                     </div>
                   </div>
@@ -103,7 +128,7 @@ const Producto = () => {
         )
       })}
 
-      <div className="cotizar-table container">
+      <div className="cotizar-table container" style={{ display: 'none' }}>
         <div className="header">
           <div className="productos-simples">Productos simples</div>
           <div className="cotizar-cantidad">Cantidad</div>
@@ -127,10 +152,12 @@ const Producto = () => {
         {total.map((p) => {
           return (
             <div>
-              <div className="items-container">
+              <div
+                className="total-container fw-bold"
+                style={{ backgroundColor: '#F7F7F7 !important' }}
+              >
                 <div className="productos-simples-items col-4">TOTAL</div>
                 <div className="productos-cantidad-cotizar">
-       
                   {p?.cotizacion?.cantidad}
                 </div>
                 <div> $ {p?.cotizacion?.subtotal}</div>
@@ -138,6 +165,11 @@ const Producto = () => {
             </div>
           )
         })}
+      </div>
+      <div className="button-add" style={{ display: 'none' }}>
+        <button className="btn-primary mt-5" onClick={() => addToCart()}>
+          Agregar al carrito
+        </button>
       </div>
     </div>
   )

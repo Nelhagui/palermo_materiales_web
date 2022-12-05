@@ -1094,3 +1094,10 @@ input[type="radio"]:checked {
 .card-product .foto-cotizar {
   width:20em;
 }
+
+.button-add{
+  display:flex;
+  justify-content:center;
+  width:30%;
+  margin:0 auto;
+}
