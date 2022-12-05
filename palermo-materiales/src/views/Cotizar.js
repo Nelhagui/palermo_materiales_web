@@ -1,11 +1,13 @@
 import React, { useEffect, useState, useContext } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import ProductCard from '../components/ProductCard.js'
+import ProductCombinadoCard from '../components/ProductCombinadoCard.js'
+import ProductSimpleCard from '../components/ProductSimpleCard.js'
 import Techo from '../assets/img/techo.svg'
 
 const Cotizar = () => {
   const [categories, setCategories] = useState([])
+  const [bestSellers, setBestSellers] = useState([]);
   const [catId, setCatId] = useState([])
   const [subcategories, setSubCategories] = useState([])
   const [selectedCategory, setSelectedCategory] = useState([])
@@ -74,11 +76,14 @@ const Cotizar = () => {
     }
 
   }
-  function productSet() {
+  useEffect(() => {
     axios
-      .get('https://mocki.io/v1/0900f38f-514e-4462-9de7-44071dbd866f')
-      .then((response) => setProducts(response?.data[catId]?.productos))
-  }
+      .get(`https://test.api.palermomateriales.com.ar/api/categoria/1/mas-vendidos`)
+      .then((response) => {
+        console.log(response?.data);
+        setBestSellers(response?.data)
+      })
+  }, []);
   useEffect(() => {
     selectedCategory.map((producto) => {
       setIsCombinado(producto)
@@ -100,7 +105,6 @@ const Cotizar = () => {
 
   useEffect(() => {
     fetchCategories()
-    productSet()
   }, [catId])
 
   useEffect(() => {
@@ -161,11 +165,11 @@ const Cotizar = () => {
             )
           } else {
             return (
-              <ProductCard
+              <ProductCombinadoCard
                 key={k.id}
                 id={k.id}
                 title={k.titulo}
-                img={k.foto}
+                foto={k?.foto}
                 className="col-auto"
                 buttonTitle={"COTIZAR"}
                 categoria_id={k.categoria_id}
@@ -177,14 +181,11 @@ const Cotizar = () => {
       <div className="container">
         <h1 className="fw-bold">Productos más buscados</h1>
         <div className="products d-flex flex-wrap justify-content-center">
-          {subcategories?.map((p) => {
+          {bestSellers?.map((p) => {
             return (
-              <ProductCard
+              <ProductSimpleCard
                 key={p.id}
-                id={p.id}
-                title={p.titulo}
-                img={p.foto}
-                price={`$${p.precio_x_unidad}`}
+                producto={p}
                 buttonTitle={"AGREGAR AL CARRITO"}
                 className="col-auto"
               />

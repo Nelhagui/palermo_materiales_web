@@ -1,4 +1,4 @@
-import ProductCard from "../ProductCard.js"
+import ProductSimpleCard from "../ProductSimpleCard.js";
 
 const ListProducts = ({products}) => {
     console.log(products);
@@ -6,7 +6,7 @@ const ListProducts = ({products}) => {
         <>
             {products?.map((p) => {
               return (
-                <ProductCard
+                <ProductSimpleCard
                   key={p.id}
                   seccion={"comprar"}
                   producto={p}
