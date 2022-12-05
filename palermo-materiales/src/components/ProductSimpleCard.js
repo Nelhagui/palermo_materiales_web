@@ -8,25 +8,19 @@ const ProductSimpleCard = (props) => {
   const { cart, addProduct } = useContext(CartContext)
 
   function handleClick() {
-    if (props.buttonTitle == 'COTIZAR') {
-      navigate(`/producto/${props.categoria_id}`)
-      localStorage.setItem("item-id", props.id)
-    } 
-    else if (props?.seccion == "home") {
-        localStorage.setItem("producto-agregar", JSON.stringify(props.producto))
+    localStorage.setItem("producto-agregar", JSON.stringify(props.producto))
+    if (props?.seccion == "home") {
         navigate(`/producto/agregar/${props.producto.id}`)
-      }
-      else if(props?.seccion == "comprar")
-      {
-        
-        localStorage.setItem("producto-agregar", JSON.stringify(props.producto))
-        navigate(`/comprar/agregar/${props.producto.id}`)
-      }
-    // data.push({id:props.id, title: props.title, price: props.price})
-    // setData(data)
-    // cart.push(data)
-    // addProduct(cart)
-   }
+    }
+    else if(props?.seccion == "comprar")
+    {
+      navigate(`/comprar/agregar/${props.producto.id}`)
+    }
+    else
+    { 
+      navigate(`/comprar/agregar/${props.producto.id}`)
+    }
+  }
 
 
   
