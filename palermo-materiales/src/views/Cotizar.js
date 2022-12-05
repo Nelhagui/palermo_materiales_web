@@ -35,6 +35,8 @@ const Cotizar = () => {
     selectedFilter.push(c)
     setCatId(c?.id)
     console.log(selectedFilter)
+    console.log(c?.id)
+
   }
   useEffect(() => {
     handleCategories()
@@ -65,7 +67,12 @@ const Cotizar = () => {
           `https://test.api.palermomateriales.com.ar/api/categoria/cotizable/${catId}`,
         )
         .then((res) => setSelectedCategory(res.data))
+        if (catId == '132') {
+          navigate(`/producto-techo/${catId}`)
+          console.log("ESTE ES EL 132")
+        }
     }
+
   }
   function productSet() {
     axios

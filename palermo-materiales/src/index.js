@@ -19,6 +19,7 @@ import CartState from './context/CartState.js'
 import Producto from './views/Producto.js'
 import AgregarProducto from './views/AgregarProducto.js'
 import AgregarProductoComprar from './views/AgregarProductoComprar.js'
+import ProductoPared from './views/ProductoPared.js'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
@@ -39,6 +40,7 @@ root.render(
         <Route path="/checkout/data" element={<Datos />} />
         <Route path='/checkout/payment' element={<Pago/>} />
         <Route path='/producto/:id' element={<Producto/>}/>
+        <Route path='/producto-techo/:id' element={<ProductoPared/>}/>
         <Route path='/producto/agregar/:id' element={<AgregarProducto/>}/>
       </Routes>
       <hr />

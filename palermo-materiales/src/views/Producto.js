@@ -84,7 +84,7 @@ const Producto = () => {
               <div className="mt-5">
                 <p>Ingresar metro cuadrado:</p>
                 <div className="button-container mt-4">
-                  <div className="contador col-4">
+                  <div className="contador col-4" style={{minWidth: 'fit-content'}}>
                     <div className="h4" onClick={() => handleRest()}>
                       -
                     </div>
