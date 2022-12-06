@@ -20,6 +20,7 @@ import Producto from './views/Producto.js'
 import AgregarProducto from './views/AgregarProducto.js'
 import AgregarProductoComprar from './views/AgregarProductoComprar.js'
 import ProductoPared from './views/ProductoPared.js'
+import Empresa2 from './views/Empresa2.js'
 
 const root = createRoot(document.getElementById('root'))
 root.render(
@@ -32,6 +33,7 @@ root.render(
       <Routes>
         <Route path="" element={<Home />} />
         <Route path="/sobre-nosotros" element={<Empresa />} />
+        <Route path="/nosotros" element={<Empresa2 />} />
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/comprar" element={<Comprar />} />
         <Route path="/comprar/agregar/:id" element={<AgregarProductoComprar />} />

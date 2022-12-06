@@ -375,7 +375,8 @@ img.playstore {
 .about-container .about-text {
   padding: 2em 5em;
 }
-.app-boxes .box,
+
+/* .app-boxes .box,
 .app-boxes {
   display: flex;
   flex-direction: row;
@@ -391,10 +392,37 @@ img.playstore {
 .app-boxes .box p {
   padding: 0;
   margin: 0;
+} */
+
+
+.box img {
+  width: 4rem;
+}
+.box {
+  border: .5px solid;
+  border-radius: 5px;
+  padding: 1.5rem;
+}
+.info-box {
+  padding: 6rem;
+}
+.cont-boxes > div:nth-child(2) > div {
+  margin: 0 0.2rem;
 }
 
-@media (max-width: 900px) {
-  .app-boxes .box,
+@media (max-width: 900px) 
+{
+  .box {
+    margin: 0.5rem 0;
+    padding: 1.5rem 1rem;
+  }
+  .info-box {
+      padding: 2rem;
+  }
+  .cont-boxes {
+      text-align: center;
+  }
+  /* .app-boxes .box,
   .app-boxes {
     display: flex;
     flex-direction: column;
@@ -411,7 +439,7 @@ img.playstore {
   .box img {
     padding: 0;
     margin: 0;
-  }
+  } */
 
   .about-container {
     display: flex;
