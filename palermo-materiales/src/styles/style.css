@@ -297,6 +297,7 @@ a {
   justify-content: center;
   align-items: center;
   gap: 1em;
+  flex-wrap: wrap;
 }
 .footer .pay-methods img {
   width: 45px;
@@ -362,118 +363,61 @@ img.playstore {
   }
 }
 
-.about-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  background-color: #f6f6f6;
-}
-.app-titles {
-  margin: 3.5em;
-}
-.app-information {
-  padding: 0px 4em;
-}
-.app-information .text-container h3 {
-  color: #f1972d;
-  font-size: 1.5rem;
-}
-.about-container .about-text {
-  padding: 2em 5em;
-}
 
-/* .app-boxes .box,
-.app-boxes {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 3em;
-}
-.app-boxes .box {
-  border: 1px solid #ccc;
-  padding: 0em 1em;
-  border-radius: 10px;
-  gap: 2em;
-}
-.app-boxes .box p {
-  padding: 0;
-  margin: 0;
-} */
+/* empresa */
+  .app-titles {
+    margin-bottom: 2.5rem;
+  }
+  .about-text {
+    padding: 2em 5em;
+  }
+  .about-image-text {
+    background: #eeeeee;
+  }
 
-
-.box img {
-  width: 4rem;
-}
-.box {
-  border: .5px solid;
-  border-radius: 5px;
-  padding: 1.5rem;
-}
-.info-box {
-  padding: 6rem;
-}
-.cont-boxes > div:nth-child(2) > div {
-  margin: 0 0.2rem;
-}
+  .box img {
+    width: 4rem;
+  }
+  .box {
+    border: .5px solid;
+    border-radius: 5px;
+    padding: 1.5rem;
+  }
+  .info-boxes {
+    padding: 4rem 6rem;
+  }
+  .cont-boxes > div:nth-child(2) > div {
+    margin: 0 0.8rem;
+  }
+/* fin empresa */
 
 @media (max-width: 900px) 
 {
-  .box {
-    margin: 0.5rem 0;
-    padding: 1.5rem 1rem;
-  }
-  .info-box {
-      padding: 2rem;
-  }
-  .cont-boxes {
-      text-align: center;
-  }
-  .wrapper.nosotros {
-    padding-bottom: 4rem;
-  }
-  .about-container .about-text {
-    padding: 2em 1em;
-  }
-  /* .app-boxes .box,
-  .app-boxes {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 3em;
-    padding: 1em;
-  }
-  .box {
-    text-align: center;
-    width: 40em;
-    height: 10em;
-  }
-  .box img {
-    padding: 0;
-    margin: 0;
-  } */
+  /* empresa */
+    .box {
+      margin: 0.5rem 0;
+      padding: 1.5rem 1rem;
+    }
+    .info-boxes {
+      padding: 1.5rem 1rem;
+    }
+    .cont-boxes {
+        text-align: center;
+    }
+    .cont-boxes > div:nth-child(2) > div {
+      margin: 0;
+    }
+    .about-text {
+      padding: 2.5rem 1rem;;
+    }
+    .about-image {
+      display: none;
+    }
+  /* fin empresa */
 
-  .about-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .about-image {
-    display: none;
-  }
 }
 
-.downloads {
-  display: flex;
-  position: absolute;
-  left: 70%;
-  gap: 1em;
-}
-.downloads img {
-  width: 10em;
-}
+
 
 .contact-info {
   padding: 1em;
