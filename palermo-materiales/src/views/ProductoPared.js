@@ -1,8 +1,12 @@
 import axios from 'axios'
 import React from 'react'
+import { useContext } from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
+import CartContext from '../context/CartContext.js'
+
+
 
 const ProductoPared = () => {
   let { id } = useParams()
@@ -11,9 +15,17 @@ const ProductoPared = () => {
   const [largo, setLargo] = useState(0)
   const [postRes, setPostRes] = useState([])
   const [total, setTotal] = useState([])
+  const [item, setItem] = useState([])
   const [data, setData] = useState([])
 
   let itemId = localStorage.getItem('item-id')
+  const { cart, addProduct } = useContext(CartContext)
+  const addToCart = () => {
+    item.push({ id: data.id, title: data.title, price: data.price })
+    setItem(data)
+    cart.push(data)
+    addProduct(cart)
+  }
   const handleRestLargo = () => {
     if (largo > 0) {
       setLargo(largo - 1)
@@ -166,6 +178,11 @@ const ProductoPared = () => {
             </div>
           )
         })}
+              <div className="button-add" style={{ display: 'none' }}>
+        <button className="btn-primary mt-5" onClick={() => addToCart()}>
+          Agregar al carrito
+        </button>
+      </div>
       </div>
     </div>
   )
