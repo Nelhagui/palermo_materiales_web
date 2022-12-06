@@ -1,8 +1,16 @@
 * {
   text-decoration: none !important;
+  padding: 0;
+  margin: 0;
 }
 body {
   background-color: #f7f7f7 !important;
+}
+.container-fluid {
+  padding: 0 !important;
+}
+.row {
+  --bs-gutter-x: 0rem;
 }
 p {
   margin-bottom: 0 !important;
@@ -271,7 +279,6 @@ a {
   font-size: 2.5em;
 }
 .footer-image p {
-  position: absolute;
   font-size: 2.5em;
 }
 .footer {
@@ -421,6 +428,12 @@ img.playstore {
   }
   .cont-boxes {
       text-align: center;
+  }
+  .wrapper.nosotros {
+    padding-bottom: 4rem;
+  }
+  .about-container .about-text {
+    padding: 2em 1em;
   }
   /* .app-boxes .box,
   .app-boxes {
