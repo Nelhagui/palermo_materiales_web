@@ -98,7 +98,7 @@ const Cotizar = () => {
                         subcategories?.map((s) => {
                             if (s.tipo === 'categoria') {
                                 return (
-                                    <div className="col-md-3 cotizar-subitems" key={Math.random()} onClick={() => selectSubcategory(s)}>
+                                    <div className="col-md-3 cotizar-subitems"  onClick={() => selectSubcategory(s)} key={Math.random()}>
                                         <div className="circle-subcategorias">
                                             <img src={s.icon} alt="icon" />
                                         </div>
@@ -111,7 +111,7 @@ const Cotizar = () => {
                                 return (
                                     <div className="col-md-3">
                                         <ProductCombinadoCard
-                                          key={s.id}
+                                          key={Math.random()}
                                           producto={s}
                                           id={s?.id}
                                           title={s?.titulo}

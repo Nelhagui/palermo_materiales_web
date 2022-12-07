@@ -7,211 +7,122 @@ import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 const Producto = () => {
-  let { id } = useParams();
+  let {id} = useParams();
   const [product, setProduct] = useState(JSON.parse(localStorage.getItem('producto')))
+  const {cart, addProduct } = useContext(CartContext)
+  const [cont, setCont] = useState(1)
+  const [productCotizado, setProductCotizado] = useState([])
+
+  const handleRest = () => {
+    if (cont > 0)
+        setCont(cont - 1)
+  }
+  const handleAdd = () => {
+    setCont(cont + 1)
+  }
 
   const fetchProducto = () => {
-      console.log('pedicion entonces')
-    axios
-        .get(
-          `https://test.api.palermomateriales.com.ar/api/productocombinado/${id}`,
-        )
-        .then((res) => {
-          setProduct(res.data)
-        })
+    axios.get(`https://test.api.palermomateriales.com.ar/api/productocombinado/${id}`)
+        .then((res) => setProduct(res.data))
   }
   const validoLocalStorage = () => {
-      console.log('validando')
-      console.log('uno',product +"!== null");
-      console.log(product !== null);
     if(product !== null)
-    {
-        console.log('dos',product.id)
-        console.log(product.id +"!=="+ id)
-        console.log(product.id !== id)
-        if(product.id !== id){
+        if(Number(product.id) !== Number(id))
             fetchProducto();
-        }
-    }
-    else{
-        console.log('PETICION')
+    else
         fetchProducto();
-    }
   }
   
   useEffect(() => {
     validoLocalStorage();
   }, [id])
-  
 
-  
-
-
-
-  
-
-  
-
-  const { cart, addProduct } = useContext(CartContext)
-
-  
-  const [cont, setCont] = useState(0)
-  const [postRes, setPostRes] = useState([])
-  const [total, setTotal] = useState([])
-  const [data, setData] = useState([])
-  const [item, setItem] = useState([])
-
-  let itemId = localStorage.getItem('item-id')
-
-  const addToCart = () => {
-    item.push({ id: data.id, title: data.title, price: data.price })
-    setItem(data)
-    addProduct(total)
+  const addToCart = () => {    
+    addProduct([productCotizado])
   }
 
-  const handleRest = () => {
-    if (cont > 0) {
-      document.querySelector('.cotizar-table').style.display = 'none'
-      document.querySelector('.button-add').style.display = 'none'
-      setCont(cont - 1)
-    }
-  }
-  const handleAdd = () => {
-    document.querySelector('.cotizar-table').style.display = 'none'
-    document.querySelector('.button-add').style.display = 'none'
-    setCont(cont + 1)
-  }
-
-//   function fetchCategories() {
-//     if (id) {
-//       axios
-//         .get(
-//           `https://api.palermomateriales.com.ar/api/categoria/cotizable/${id}`,
-//         )
-//         .then((res) => setProduct(res.data))
-//     }
-//   }
-//   useEffect(() => {
-//     fetchCategories()
-//   }, [id])
   function handleNull() {
-    if (cont === 0) {
-      alert('La cantidad no puede ser 0')
-    } else {
-      document.querySelector('.cotizar-table').style.display = 'flex'
-      document.querySelector('.button-add').style.display = 'flex'
       const cotizarBody = {
         cantidad: cont,
-        producto_combinado_id: itemId,
+        producto_combinado_id: id,
       }
-      console.log(cotizarBody)
-      axios
-        .post(
-          'https://test.api.palermomateriales.com.ar/api/cotizador/cotizar',
-          cotizarBody,
-        )
-        .then(
-          (response) => (
-            setPostRes([response.data.producto_combinado?.productos_simples]),
-            setTotal([response.data])
-          ),
-        )
-      console.log(postRes)
-    }
+      axios.post('https://test.api.palermomateriales.com.ar/api/cotizador/cotizar', cotizarBody)
+            .then( (response) => setProductCotizado(response.data))
   }
-
-//   useEffect(() => {
-//     {
-//       postRes.map((r) => {
-//         setData(r)
-//       })
-//     }
-//   }, [postRes])
+  console.log(cart);
 
   return (
     <div className="wrapper">
-      <div className="text-center cotizar-title">
-        <h1 className="fw-bold">CALCULAR PRODUCTOS</h1>
-        <h4>¿Querés saber cuánto material necesitás cubrir?</h4>
-        <h4>Comienza eligiendo una categoria</h4>
-      </div>
+        <div className="text-center cotizar-title">
+            <h1 className="fw-bold">CALCULAR PRODUCTOS</h1>
+            <h4>¿Querés saber cuánto material necesitás cubrir?</h4>
+            <h4>Comienza eligiendo una categoria</h4>
+        </div>
       
-          <div className="card-product p-5">
+        <div className="card-product p-5">
             <img src={product?.foto} alt="foto" />
             <div>
-              <div>
-                <h1>{product?.titulo}</h1>
-                <p>numero id</p>
-                <hr />
-                <p>{product?.descripcion_corta}</p>
-              </div>
-              <div className="mt-5">
-                <p>Ingresar metro cuadrado:</p>
-                <div className="button-container mt-4">
-                  <div
-                    className="contador col-4"
-                    style={{ minWidth: 'fit-content' }}
-                  >
-                    <div className="h4" onClick={() => handleRest()}>
-                      -
+                <div>
+                    <h1>{product?.titulo}</h1>
+                    <p>numero id</p>
+                    <hr />
+                    <p>{product?.descripcion_corta}</p>
+                </div>
+                <div className="mt-5">
+                    <p>Ingresar metro cuadrado:</p>
+                    <div className="button-container mt-4">
+                        <div className="contador col-4" style={{ minWidth: 'fit-content' }} >
+                            <div className="h4" onClick={() => handleRest()}> - </div>
+                            <div>{cont}</div>
+                            <div className="h4" onClick={() => handleAdd()}> + </div>
+                        </div>
+                        <button className="btn-primary" onClick={handleNull}>
+                            COTIZAR
+                        </button>
                     </div>
-                    <div>{cont}</div>
-                    <div className="h4" onClick={() => handleAdd()}>
-                      +
+                </div>
+            </div>
+        </div>
+        { productCotizado.hasOwnProperty('cotizacion') ?
+            <div className="cotizar-table container">
+                <div className="header">
+                    <div className="productos-simples">Productos simples</div>
+                    <div className="cotizar-cantidad">Cantidad</div>
+                    <div className="cotizar-precio">Precio Un.</div>
+                </div>
+                <div className="items">
+                    <div>
+                        <div className="items-container">
+                            <div className="productos-simples-items col-4">
+                                {productCotizado?.producto_combinado?.titulo}
+                            </div>
+                            <div className="productos-cantidad-cotizar">{cont} </div>
+                            <div>${productCotizado?.cotizacion?.producto_combinado?.subtotal}</div>
+                        </div>
                     </div>
-                  </div>
-                  <button className="btn-primary" onClick={handleNull}>
-                    COTIZAR
-                  </button>
                 </div>
-              </div>
+                {productCotizado?.producto_combinado?.productos_simples.map((p) => {
+                return (
+                    <div key={Math.random()}>
+                        <div className="total-container fw-bold" style={{ backgroundColor: '#F7F7F7 !important' }} >
+                            <div className="productos-simples-items col-4">{p?.alias}</div>
+                            <div className="productos-cantidad-cotizar">
+                                {p?.cantidad}
+                            </div>
+                            <div> $ {p?.subtotal}</div>
+                        </div>
+                    </div>
+                )})
+                }
+                <div className="button-add">
+                    <button className="btn-primary mt-5" onClick={() => addToCart()}>
+                        Agregar al carrito
+                    </button>
+                </div>
             </div>
-          </div>
-        
-
-      <div className="cotizar-table container" style={{ display: 'none' }}>
-        <div className="header">
-          <div className="productos-simples">Productos simples</div>
-          <div className="cotizar-cantidad">Cantidad</div>
-          <div className="cotizar-precio">Precio Un.</div>
-        </div>
-        <div className="items">
-          {data.map((c) => {
-            return (
-              <div key={Math.random()}>
-                <div className="items-container">
-                  <div className="productos-simples-items col-4">
-                    {c.titulo}
-                  </div>
-                  <div className="productos-cantidad-cotizar">{cont} </div>
-                  <div>${c.precio_x_unidad}</div>
-                </div>
-              </div>
-            )
-          })}
-        </div>
-        {total.map((p) => {
-          return (
-            <div key={Math.random()}>
-              <div
-                className="total-container fw-bold"
-                style={{ backgroundColor: '#F7F7F7 !important' }}
-              >
-                <div className="productos-simples-items col-4">TOTAL</div>
-                <div className="productos-cantidad-cotizar">
-                  {p?.cotizacion?.cantidad}
-                </div>
-                <div> $ {p?.cotizacion?.subtotal}</div>
-              </div>
-            </div>
-          )
-        })}
-      </div>
-      <div className="button-add" style={{ display: 'none' }}>
-        <button className="btn-primary mt-5" onClick={() => addToCart()}>
-          Agregar al carrito
-        </button>
-      </div>
+            :
+            ""
+        }
     </div>
   )
 }
