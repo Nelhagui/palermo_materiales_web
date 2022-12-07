@@ -38,7 +38,7 @@ const Producto = () => {
   }, [id])
 
   const addToCart = () => {    
-    addProduct([productCotizado])
+    addProduct([... cart, productCotizado])
   }
 
   function handleNull() {
