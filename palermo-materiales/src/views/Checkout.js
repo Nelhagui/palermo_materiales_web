@@ -13,23 +13,6 @@ const Checkout = () => {
   const [totalPrice, setTotalPrice] = useState([])
   console.log(cart)
 
-  // const openRow = () => {
-  //   let tableRow = document.querySelector('.table-expandable')
-  //   let toggle = document.querySelector('.chevron')
-  //   if (tableRow.style.display === 'none') {
-  //     tableRow.style.display = 'flex'
-  //     toggle.style.cssText = ` transform: rotate(0deg); width: 1em`
-  //     console.log('open')
-  //   } else {
-  //     tableRow.style.display = 'none'
-  //     toggle.style.cssText = ` transform: rotate(270deg); width: 1em`
-  //     console.log('close')
-  //   }
-  // }
-  // useEffect(() => {
-  //   openRow()
-  // }, [])
-  //
   const showProducs = () => {
       console.log('click')
   }
@@ -48,31 +31,29 @@ const Checkout = () => {
 
   return (
     <div className="wrapper">
-      <div className="stepper-checkout p-5">
-        <div className="active">
-          <img src={DetailIcon} style={{ fill: '#FF9817' }} alt="icon" />
-          <p>Detalle</p>
+        <div className="stepper-checkout p-5">
+            <div className="active">
+                <img src={DetailIcon} style={{ fill: '#FF9817' }} alt="icon" />
+                <p>Detalle</p>
+            </div>
+            <div>
+                <img src={DataIcon} alt="icon" />
+                <p>Datos</p>
+            </div>
+            <div>
+                <img style={{ height: '30px' }} src={PaymentIcon} alt="icon" />
+                <p>Pago</p>
+            </div>
         </div>
-        <div>
-          <img src={DataIcon} alt="icon" />
-          <p>Datos</p>
-        </div>
-        <div>
-          <img style={{ height: '30px' }} src={PaymentIcon} alt="icon" />
-          <p>Pago</p>
-        </div>
-      </div>
-      <div className="table-containerr">
-        
-
+    <div className="table-containerr">
         <table className="table">
             <thead className="t-header">
                 <tr className="cont-columns-table">
-                  <th scope="col">Productos simples</th>
-                  <th scope="col">Superf.</th>
-                  <th scope="col">Cantidad</th>
-                  <th scope="col">Precio Un.</th>
-                  <th scope="col">Precio Final</th>
+                    <th scope="col">Productos simples</th>
+                    <th scope="col">Superf.</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Precio Un.</th>
+                    <th scope="col">Precio Final</th>
                 </tr>
             </thead>
         </table>
@@ -81,39 +62,32 @@ const Checkout = () => {
             {cart.map((c) => {
             return  <ItemsCart item={c} key={Math.random()}></ItemsCart>
             })}
-
-
-
-        {/* <div className="icon-container">
-              <img alt="icon" style={{ width: '1em' }} src={DeleteIcon} />
-              <img
-                className="chevron"
-                alt="icon"
-                src={ChevronDown}
-                onClick={openRow}
-              />
-            </div> */}
+            
+            {/* <div className="icon-container">
+                <img alt="icon" style={{ width: '1em' }} src={DeleteIcon} />
+                <img
+                    className="chevron"
+                    alt="icon"
+                    src={ChevronDown}
+                    onClick={openRow}
+                />
+                </div> */}
         
-      </div>
-      <div className="checkout-container m-4">
-        <div className="price-container fw-normal h5 col-4 mr-5">
-          <p>Costo total:</p>
-          <p>$12345</p>
+    </div>
+        <div className="checkout-container m-4">
+            <div className="price-container fw-normal h5 col-4 mr-5">
+                <p>Costo total:</p>
+                <p>${totalPrice}</p>
+            </div>
+            <div className="button-container col-6 text-center">
+                <div className="btn-primary px-5 py-3 col " style={{ color: '#FF9817' }} >
+                    <p className="my-auto">AGREGAR MÁS PRODUCTOS</p>
+                </div>
+                <div className="btn-secondary p-3 col">
+                    <p> <Link to="/checkout/data">CONTINUAR</Link> </p>
+                </div>
+            </div>
         </div>
-        <div className="button-container col-6 text-center">
-          <div
-            className="btn-primary px-5 py-3 col "
-            style={{ color: '#FF9817' }}
-          >
-            <p className="my-auto">AGREGAR MÁS PRODUCTOS</p>
-          </div>
-          <div className="btn-secondary p-3 col">
-            <p>
-              <Link to="/checkout/data">CONTINUAR</Link>
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
   )
 }
