@@ -7,10 +7,54 @@ import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 const Producto = () => {
-  let { id } = useParams()
+  let { id } = useParams();
+  const [product, setProduct] = useState(JSON.parse(localStorage.getItem('producto')))
+
+  const fetchProducto = () => {
+      console.log('pedicion entonces')
+    axios
+        .get(
+          `https://test.api.palermomateriales.com.ar/api/productocombinado/${id}`,
+        )
+        .then((res) => {
+          setProduct(res.data)
+        })
+  }
+  const validoLocalStorage = () => {
+      console.log('validando')
+      console.log('uno',product +"!== null");
+      console.log(product !== null);
+    if(product !== null)
+    {
+        console.log('dos',product.id)
+        console.log(product.id +"!=="+ id)
+        console.log(product.id !== id)
+        if(product.id !== id){
+            fetchProducto();
+        }
+    }
+    else{
+        console.log('PETICION')
+        fetchProducto();
+    }
+  }
+  
+  useEffect(() => {
+    validoLocalStorage();
+  }, [id])
+  
+
+  
+
+
+
+  
+
+  
+
   const { cart, addProduct } = useContext(CartContext)
 
-  const [product, setProduct] = useState()
+  
   const [cont, setCont] = useState(0)
   const [postRes, setPostRes] = useState([])
   const [total, setTotal] = useState([])
@@ -22,8 +66,7 @@ const Producto = () => {
   const addToCart = () => {
     item.push({ id: data.id, title: data.title, price: data.price })
     setItem(data)
-    cart.push(data)
-    addProduct(cart)
+    addProduct(total)
   }
 
   const handleRest = () => {
@@ -39,18 +82,18 @@ const Producto = () => {
     setCont(cont + 1)
   }
 
-  function fetchCategories() {
-    if (id) {
-      axios
-        .get(
-          `https://api.palermomateriales.com.ar/api/categoria/cotizable/${id}`,
-        )
-        .then((res) => setProduct(res.data))
-    }
-  }
-  useEffect(() => {
-    fetchCategories()
-  }, [id])
+//   function fetchCategories() {
+//     if (id) {
+//       axios
+//         .get(
+//           `https://api.palermomateriales.com.ar/api/categoria/cotizable/${id}`,
+//         )
+//         .then((res) => setProduct(res.data))
+//     }
+//   }
+//   useEffect(() => {
+//     fetchCategories()
+//   }, [id])
   function handleNull() {
     if (cont === 0) {
       alert('La cantidad no puede ser 0')
@@ -77,14 +120,14 @@ const Producto = () => {
     }
   }
 
-  useEffect(() => {
-    {
-      postRes.map((r) => {
-        setData(r)
-      })
-    }
-  }, [postRes])
-  console.log('TOTAL', total)
+//   useEffect(() => {
+//     {
+//       postRes.map((r) => {
+//         setData(r)
+//       })
+//     }
+//   }, [postRes])
+
   return (
     <div className="wrapper">
       <div className="text-center cotizar-title">
@@ -92,16 +135,15 @@ const Producto = () => {
         <h4>¿Querés saber cuánto material necesitás cubrir?</h4>
         <h4>Comienza eligiendo una categoria</h4>
       </div>
-      {product?.map((p) => {
-        return (
-          <div className="card-product p-5 ">
-            <img src={p.foto} alt="foto" />
+      
+          <div className="card-product p-5">
+            <img src={product?.foto} alt="foto" />
             <div>
               <div>
-                <h1>{p.titulo}</h1>
+                <h1>{product?.titulo}</h1>
                 <p>numero id</p>
                 <hr />
-                <p>{p.descripcion_larga}</p>
+                <p>{product?.descripcion_corta}</p>
               </div>
               <div className="mt-5">
                 <p>Ingresar metro cuadrado:</p>
@@ -125,8 +167,7 @@ const Producto = () => {
               </div>
             </div>
           </div>
-        )
-      })}
+        
 
       <div className="cotizar-table container" style={{ display: 'none' }}>
         <div className="header">
@@ -137,7 +178,7 @@ const Producto = () => {
         <div className="items">
           {data.map((c) => {
             return (
-              <div>
+              <div key={Math.random()}>
                 <div className="items-container">
                   <div className="productos-simples-items col-4">
                     {c.titulo}
@@ -151,7 +192,7 @@ const Producto = () => {
         </div>
         {total.map((p) => {
           return (
-            <div>
+            <div key={Math.random()}>
               <div
                 className="total-container fw-bold"
                 style={{ backgroundColor: '#F7F7F7 !important' }}

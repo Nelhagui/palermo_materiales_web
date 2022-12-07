@@ -6,7 +6,6 @@ import playstore from '../assets/img/playstore.svg'
 import logo from '../assets/img/logo_informacion.png'
 import CartContext from '../context/CartContext.js'
 import { useContext } from 'react'
-import { useEffect, useState } from 'react'
 
 const NavBar = () => {
   const { cart } = useContext(CartContext)
@@ -15,7 +14,6 @@ const NavBar = () => {
   if (cartLength > 0) {
     classNameIconCartCount += ' active';
   }
-  console.log('cantidad en carrito',cartLength)
 
   return (
     <div className="nav-root ">

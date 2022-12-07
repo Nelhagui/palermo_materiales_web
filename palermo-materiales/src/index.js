@@ -20,7 +20,6 @@ import Producto from './views/Producto.js'
 import AgregarProducto from './views/AgregarProducto.js'
 import AgregarProductoComprar from './views/AgregarProductoComprar.js'
 import ProductoPared from './views/ProductoPared.js'
-import Empresa2 from './views/Empresa.js'
 
 const root = createRoot(document.getElementById('root'))
 root.render(

@@ -5,11 +5,13 @@ import PaymentIcon from '../assets/img/FormDePago_negro.svg'
 import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import CartContext from '../context/CartContext.js'
+import ItemsCart from '../components/checkout/ItemsCart.js'
 
 const Checkout = () => {
   const { cart } = useContext(CartContext)
   const [items, setItems] = useState([])
   const [totalPrice, setTotalPrice] = useState([])
+  console.log(cart)
 
   // const openRow = () => {
   //   let tableRow = document.querySelector('.table-expandable')
@@ -28,18 +30,21 @@ const Checkout = () => {
   //   openRow()
   // }, [])
   //
+  const showProducs = () => {
+      console.log('click')
+  }
 
   useEffect(() => {
     cart.map((e) => {
-      setItems(e[0].price)
-      return console.log(e[0])
+      setItems(e.cotizacion.subtotal)
+      return console.log(e)
     })
   }, [cart])
 
   useEffect(() => {
     setTotalPrice([items].reduce((a, b) => a + b, 0))
   }, [items])
-  console.log(totalPrice)
+
 
   return (
     <div className="wrapper">
@@ -57,28 +62,27 @@ const Checkout = () => {
           <p>Pago</p>
         </div>
       </div>
-      <div className="table-container">
-        <div className="table-header grid grid-col-5">
-          <p>Productos simples</p>
-          <p>Superf.</p>
-          <p>Cantidad</p>
-          <p>Precio Un.</p>
-          <p>Precio Final</p>
-        </div>
+      <div className="table-containerr">
+        
 
-        {cart.map((c) => {
-          return (
-            <div key={c[0].id} className="table-body">
-              <p>{c[0].alias}</p>
-              <p>1 m2</p>
-              <p>-</p>
-              <p>-</p>
-              <div className="last-container">
-                <p>${c[0].price}</p>{' '}
-              </div>
-            </div>
-          )
-        })}
+        <table className="table">
+            <thead className="t-header">
+                <tr className="cont-columns-table">
+                  <th scope="col">Productos simples</th>
+                  <th scope="col">Superf.</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Precio Un.</th>
+                  <th scope="col">Precio Final</th>
+                </tr>
+            </thead>
+        </table>
+            
+            
+            {cart.map((c) => {
+            return  <ItemsCart item={c} key={Math.random()}></ItemsCart>
+            })}
+
+
 
         {/* <div className="icon-container">
               <img alt="icon" style={{ width: '1em' }} src={DeleteIcon} />
@@ -89,22 +93,7 @@ const Checkout = () => {
                 onClick={openRow}
               />
             </div> */}
-        <div className="table-expandable" style={{ display: 'none' }}>
-          <div className="expandable-data">
-            <p>Masilla DUrlock multi balde 1.8KG</p>
-            <p>1 m2</p>
-            <p>-</p>
-            <p>-</p>
-            <p>$42069</p>
-          </div>
-          <div className="expandable-data">
-            <p>Masilla DUrlock multi balde 1.8KG</p>
-            <p>1 m2</p>
-            <p>-</p>
-            <p>-</p>
-            <p>$42069</p>
-          </div>
-        </div>
+        
       </div>
       <div className="checkout-container m-4">
         <div className="price-container fw-normal h5 col-4 mr-5">
