@@ -3,6 +3,8 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import ProductCombinadoCard from '../components/ProductCombinadoCard.js'
 import ListBestSellers from '../components/cotizar/ListBestSellers.js'
+import ListCategories from '../components/cotizar/ListCategories.js'
+import ListFilters from '../components/cotizar/ListFilters.js'
 
 const Cotizar = () => {
     const [subcategories, setSubCategories] = useState([])
@@ -62,23 +64,17 @@ const Cotizar = () => {
                     </div>
                 </div>
                 <div className="row cont-categories">
-                    {categories?.map((c) => {
-                        return (
-                            <div className="col-md-3 cotizar-items button" key={Math.random()} onClick={() => selectCategory(c)}>
-                                <img src={c?.foto} alt="foto" />
-                                <p>{c.titulo}</p>
-                            </div>
-                        )
-                    })}
+                    {categories.length > 0 ? <ListCategories categories={categories} selectCategory={selectCategory}/> : "" }
                 </div>
                 <div className="row">
-                    {filters?.map((f, index) => {
+                    {filters.length > 0 ? <ListFilters filters={filters} clearFilter={clearFilter}/> : "" }
+                    {/* {filters?.map((f, index) => {
                         return (
                             <div className="col-md-2 filter-container" key={Math.random()} onClick={()=> clearFilter(index)}>
                                 {f.titulo}
                             </div>
                         )
-                    })}
+                    })} */}
                 </div>
             </div>
         </div>

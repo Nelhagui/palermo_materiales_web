@@ -8,7 +8,7 @@ const ProductCombinadoCard = (props) => {
     if (props.buttonTitle === 'COTIZAR') {
         navigate(`/producto/${props.id}`)
         localStorage.setItem("item-id", props.id)
-        localStorage.setItem("producto", JSON.stringify(props.producto))
+        localStorage.setItem("producto-agregar", JSON.stringify(props.producto))
     } 
     else if (props?.seccion === "home") {
         localStorage.setItem("producto-agregar", JSON.stringify(props.producto))
