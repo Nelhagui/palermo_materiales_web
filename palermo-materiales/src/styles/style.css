@@ -425,6 +425,12 @@ img.playstore {
 
 }
 
+@media (min-width: 900px)
+{
+    .cotizar-subitems {
+        width: max-content !important;
+    }
+}
 
 
 .contact-info {
@@ -748,27 +754,28 @@ input[type="radio"]:checked {
     flex-wrap: nowrap;
     overflow-x: scroll;
 }
-.cont-categories.selected .cotizar-items {
-    height: 5em;
-    width: 15em;
-    transition-duration: 0.5s;
-}
+
 .cotizar-items:first-child {
     margin-left: 1rem;
-}
-.cont-categories.selected .cotizar-items p {
-    padding: .5em;
 }
   
 .cotizar-items {
   cursor: pointer;
-  height: 30vh;
-  max-width: 30vh;
+  height: 11em;
+  width: 11em;
   align-items: center;
   margin-bottom: 1em;
   margin-right: 1.5em;
   position: relative;
-  transition-duration: 0.5s;
+  transition-duration: .2s;
+}
+.cont-categories.selected .cotizar-items {
+    height: 5em;
+    width: 15em;
+    transition-duration: .2s;
+}
+.cont-categories.selected .cotizar-items p {
+    padding: .5em;
 }
 .cotizar-items img {
     height: 100%;
@@ -832,7 +839,7 @@ input[type="radio"]:checked {
     justify-content: center;
     align-items: center;
     height: 10em;
-    width: 10em;
+    width: 5em;
     margin-right: 1em;
     border-radius: 0 100% 100% 0;
     background-color: #ff9817;

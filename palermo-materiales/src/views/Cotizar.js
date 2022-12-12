@@ -24,6 +24,7 @@ const Cotizar = () => {
     }
 
     const selectCategory = ((category)=> {
+        console.log('hola', category)
         setFilters([]);
         fetchSubCategories(category.id);
         setStyleCategories("row cont-categories selected")
