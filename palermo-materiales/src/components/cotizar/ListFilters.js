@@ -4,8 +4,9 @@ const ListFilters = ({filters, clearFilter}) => {
         <>
             {filters?.map((f, index) => {
                 return (
-                    <div className="col-md-2 filter-container" key={Math.random()} onClick={()=> clearFilter(index)}>
+                    <div className="col-md-2 item-filter" key={Math.random()}>
                         {f.titulo}
+                        <span className="close-item-filter" onClick={()=> clearFilter(index)}>X</span>
                     </div>
                 )
             })}
