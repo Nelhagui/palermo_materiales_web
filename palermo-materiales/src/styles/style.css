@@ -747,6 +747,7 @@ input[type="radio"]:checked {
   width: 100%;
   background: url("../assets/banners/img2.png") no-repeat;
   background-size: cover;
+  margin-bottom: 1.5rem;
 }
 
 /* cotizar  */
@@ -754,28 +755,31 @@ input[type="radio"]:checked {
     flex-wrap: nowrap;
     overflow-x: scroll;
 }
-
-.cotizar-items:first-child {
-    margin-left: 1rem;
-}
   
 .cotizar-items {
   cursor: pointer;
-  height: 11em;
-  width: 11em;
+  height: 14em;
+  width: 14em;
   align-items: center;
   margin-bottom: 1em;
   margin-right: 1.5em;
   position: relative;
   transition-duration: .2s;
 }
-.cont-categories.selected .cotizar-items {
+.cotizar-items.selected {
+    background-color: #ff9818;
+}
+.cotizar-items.selected img {
+    opacity: .5;
+}
+.cont-categories.selected > .cotizar-items {
     height: 5em;
     width: 15em;
-    transition-duration: .2s;
+    transition-duration: .4s;
 }
 .cont-categories.selected .cotizar-items p {
     padding: .5em;
+    min-width: max-content;
 }
 .cotizar-items img {
     height: 100%;
@@ -812,7 +816,11 @@ input[type="radio"]:checked {
     overflow: hidden;
 }
 .cotizar-subitems:first-child {
-    margin-left: 1rem;
+    margin-left: 10rem;
+}
+.cont-text-filters {
+    margin-left: 10rem;
+    margin-top: .5rem;
 }
   
 .cotizar-subitems:hover {
@@ -862,7 +870,7 @@ input[type="radio"]:checked {
     align-items: center;
 }
 .item-filter:first-child {
-    margin-left: 1rem;
+    margin-left: 10rem;
 }
 .close-item-filter {
     padding: 0 1rem 0 .8rem;
@@ -872,19 +880,19 @@ input[type="radio"]:checked {
     flex-wrap: nowrap;
     overflow-y: scroll;
 }
+
+.cont-text-category {
+    margin-left: 10rem;
+}
+
+.cont-categories .cotizar-items:first-child {
+    margin-left: 10rem;
+}
+.cont-sucategory-results .item-product-combinado:first-child {
+    margin-left: 9rem;
+}
   /* cotizar */
 
-
-.filtro-aplicado {
-  display: flex;
-  gap: 0.5em;
-  margin-left: 6em;
-}
-
-
-.delete-item-filter {
-  cursor: pointer;
-}
 .card-product {
   display: flex;
   justify-content: center;
@@ -1089,7 +1097,26 @@ input[type="radio"]:checked {
   width: 100%;
   height: 100%;
 }
-@media (max-width: 700px) {
+@media (max-width: 700px) 
+{
+   /* cotizar */
+   .cont-categories .cotizar-items:first-child {
+        margin-left: 1rem;
+    }
+    .cont-text-category {
+        margin-left: 1rem;
+        margin-top: 1.5rem;
+    }
+    .cotizar-subitems:first-child {
+        margin-left: 1rem;
+    }
+    .cont-text-filters {
+        margin-left: 1rem;
+    }
+    .item-filter:first-child {
+        margin-left: 1rem;
+    }
+   /* fin cotizar */
   .container-history-set-product {
     padding: 1rem 1rem;
   }

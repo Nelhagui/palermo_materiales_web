@@ -8,6 +8,7 @@ import SubcategoryResults from '../components/cotizar/SubcategoryResults.js'
 
 const Cotizar = () => {
     const [subcategories, setSubCategories] = useState([])
+    const [idCategorySelected, setIdCategorySelected] = useState(false);
     const [categories, setCategories] = useState([])
     const [styleCategories, setStyleCategories] = useState("row cont-categories")
     const [bestSellers, setBestSellers] = useState([]);
@@ -24,8 +25,8 @@ const Cotizar = () => {
     }
 
     const selectCategory = ((category)=> {
-        console.log('hola', category)
         setFilters([]);
+        setIdCategorySelected(category.id)
         fetchSubCategories(category.id);
         setStyleCategories("row cont-categories selected")
     }) 
@@ -58,16 +59,16 @@ const Cotizar = () => {
                 <h4>Comienza eligiendo una categoria</h4>
             </div>
         </div>
-        <div className="row cont-elements-category">
-            <div className="col-md-12">
-                <div className="row m-3">
+        <div className="row">
+            <div className="col-md-12 cont-gral-category">
+                <div className="row cont-text-category">
                     <div className="col-md-12">
                         <h1 className="fw-bold">Nuestras categorias</h1>
                         <h4>Seleccioná el tipo de proyecto a realizar</h4>
                     </div>
                 </div>
                 <div className={styleCategories}>
-                    <ListCategories categories={categories} selectCategory={selectCategory}/>
+                    <ListCategories categories={categories} selectCategory={selectCategory} idCategorySelected={idCategorySelected}/>
                 </div>
             </div>
         </div>

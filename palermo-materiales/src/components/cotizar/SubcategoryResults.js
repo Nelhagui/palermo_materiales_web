@@ -5,7 +5,7 @@ const SubcategoryResults = ({subcategories, selectSubcategory}) => {
     return (
         <>
             {subcategories.length > 0 ? 
-                <div className="row m-3">
+                <div className="row cont-text-filters">
                     <div className="col-md-12">
                         <h3>Seleccioná el tipo de construcción</h3>
                     </div>
@@ -27,7 +27,7 @@ const SubcategoryResults = ({subcategories, selectSubcategory}) => {
                             )
                         } else {
                             return (
-                                <div className="col">
+                                <div className="col-md-3 item-product-combinado">
                                     <ProductCombinadoCard
                                       key={Math.random()}
                                       producto={s}
