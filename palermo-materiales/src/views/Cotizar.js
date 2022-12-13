@@ -8,6 +8,7 @@ import SubcategoryResults from '../components/cotizar/SubcategoryResults.js'
 
 const Cotizar = () => {
     const [subcategories, setSubCategories] = useState([])
+    const [subcategoriesIsLoading, setSubcategoriesIsLoading] = useState(false)
     const [idCategorySelected, setIdCategorySelected] = useState(false);
     const [categories, setCategories] = useState([])
     const [styleCategories, setStyleCategories] = useState("row cont-categories")
@@ -27,13 +28,15 @@ const Cotizar = () => {
     const selectCategory = ((category)=> {
         setFilters([]);
         setIdCategorySelected(category.id)
+        setSubCategories([]);
         fetchSubCategories(category.id);
         setStyleCategories("row cont-categories selected")
     }) 
 
     const fetchSubCategories = ((category_id) => {
+        setSubcategoriesIsLoading(true);
         axios.get(`https://test.api.palermomateriales.com.ar/api/categoria/cotizable/${category_id}`)
-            .then((res) => setSubCategories(res.data) )
+            .then((res) => {setSubCategories(res.data); setSubcategoriesIsLoading(false)} )
     })
 
     const clearFilter = ((indice) => {
@@ -76,11 +79,18 @@ const Cotizar = () => {
             <ListFilters filters={filters} clearFilter={clearFilter}/>
         </div>
         <div className="row cont-sub-result">
-            <div className="col-md-12">
-                <SubcategoryResults subcategories={subcategories} selectSubcategory={selectSubcategory} />
-            </div>
-            <div className="col-md-12">
+            <SubcategoryResults subcategories={subcategories} selectSubcategory={selectSubcategory} subcategoriesIsLoading={subcategoriesIsLoading} />
+            <div className="col-md-12 cont-best-sellers">
                 { bestSellers.length > 0 && subcategories.length === 0 ?   <ListBestSellers products={bestSellers}/> : "" }
+            </div>
+        </div>
+        <div className="footer-image-cotizar">
+            <div>
+              <p style={{ margin: '1em 0 0 5em' }}>
+                <strong>Descargate</strong> nuestra app
+              </p>
+              <br />
+              <p style={{ margin: '1.5em 0px 0px 8em' }}>y comenzá a operar</p>
             </div>
         </div>
     </div>

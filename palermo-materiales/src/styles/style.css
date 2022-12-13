@@ -267,7 +267,7 @@ a {
   text-align: center;
 }
 .footer-image-cotizar {
-  margin: 2em 0;
+  margin: 5em 0;
   width: 100%;
   height: 200px;
   background: url("../assets/banners/DescargateNuestraApp_Banner.png") no-repeat;
@@ -743,7 +743,7 @@ input[type="radio"]:checked {
   align-items: center;
   justify-content: center;
   color: #fff;
-  padding: 1.3rem 1.8rem;
+  padding: 3rem 1.8rem;
   width: 100%;
   background: url("../assets/banners/img2.png") no-repeat;
   background-size: cover;
@@ -797,29 +797,23 @@ input[type="radio"]:checked {
     color: #fff;
     border: 1px solid #fff !important;
 }
-
-.cont-sucategory-results {
-    flex-wrap: nowrap;
-    overflow-x: scroll;
-    padding: 0rem 1rem 1rem 0;
-}
   
 .cotizar-subitems {
     cursor: pointer;
     height: 4.5em;
     width: 68vw;
+    max-width: 255px;
     display: flex;
     box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
     justify-content: space-around;
     align-items: center;
     margin-right: 0.8rem;
     overflow: hidden;
+    margin-left: 1rem;
 }
-.cotizar-subitems:first-child {
-    margin-left: 10rem;
-}
+
 .cont-text-filters {
-    margin-left: 10rem;
+    padding-left: 10rem;
     margin-top: .5rem;
 }
   
@@ -888,8 +882,21 @@ input[type="radio"]:checked {
 .cont-categories .cotizar-items:first-child {
     margin-left: 10rem;
 }
-.cont-sucategory-results .item-product-combinado:first-child {
-    margin-left: 9rem;
+
+.item-product-combinado {
+    width: auto;
+}
+
+.cont-sucategory-results {
+    padding-left: 9rem;
+    max-width: 100vw;
+    box-sizing: border-box;
+}
+.cont-sub-result {
+    margin-top: 1.5rem;
+}
+.cont-best-sellers {
+    padding-left: 9rem;
 }
   /* cotizar */
 
@@ -1111,11 +1118,20 @@ input[type="radio"]:checked {
         margin-left: 1rem;
     }
     .cont-text-filters {
-        margin-left: 1rem;
+        padding-left: 1rem;
     }
     .item-filter:first-child {
         margin-left: 1rem;
     }
+    .cont-sucategory-results {
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        padding: 0rem 1rem 1rem 0;
+    }
+    .cont-best-sellers {
+        padding-left: inherit;
+    }
+    
    /* fin cotizar */
   .container-history-set-product {
     padding: 1rem 1rem;
