@@ -1,7 +1,7 @@
 import React from 'react'
-import DetailIcon from '../assets/img/Carrito_Detalle.svg'
-import DataIcon from '../assets/img/Carrito_Datos.svg'
-import PaymentIcon from '../assets/img/FormDePago_negro.svg'
+import DetailIcon from '../assets/img/carrito_detalle.png'
+import DataIcon from '../assets/img/carrito_datos.png'
+import PaymentIcon from '../assets/img/FormDePago_negro.png'
 
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
 

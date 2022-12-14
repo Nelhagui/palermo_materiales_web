@@ -5,15 +5,18 @@ import carrito from '../assets/img/carrito.svg'
 import playstore from '../assets/img/playstore.svg'
 import logo from '../assets/img/logo_informacion.png'
 import CartContext from '../context/CartContext.js'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
+import NavBarSm from './navBar/NavBarSm.js'
 
 const NavBar = () => {
-  const { cart } = useContext(CartContext)
-  let cartLength = cart.length
-  let classNameIconCartCount = 'cart-circle';
-  if (cartLength > 0) {
-    classNameIconCartCount += ' active';
-  }
+    const { cart } = useContext(CartContext)
+    let cartLength = cart.length
+    let classNameIconCartCount = 'cart-circle';
+    if (cartLength > 0) { classNameIconCartCount += ' active'; }
+    const [isShowNavBarSm, setIsShowNavBarSm] = useState(false);
+    const changeIsShowNavBarSm = (() => {
+        setIsShowNavBarSm(!isShowNavBarSm)
+    })
 
   return (
     <div className="nav-root ">
@@ -47,19 +50,16 @@ const NavBar = () => {
             <img src={carrito} alt="carrito" />
           }
           <div className="vl"></div>
-          <div className="playstore">
+          <div className='nav-hamburger' onClick={()=>changeIsShowNavBarSm()}>
+            <label className="toggle-button"></label>
+          </div>
+          <div className="playstore navbar">
             <img src={playstore} alt="playstore-logo" />
             <p>DESCARGAR APP</p>
           </div>
         </div>
       </div>
-      <div className="navbar-sm">
-        <Link to="/">Home</Link>
-        <Link to="/comprar">Comprar</Link>
-        <Link to="/cotizar">Cotizar</Link>
-        <Link to="/sobre-nosotros">Empresa</Link>
-        <Link to="/contacto">Contacto</Link>
-      </div>
+      <NavBarSm changeIsShowNavBarSm={changeIsShowNavBarSm} isShowNavBarSm={isShowNavBarSm}/>
     </div>
   )
 }

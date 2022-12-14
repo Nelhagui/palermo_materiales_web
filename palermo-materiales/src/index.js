@@ -26,9 +26,7 @@ root.render(
   <React.StrictMode>
     <CartState>
     <BrowserRouter>
-      <NavBar
-        style={{ boxShadow: ' 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important' }}
-      />
+      <NavBar style={{ boxShadow: ' 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important' }} />
       <Routes>
         <Route path="" element={<Home />} />
         <Route path="/sobre-nosotros" element={<Empresa />} />

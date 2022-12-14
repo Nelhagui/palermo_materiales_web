@@ -1,3 +1,6 @@
+:root {
+    --heigth-navbar: 48px;
+}
 * {
   text-decoration: none !important;
   padding: 0;
@@ -38,17 +41,15 @@ a {
   padding: 0 1.8em;
   text-decoration: none !important;
 }
-.navbar-sm {
-  display: none;
-}
 
-.navbar-xl a,
-.navbar-sm a {
-  color: black !important;
-  transition: all 0.2s ease-out !important;
+
+.navbar-sm > a {
+    color: black !important;
+    transition: all 0.2s ease-out !important;
+    padding: .5rem;
+    margin: .2rem;
 }
 .navbar-xl a:hover,
-.navbar-sm a:hover,
 .playstore p:hover {
   border-bottom: 1px solid #000;
   transition: all 0.2s ease-out !important;
@@ -71,8 +72,37 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 2em;
   gap: 1em;
+}
+.toggle-button {
+    display:block;
+    width:40px;
+    height:40px;
+    position:relative;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.toggle-button:before, .toggle-button:after {
+    position:absolute;
+    display:block;
+    content:" ";
+    width: calc(100% / 2);               
+    box-sizing: border-box;
+    left: calc(100% / 4);
+    transition: all 0.2s ease-out;
+}
+.toggle-button:before {
+    top: calc(100% / 4);
+    height:calc(100% / 4);
+    border-top:1px solid black;
+    border-bottom:1px solid black;
+    background-color: transparent;
+}
+
+.toggle-button:after {
+    height:1px;
+    background-color:black;
+    bottom:calc(100% / 4);
 }
 .shop img {
   width: 1.75em;
@@ -314,25 +344,42 @@ img.playstore {
   background: none !important;
   padding: 0 !important;
 }
+.navbar-sm, .nav-hamburger{
+    display: none;
+}
 
 @media (max-width: 900px) {
   .nav-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 2em 1em;
+    padding: .8em 1em;
     align-items: center;
-    height: 3em;
+    height: var(--heigth-navbar);
   }
   .navbar-xl {
     display: none;
   }
   .navbar-sm {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    text-decoration: none !important;
-    margin-top: 1em;
+    position: absolute;
+    background: rgb(232 232 232);
+    height: calc(100vh - var(--heigth-navbar));
+    width: 100%;
+    z-index: 9999;
+    transform: translate(100%, 0%);
+    transition-duration: .2s;
+  }
+  .nav-hamburger {
+    display: inline-block;
+  }
+  
+  .navbar-sm.show {
+    transform: translate(0%, 0%);
+    transition-duration: .2s;
   }
 }
 
@@ -497,12 +544,6 @@ img.playstore {
     flex-direction: column;
     margin: 1.5em 1em !important;
     padding: 0 !important;
-  }
-  .wrapper {
-    margin-top: 9em;
-  }
-  .nav-root {
-    padding-bottom: 2em;
   }
 }
 .img-container {
@@ -1111,6 +1152,11 @@ input[type="radio"]:checked {
 }
 @media (max-width: 700px) 
 {
+    /* navbar */
+    .playstore.navbar{
+        display: none;
+    }
+    /* fin navbar */
    /* cotizar */
     .cont-categories .cotizar-items:first-child {
         margin-left: 1rem;
