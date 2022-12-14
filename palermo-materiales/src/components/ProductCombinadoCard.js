@@ -25,7 +25,7 @@ const ProductCombinadoCard = (props) => {
   
 
   return (
-    <div className="product-card " key={props?.id}>
+    <div className="product-card ">
       <div className="img-card-container">
         <img alt="producto" src={(props?.foto) ? props?.foto : SinImagen} />
       </div>

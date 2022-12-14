@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import ListBestSellers from '../components/cotizar/ListBestSellers.js'
 import ListCategories from '../components/cotizar/ListCategories.js'
 import ListFilters from '../components/cotizar/ListFilters.js'
-import SubcategoryResults from '../components/cotizar/SubcategoryResults.js'
+import SubCategoryResults from '../components/cotizar/SubCategoryResults.js'
 
 const Cotizar = () => {
     const [subcategories, setSubCategories] = useState([])
@@ -17,6 +17,7 @@ const Cotizar = () => {
     let navigate = useNavigate()
 
     const selectSubcategory = (category) => {
+        setSubCategories([]);
         if(category.id === 132) {
             navigate(`/producto-techo/${category.id}`)
         } else {
@@ -40,6 +41,8 @@ const Cotizar = () => {
     })
 
     const clearFilter = ((indice) => {
+        
+        setSubCategories([]);
         const newFilters = filters.filter((item, index) => index < indice);
         setFilters(newFilters);
         const category_id = indice !== 0 ? filters[indice-1].id : filters[indice].padre_id;
@@ -79,9 +82,9 @@ const Cotizar = () => {
             <ListFilters filters={filters} clearFilter={clearFilter}/>
         </div>
         <div className="row cont-sub-result">
-            <SubcategoryResults subcategories={subcategories} selectSubcategory={selectSubcategory} subcategoriesIsLoading={subcategoriesIsLoading} />
+            <SubCategoryResults subcategories={subcategories} selectSubcategory={selectSubcategory} subcategoriesIsLoading={subcategoriesIsLoading} />
             <div className="col-md-12 cont-best-sellers">
-                { bestSellers.length > 0 && subcategories.length === 0 ?   <ListBestSellers products={bestSellers}/> : "" }
+                { bestSellers.length > 0 && subcategories.length === 0 && subcategoriesIsLoading === false ?   <ListBestSellers products={bestSellers}/> : "" }
             </div>
         </div>
         <div className="footer-image-cotizar">

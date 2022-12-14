@@ -888,6 +888,7 @@ input[type="radio"]:checked {
 }
 
 .cont-sucategory-results {
+    padding-bottom: 1.5rem;
     padding-left: 9rem;
     max-width: 100vw;
     box-sizing: border-box;
@@ -904,25 +905,28 @@ input[type="radio"]:checked {
   display: flex;
   justify-content: center;
   align-content: center;
-  gap: 10em;
   width: 70%;
+  padding: 3rem;
   margin: 5em auto;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
 .card-product img {
-  height: 100%;
   width: 100%;
 }
-.contador {
-  border: 1px solid #d8d8d8;
-  min-width: 100%;
-  padding: 0.8rem;
-  margin-bottom: 1rem;
-  cursor: pointer;
+.info-card-product {
+    padding-left: 1.5rem;
 }
 .contador {
   display: flex;
   justify-content: space-between;
+  border: 1px solid #d8d8d8;
+  min-width: 100%;
+  padding: 0.8rem 0;
+  margin-bottom: 1rem;
+}
+.contador .button-change-count {
+    cursor: pointer;
+    padding: 0 1rem;
 }
 .cotizar-table {
   display: flex;
@@ -1107,7 +1111,7 @@ input[type="radio"]:checked {
 @media (max-width: 700px) 
 {
    /* cotizar */
-   .cont-categories .cotizar-items:first-child {
+    .cont-categories .cotizar-items:first-child {
         margin-left: 1rem;
     }
     .cont-text-category {
@@ -1124,49 +1128,60 @@ input[type="radio"]:checked {
         margin-left: 1rem;
     }
     .cont-sucategory-results {
-        flex-wrap: nowrap;
-        overflow-x: scroll;
         padding: 0rem 1rem 1rem 0;
     }
     .cont-best-sellers {
         padding-left: inherit;
     }
-    
+    .cont-sucategory-results {
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+    }
    /* fin cotizar */
-  .container-history-set-product {
-    padding: 1rem 1rem;
-  }
-  .btn-secondary,
-  .btn-primary {
-    width: 100%;
-  }
-  .cont-gral-set-product {
-    padding: 2rem 2rem;
-  }
-  .cont-img {
-    height: 13rem;
-    width: 13rem;
-    margin: auto;
-    margin-bottom: 1rem;
-  }
-  .image-titles {
-    padding: 1rem 0;
-  }
-  .images-container .text-img:first-child {
-    display: none;
-  }
-  .categories {
-    padding-right: 2em;
-  }
-  .footer {
-    padding: 1em 0.5em;
-  }
-  .products {
-    justify-content: flex-start;
-  }
-  .img-container Input {
-    width: 80%;
-  }
+
+   /* producto */
+    .card-product {
+        width: 90%;
+        padding: 1rem;
+    }
+    .info-card-product {
+        padding-left: inherit;
+    }
+   /* fin producto */
+      .container-history-set-product {
+        padding: 1rem 1rem;
+      }
+      .btn-secondary,
+      .btn-primary {
+        width: 100%;
+      }
+      .cont-gral-set-product {
+        padding: 2rem 2rem;
+      }
+      .cont-img {
+        height: 13rem;
+        width: 13rem;
+        margin: auto;
+        margin-bottom: 1rem;
+      }
+      .image-titles {
+        padding: 1rem 0;
+      }
+      .images-container .text-img:first-child {
+        display: none;
+      }
+      .categories {
+        padding-right: 2em;
+      }
+      .footer {
+        padding: 1em 0.5em;
+      }
+      .products {
+        justify-content: flex-start;
+      }
+      .img-container Input {
+        width: 80%;
+      }
 
 }
 
