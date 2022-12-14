@@ -3,6 +3,7 @@
   padding: 0;
   margin: 0;
 }
+.table {margin-bottom: 0;}
 ::-webkit-scrollbar {
     display: none;
 }
@@ -546,23 +547,6 @@ hr {
   width: 81%;
 }
 
-.table-container {
-  margin: 0 5em;
-}
-.table th {
-  padding: 1.5em;
-}
-.table td {
-  padding: 2.5em;
-}
-.table div {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  gap: 1em;
-  margin-right: 1em;
-  margin-top: 2em;
-}
 .stepper-checkout div {
   display: flex;
   justify-content: center;
@@ -576,13 +560,17 @@ hr {
   align-items: center;
 }
 .stepper-checkout {
-  display: flex;
-  justify-content: flex-start;
-  gap: 7em;
-  margin: 0 2.5em;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 1em;
+    padding: 1.2rem 2.5em;
+    border-bottom: 0.5px solid #ebeaea;
 }
 .stepper-checkout img {
   height: 24px;
+}
+.stepper-checkout > div {
+    padding-right: 2.8rem;
 }
 
 .table-header {
@@ -597,16 +585,10 @@ hr {
   font-weight: bold;
 }
 
-/* tablas carrito */
-.t-header {
-  background: #fff0dd;
-}
-tr.cont-columns-table > th:first-child, tr.cont-columns-table > td:first-child {
-  width: 40%;
-}
+
 
 .accordion {
-  background-color: #eee;
+  background-color: #ffffff;
   color: #444;
   cursor: pointer;
   padding: 18px;
@@ -615,13 +597,18 @@ tr.cont-columns-table > th:first-child, tr.cont-columns-table > td:first-child {
   border: none;
   outline: none;
   transition: 0.4s;
+  border-bottom: 0.5px solid #c2c2c2;
 }
 .panel {
-  padding: 0 18px;
   background-color: white;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
+}
+.item-panel {
+    padding: 1rem 18px;
+    border-bottom: .5px solid #d1d1d1;
+    background-color: #f1f1f1;
 }
 /* tabla carrito */
 
@@ -649,22 +636,29 @@ tr.cont-columns-table > th:first-child, tr.cont-columns-table > td:first-child {
 }
 
 .checkout-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  margin-top: 1rem;
+}
+.cont-gral-table-resumen {
+    margin: 0 2.5rem ;
 }
 .price-container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  background: #f3f3f3;
+  background: #ebeaea;
+  border-radius: 5px;
+  padding: 1.3rem 0;
 }
 .button-container {
   display: flex;
   justify-content: space-evenly;
   gap: 1em;
-  width: auto;
+  padding-left: 1rem;
+  align-items: center;
+}
+.button-container .btn-primary, .button-container .btn-secondary {
+    margin-bottom: 0;
 }
 .stepper-checkout .active p {
   color: #ff9817;
@@ -918,7 +912,7 @@ input[type="radio"]:checked {
 }
 .contador {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   border: 1px solid #d8d8d8;
   min-width: 100%;
   padding: 0.8rem 0;
@@ -939,12 +933,10 @@ input[type="radio"]:checked {
 
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
-.cotizar-table .header {
-  padding: 2em 0;
+
+.header {
   color: #000;
   background-color: #fdf3ea;
-}
-.cotizar-table .header {
   padding: 1em 4em;
   height: 5em;
   width: 100%;
@@ -979,6 +971,14 @@ input[type="radio"]:checked {
     align-items: center;
     background: #ebebeb;
 }
+
+/* checkout */
+.checkout .header, .table.accordion, .panel .item-panel {
+    display: grid;
+    grid-template-columns: 40% 15% 15% 15% 15%;
+}
+
+/* fin checkout */
 
 
 /* loading product */
@@ -1151,11 +1151,31 @@ input[type="radio"]:checked {
     .cotizar-table {
         width: 90%;
     }
-    .cotizar-table .header, .cotizar-table .items-container, .cotizar-table .table-footer {
+    .header, .cotizar-table .items-container, .cotizar-table .table-footer {
         padding: 0.8rem;
         grid-template-columns: 52% 20% 26%;
     }
    /* fin producto */
+
+   /* checkout */
+       .cont-gral-table-resumen {
+            margin: 0 1rem;
+        }
+        .button-container {
+            padding-left: 0;
+            margin-top: 1rem;
+            flex-direction: column;
+        }
+        .stepper-checkout {
+            padding: 1.2rem 1em;
+        }
+        .stepper-checkout > div {
+            padding-right: 1.2rem;
+        }
+        .table-container.checkout {
+            font-size: .7rem;
+        }
+   /* fin checkout */
       .container-history-set-product {
         padding: 1rem 1rem;
       }

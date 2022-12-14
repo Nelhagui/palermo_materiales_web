@@ -20,7 +20,6 @@ const Checkout = () => {
   useEffect(() => {
     cart.map((e) => {
       setItems(e.cotizacion.subtotal)
-      return console.log(e)
     })
   }, [cart])
 
@@ -30,8 +29,8 @@ const Checkout = () => {
 
 
   return (
-    <div className="wrapper">
-        <div className="stepper-checkout p-5">
+    <div className="container-fluid wrapper">
+        <div className="stepper-checkout">
             <div className="active">
                 <img src={DetailIcon} style={{ fill: '#FF9817' }} alt="icon" />
                 <p>Detalle</p>
@@ -45,46 +44,33 @@ const Checkout = () => {
                 <p>Pago</p>
             </div>
         </div>
-    <div className="table-containerr">
-        <table className="table">
-            <thead className="t-header">
-                <tr className="cont-columns-table">
-                    <th scope="col">Productos simples</th>
-                    <th scope="col">Superf.</th>
-                    <th scope="col">Cantidad</th>
-                    <th scope="col">Precio Un.</th>
-                    <th scope="col">Precio Final</th>
-                </tr>
-            </thead>
-        </table>
-            
-            
-            {cart.map((c) => {
-            return  <ItemsCart item={c} key={Math.random()}></ItemsCart>
-            })}
-            
-            {/* <div className="icon-container">
-                <img alt="icon" style={{ width: '1em' }} src={DeleteIcon} />
-                <img
-                    className="chevron"
-                    alt="icon"
-                    src={ChevronDown}
-                    onClick={openRow}
-                />
-                </div> */}
-        
-    </div>
-        <div className="checkout-container m-4">
-            <div className="price-container fw-normal h5 col-4 mr-5">
-                <p>Costo total:</p>
-                <p>${totalPrice}</p>
-            </div>
-            <div className="button-container col-6 text-center">
-                <div className="btn-primary px-5 py-3 col " style={{ color: '#FF9817' }} >
-                    <p className="my-auto">AGREGAR MÁS PRODUCTOS</p>
+        <div className='cont-gral-table-resumen'>
+            <div className="table-container checkout">
+                <div className="header fw-bold">
+                    <div className='item-head'>Productos simples</div>
+                    <div className='item-head'>Superf</div>
+                    <div className='item-head'>Cant</div>
+                    <div className='item-head'>Precio Un</div>
+                    <div className='item-head'>Precio Final</div>
                 </div>
-                <div className="btn-secondary p-3 col">
-                    <p> <Link to="/checkout/data">CONTINUAR</Link> </p>
+                    
+                {cart.map((c) => {
+                    return  <ItemsCart item={c} key={Math.random()}></ItemsCart>
+                })}
+                
+            </div>
+            <div className="row checkout-container fw-bold">
+                <div className="price-container col-md-7 col-12">
+                    <p>Costo total:</p>
+                    <p>${totalPrice}</p>
+                </div>
+                <div className="button-container col-md-5 col-12 text-center">
+                    <div className="btn-secondary" >
+                        <p className="my-auto">AGREGAR MÁS PRODUCTOS</p>
+                    </div>
+                    <div className="btn-primary">
+                        <p> <Link to="/checkout/data">CONTINUAR</Link> </p>
+                    </div>
                 </div>
             </div>
         </div>

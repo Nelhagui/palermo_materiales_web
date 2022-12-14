@@ -15,33 +15,25 @@ const ItemsCart = ({item}) => {
 
     return (
         <>
-            <table className={tabActive ? "table accordion active" : "table accordion" } onClick={()=> changeTabActive()}>
-                <tbody>
-                    <tr className="cont-columns-table">
-                        <td>{item.producto_combinado.titulo}</td>
-                        <td>{item.producto_combinado.unidad}</td>
-                        <td>{item.cotizacion.cantidad}</td>
-                        <td>-</td>
-                        <td>${item.subtotal}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div className={tabActive ? "table accordion active" : "table accordion" } onClick={()=> changeTabActive()}>
+                <div>{item.producto_combinado.titulo}</div>
+                <div>{item.producto_combinado.unidad}</div>
+                <div>-</div>
+                <div>-</div>
+                <div>${item.subtotal}</div>
+            </div>
             <div className="panel" style={{ maxHeight: styleMaxHeight }}>
-                <table className="table">
-                    <tbody>
-                        {item?.producto_combinado?.productos_simples?.map((p) => {
-                            return (
-                                <tr className="cont-columns-table">
-                                    <td>{p.alias}</td>
-                                    <td>{p.unidad}</td>
-                                    <td>{p.cantidad}</td>
-                                    <td>{p.precio_x_unidad}</td>
-                                    <td>${p.subtotal}</td>
-                                </tr>
-                            )
-                        })}
-                    </tbody>
-                </table>
+                {item?.producto_combinado?.productos_simples?.map((p) => {
+                    return (
+                        <div className="item-panel">
+                            <td>{p.alias}</td>
+                            <td>-</td>
+                            <td>{p.cantidad}</td>
+                            <td>${p.precio_x_unidad}</td>
+                            <td>${p.subtotal}</td>
+                        </div>
+                    )
+                })}
             </div>
         </>
     )
