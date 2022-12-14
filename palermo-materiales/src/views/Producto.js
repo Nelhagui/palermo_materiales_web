@@ -74,56 +74,50 @@ const Producto = () => {
                     <div className="mt-5">
                         <p>Ingresar metro cuadrado:</p>
                         <div className="button-container mt-4">
-                            <div className="contador col-4" style={{ minWidth: 'fit-content' }} >
+                            <div className="contador col-5" style={{ minWidth: 'fit-content' }} >
                                 <div className="button-change-count" onClick={() => handleRest()}> - </div>
                                 <div>{cont}</div>
                                 <div className="button-change-count" onClick={() => handleAdd()}> + </div>
                             </div>
-                            <button className="btn-primary" onClick={handleNull}>
-                                COTIZAR
-                            </button>
+                            <div className='col-7'>
+                                <button className="btn-primary" onClick={handleNull}> COTIZAR </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         { productCotizado.hasOwnProperty('cotizacion') ?
-            <div className="cotizar-table container">
-                <div className="header">
-                    <div className="productos-simples">Productos simples</div>
-                    <div className="cotizar-cantidad">Cantidad</div>
-                    <div className="cotizar-precio">Precio Un.</div>
-                </div>
-                <div className="items">
-                    <div>
-                        <div className="items-container">
-                            <div className="productos-simples-items col-4">
-                                {productCotizado?.producto_combinado?.titulo}
-                            </div>
-                            <div className="productos-cantidad-cotizar">{cont} </div>
-                            <div>${productCotizado?.cotizacion?.producto_combinado?.subtotal}</div>
+                <>
+                    <div className="cotizar-table container">
+                        <div className="header fw-bold">
+                            <div className="productos-simples">Productos simples</div>
+                            <div className="cotizar-cantidad">Cant.</div>
+                            <div className="cotizar-precio">Precio Un.</div>
+                        </div>
+                        {productCotizado?.producto_combinado?.productos_simples.map((p) => {
+                            return (
+                                <div className="items-container" style={{ backgroundColor: '#F7F7F7 !important' }}  key={Math.random()}>
+                                    <div className="productos-simples-items">{p?.alias}</div>
+                                    <div className="productos-cantidad-cotizar">
+                                        {p?.cantidad}
+                                    </div>
+                                    <div className='productos-subtotal'> $ {p?.subtotal}</div>
+                                </div>
+                            )})
+                        }
+                        <div className="table-footer fw-bold">
+                            <div className="productos-simples"> TOTAL</div>
+                            <div className="cotizar-cantidad">{productCotizado?.cotizacion.cantidad}</div>
+                            <div className="cotizar-precio">${productCotizado?.cotizacion.subtotal}</div>
                         </div>
                     </div>
-                </div>
-                {productCotizado?.producto_combinado?.productos_simples.map((p) => {
-                return (
-                    <div key={Math.random()}>
-                        <div className="total-container fw-bold" style={{ backgroundColor: '#F7F7F7 !important' }} >
-                            <div className="productos-simples-items col-4">{p?.alias}</div>
-                            <div className="productos-cantidad-cotizar">
-                                {p?.cantidad}
-                            </div>
-                            <div> $ {p?.subtotal}</div>
-                        </div>
+                    <div className="button-add">
+                        <button className="btn-primary mt-5" onClick={() => addToCart()}>
+                            Agregar al carrito
+                        </button>
                     </div>
-                )})
-                }
-                <div className="button-add">
-                    <button className="btn-primary mt-5" onClick={() => addToCart()}>
-                        Agregar al carrito
-                    </button>
-                </div>
-            </div>
+                </>
             :
             ""
         }

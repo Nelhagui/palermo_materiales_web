@@ -933,7 +933,7 @@ input[type="radio"]:checked {
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  width: fit-content;
+  width: 70%;
   height: auto;
   padding: 0 !important;
 
@@ -945,38 +945,39 @@ input[type="radio"]:checked {
   background-color: #fdf3ea;
 }
 .cotizar-table .header {
+  padding: 1em 4em;
   height: 5em;
-  width: 60em;
+  width: 100%;
   display: grid;
-  grid-template-columns: 40% auto auto;
+  grid-template-columns: 60% 20% 20%;
   justify-content: space-around;
+  align-items: center;
 }
 .items-container {
-  padding:1em 4em;
-  width: 60em;
-  gap: 13em;
-  display: grid;
-  grid-template-columns: 40% auto auto;
-  justify-content: start;
-  align-items: center;
-  background-color:#fff;
+    padding:1em 4em;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 60% 20% 20%;
+    justify-content: start;
+    align-items: center;
+    border-bottom: 0.5px solid #cdcdcd;
 }
-.total-container {
-  padding:1em 4em;
-  margin-top: 1em;
-  width: 60em;
-  gap: 13em;
-  display: grid;
-  grid-template-columns: 40% auto auto;
-  justify-content: start;
-  align-items: center;
 
+.items-container div{
+    margin: 1rem 0;
 }
-.total-container div{
-  margin-bottom:2em;
+
+.cotizar-table .cotizar-cantidad, .cotizar-table .productos-cantidad-cotizar, .cotizar-table .cotizar-precio, .cotizar-table .productos-subtotal {
+    text-align: center;
 }
-.items-container div {
-  margin-bottom: 2em;
+.table-footer {
+    display: grid;
+    grid-template-columns: 60% 20% 20%;
+    width: 100%;
+    padding: 1em 4em;
+    height: 6em;
+    align-items: center;
+    background: #ebebeb;
 }
 
 
@@ -1146,6 +1147,13 @@ input[type="radio"]:checked {
     }
     .info-card-product {
         padding-left: inherit;
+    }
+    .cotizar-table {
+        width: 90%;
+    }
+    .cotizar-table .header, .cotizar-table .items-container, .cotizar-table .table-footer {
+        padding: 0.8rem;
+        grid-template-columns: 52% 20% 26%;
     }
    /* fin producto */
       .container-history-set-product {
