@@ -2,7 +2,7 @@ import React from 'react'
 import {createRoot} from 'react-dom/client'
 import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import Home from './views/Home.js'
 import Empresa from './views/Empresa.js'
 import NavBar from './components/NavBar.js'
@@ -25,7 +25,7 @@ const root = createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
     <CartState>
-    <BrowserRouter>
+    <HashRouter>
       <NavBar style={{ boxShadow: ' 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important' }} />
       <Routes>
         <Route path="" element={<Home />} />
@@ -45,7 +45,7 @@ root.render(
       <Footer />
       <hr />
       <TyC />
-    </BrowserRouter>
+    </HashRouter>
     </CartState>
   </React.StrictMode>,
 )

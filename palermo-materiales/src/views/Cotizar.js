@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import ListBestSellers from '../components/cotizar/ListBestSellers.js'
 import ListCategories from '../components/cotizar/ListCategories.js'
 import ListFilters from '../components/cotizar/ListFilters.js'
-import SubCategoryResults from '../components/cotizar/SubCategoryResults.js'
+import SubCategoryResults from '../components/cotizar/SubcategoryResults.js'
 
 const Cotizar = () => {
     const [subcategories, setSubCategories] = useState([])
