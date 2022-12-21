@@ -10,14 +10,14 @@ import AndroidDownload from '../assets/img/playstore2.png'
 const Empresa = () => {
   return (
         <>
-            <div class="container-fluid wrapper">
-                <div class="row about-image-text">
-                    <div class="col-md-6 about-image">
+            <div className="container-fluid wrapper">
+                <div className="row about-image-text">
+                    <div className="col-md-6 about-image">
                         <video src={Video} autoPlay style={{width:'100%'}} >
                             Tu navegador no admite el elemento <code>video</code>.
                         </video>
                     </div>
-                    <div class="col-md-6 about-text">
+                    <div className="col-md-6 about-text">
                         <h1>Palermo Materiales</h1>
                         <p>
                             A finales de la década de los 70 surge esta empresa familiar, hoy con la segunda generación a cargo.
@@ -28,18 +28,18 @@ const Empresa = () => {
                         </p>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12 info-boxes">
-                        <div class="row app-titles">
-                            <div class="col-md-12">
+                <div className="row">
+                    <div className="col-md-12 info-boxes">
+                        <div className="row app-titles">
+                            <div className="col-md-12">
                                 <h2>Descargá nuestra aplicación</h2>
                                 <p>
                                     Obtené tu presupuesto al instante, comprá y elegí tu forma de pago
                                 </p>
                             </div>
                         </div>
-                        <div class="row cont-boxes">
-                            <div class="col-md-4">
+                        <div className="row cont-boxes">
+                            <div className="col-md-4">
                                 <div className="row box">
                                     <div className="col-12 col-md-2">
                                         <img src={EcommerceIcon} alt="icon" />
@@ -51,7 +51,7 @@ const Empresa = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div className="col-md-4">
                                 <div className="row box">
                                     <div className="col-12 col-md-2">
                                         <img src={PresuIcon} alt="icon" />
@@ -63,7 +63,7 @@ const Empresa = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div className="col-md-4">
                                 <div className="row box">
                                     <div className="col-12 col-md-2">
                                         <img src={FormaIcon} alt="icon" />
@@ -78,7 +78,7 @@ const Empresa = () => {
                         </div>
                     </div>
                 </div>
-                <div class="row footer-image">
+                <div className="row footer-image">
                     <div className="col-md-6 pl-2 d-flex align-items-center justify-content-end">
                         <p className="text-left">
                             <strong>Comienza ahora</strong> descargando <br /> nuestra aplicación mobile
