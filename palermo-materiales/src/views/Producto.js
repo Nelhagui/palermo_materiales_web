@@ -42,12 +42,16 @@ const Producto = () => {
   }
 
   function handleNull() {
-      const cotizarBody = {
-        cantidad: cont,
-        producto_combinado_id: id,
-      }
-      axios.post('https://test.api.palermomateriales.com.ar/api/cotizador/cotizar', cotizarBody)
-            .then( (response) => setProductCotizado(response.data))
+    const cotizarBody = {
+      cantidad: cont,
+      producto_combinado_id: id,
+    };
+    axios
+      .post(
+        "https://test.api.palermomateriales.com.ar/api/cotizador/cotizar",
+        cotizarBody
+      )
+      .then((response) => setProductCotizado(response.data));
   }
   console.log(cart);
 
