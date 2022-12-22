@@ -1,7 +1,6 @@
 import ProductSimpleCard from "../ProductSimpleCard.js";
 
 const ListProducts = ({products}) => {
-    console.log(products);
   return (
         <>
             {products?.map((p) => {

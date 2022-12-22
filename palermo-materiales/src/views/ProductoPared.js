@@ -11,8 +11,8 @@ import CartContext from '../context/CartContext.js'
 const ProductoPared = () => {
   let { id } = useParams()
   const [product, setProduct] = useState()
-  const [ancho, setAncho] = useState(0)
-  const [largo, setLargo] = useState(0)
+  const [ancho, setAncho] = useState(1)
+  const [largo, setLargo] = useState(1)
   const [postRes, setPostRes] = useState([])
   const [total, setTotal] = useState([])
   const [item, setItem] = useState([])
@@ -96,54 +96,46 @@ const ProductoPared = () => {
         <h4>¿Querés saber cuánto material necesitás cubrir?</h4>
         <h4>Comienza eligiendo una categoria</h4>
       </div>
-
-      <div className="card-product p-5 ">
-        <img
-          className="foto-cotizar"
-          src="https://api.palermomateriales.com.ar/images/productos/cotizables/CONST_HUMEDA.jpg"
-          alt="foto"
-        />
-        <div>
-          <div>
-            <h1>Construccion humeda</h1>
-            <hr />
-            <p></p>
-          </div>
-          <div className="button-container mt-4">
-            <div>
-              <p>Ingresar altura:</p>
-              <div className="button-container mt-4">
-                <div className="contador ">
-                  <div className="h4" onClick={() => handleRestLargo()}>
-                    -
-                  </div>
-                  <div>{largo}</div>
-                  <div className="h4" onClick={() => handleAddLargo()}>
-                    +
-                  </div>
-                </div>
-              </div>
+      <div className="card-product pared">
+        <div className='row'>
+            <div className='img-conte col-12 col-md-4'>
+                {/* <img src={product?.foto} alt="foto" /> */}
+                <img src="https://api.palermomateriales.com.ar/images/productos/cotizables/CONST_HUMEDA.jpg" alt="foto" />
             </div>
-            <div className="">
-              <p>Ingresar ancho:</p>
-              <div className="button-container mt-4">
-                <div className="contador">
-                  <div className="h4" onClick={() => handleRestAncho()}>
-                    -
-                  </div>
-                  <div>{ancho}</div>
-                  <div className="h4" onClick={() => handleAddAncho()}>
-                    +
-                  </div>
+            <div className='info-card-product col-12 col-md-8'>
+                <div className='titulo-pared'>
+                    <h1>Construcción Húmeda</h1>
                 </div>
-              </div>
+                <div className="row cont-btn-actions">
+                    <div className='col-md-6 col-12 btn-action '>
+                        <p>Ingresar Altura:</p>
+                        <div className="button-container mt-2">    
+                            <div className="contador col-12 col-md-5" style={{ minWidth: 'fit-content' }} >
+                                <div className="button-change-count" onClick={() => handleRestLargo()}> - </div>
+                                <div>{largo}</div>
+                                <div className="button-change-count" onClick={() => handleAddLargo()}> + </div>
+                            </div>
+                        </div>
+                    </div> 
+                    <div className='col-md-6 col-12 btn-action '>
+                        <p>Ingresar Ancho:</p>
+                        <div className="button-container mt-2">    
+                            <div className="contador col-12 col-md-5" style={{ minWidth: 'fit-content' }} >
+                                <div className="button-change-count" onClick={() => console.log('hola')}> - </div>
+                                <div>0</div>
+                                <div className="button-change-count" onClick={() => console.log('hola')}> + </div>
+                            </div>
+                        </div>
+                    </div> 
+                    <div className='col-12 col-md-12 mt-4'>
+                        <button className="btn-primary" onClick={()=>{console.log('cotizar')}}> COTIZAR </button>
+                    </div>
+                </div>
             </div>
-          </div>
-          <button className="btn-primary" onClick={handleNull}>
-            COTIZAR
-          </button>
         </div>
-      </div>
+    </div>
+
+      
 
       <div className="cotizar-table container" style={{ display: 'none' }}>
         <div className="header">

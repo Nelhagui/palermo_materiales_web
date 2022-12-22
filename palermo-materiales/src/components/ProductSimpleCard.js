@@ -31,7 +31,7 @@ const ProductSimpleCard = (props) => {
         <img alt="producto" src={(props?.producto?.foto) ? props?.producto.foto : SinImagen} />
       </div>
       <div className="produc-card-info">
-        <p className="price">{props?.producto?.productos_simples[0]?.precio_x_unidad}</p>
+        <p className="price">${props?.producto?.productos_simples[0]?.precio_x_unidad}</p>
         <p className="title">{props?.producto?.productos_simples[0]?.alias?.toLowerCase()}</p>
         <button onClick={handleClick} className="btn-secondary">
           {props.buttonTitle}

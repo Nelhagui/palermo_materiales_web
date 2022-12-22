@@ -77,13 +77,15 @@ const Producto = () => {
                     </div>
                     <div className="mt-5">
                         <p>Ingresar metro cuadrado:</p>
-                        <div className="button-container mt-4">
-                            <div className="contador col-5" style={{ minWidth: 'fit-content' }} >
-                                <div className="button-change-count" onClick={() => handleRest()}> - </div>
-                                <div>{cont}</div>
-                                <div className="button-change-count" onClick={() => handleAdd()}> + </div>
+                        <div className='row contenedor-botones'>
+                            <div className="col-12 col-md-5" >
+                                <div className='contador'>
+                                    <div className="button-change-count" onClick={() => handleRest()}> - </div>
+                                    <div>{cont}</div>
+                                    <div className="button-change-count" onClick={() => handleAdd()}> + </div>
+                                </div>
                             </div>
-                            <div className='col-7'>
+                            <div className='col-12 col-md-7'>
                                 <button className="btn-primary" onClick={handleNull}> COTIZAR </button>
                             </div>
                         </div>

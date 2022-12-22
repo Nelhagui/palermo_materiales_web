@@ -42,18 +42,20 @@ const Home = () => {
           <div className="image-titles">
             <h2 className="text-img">BUSCAR PRODUCTOS</h2>
             <h4 className="text-img">¿Estás buscando un producto puntual?</h4>
-            <button className="btn-primary">
-              <Link to="/comprar">BUSCAR POR PRODUCTOS</Link>
-            </button>
+            <Link to="/comprar">
+                <button className="btn-primary"> BUSCAR POR PRODUCTOS </button>
+            </Link>
           </div>
         </div>
         <div className="col-12 col-md-6 img2 img-home">
           <div className="image-titles">
             <h2 className="text-img">CALCULAR PRODUCTOS</h2>
             <h4 className="text-img">¿Querés saber cuánto material necesitás cubrir?</h4>
-              <button className="btn-secondary white">
-                <Link to="/cotizar">BUSCAR POR CATEGORIAS</Link>
-              </button>
+                <Link to="/cotizar">
+                    <button className="btn-secondary white">
+                        BUSCAR POR CATEGORIAS
+                    </button>
+                </Link>
           </div>
         </div>
       </div>
@@ -111,11 +113,8 @@ const Home = () => {
         </div>
       </div>
       <div className="footer-image">
-        <p style={{ margin: '1em 0 0 4em' }}>Te acompañamos</p>
-        <br />
-        <p style={{ margin: '1.5em 0px 0px 7em' }}>
-          todos tus <strong>proyectos</strong>
-        </p>
+        <p>Te acompañamos</p>
+        <p> todos tus <strong>proyectos</strong> </p>
       </div>
     </div>
   )

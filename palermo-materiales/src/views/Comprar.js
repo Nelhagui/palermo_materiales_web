@@ -82,7 +82,7 @@ const Comprar = () => {
   return (
     <div className="wrapper">
 
-      <div className="img-container text-center">
+      <div className="img-container comprar text-center">
         <h3 className="fw-bold">BUSCAR PRODUCTOS</h3>
         <h5>¿Estás buscando un producto puntual? Utiliza nuestro buscador</h5>
         <Input onKeyDown={filterBySearch} className=" mx-auto " />
