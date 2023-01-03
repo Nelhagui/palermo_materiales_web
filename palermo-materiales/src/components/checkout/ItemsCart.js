@@ -25,12 +25,12 @@ const ItemsCart = ({item}) => {
             <div className="panel" style={{ maxHeight: styleMaxHeight }}>
                 {item?.producto_combinado?.productos_simples?.map((p) => {
                     return (
-                        <div className="item-panel">
-                            <td>{p.alias}</td>
-                            <td>-</td>
-                            <td>{p.cantidad}</td>
-                            <td>${p.precio_x_unidad}</td>
-                            <td>${p.subtotal}</td>
+                        <div className="item-panel" key={Math.random()}>
+                            <div>{p.alias}</div>
+                            <div>-</div>
+                            <div>{p.cantidad}</div>
+                            <div>${p.precio_x_unidad}</div>
+                            <div>${p.subtotal}</div>
                         </div>
                     )
                 })}

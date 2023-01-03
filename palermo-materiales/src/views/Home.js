@@ -62,12 +62,11 @@ const Home = () => {
       <br />
       <div className="categories-container">
         <h1 className="mx-auto">Productos más buscados</h1>
-        <div className="categories">
+        <div className={isLoadingCategories ? "categories categories-loading" : "categories"}>
           {
             isLoadingCategories
             ?
             <>
-              <div className="btn-category loading"></div>
               <div className="btn-category loading"></div>
               <div className="btn-category loading"></div>
               <div className="btn-category loading"></div>
@@ -113,8 +112,8 @@ const Home = () => {
         </div>
       </div>
       <div className="footer-image">
-        <p>Te acompañamos</p>
-        <p> todos tus <strong>proyectos</strong> </p>
+        <p style={{ margin: '.5em 0 0 5em' }}> Te acompañamos</p>
+        <p style={{ margin: '0 0px 0px 8em' }}> todos tus <strong>proyectos</strong> </p>
       </div>
     </div>
   )

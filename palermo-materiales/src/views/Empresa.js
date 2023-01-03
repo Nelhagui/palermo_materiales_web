@@ -44,7 +44,7 @@ const Empresa = () => {
                                     <div className="col-12 col-md-2">
                                         <img src={EcommerceIcon} alt="icon" />
                                     </div>
-                                    <div className="col-12 col-md-10">
+                                    <div className="col-12 col-md-10 item-empresa">
                                         <h3>E-commerce</h3>
                                         <p>Encontrá los productos</p>
                                         <p>adecuados para la construccion</p>
@@ -56,7 +56,7 @@ const Empresa = () => {
                                     <div className="col-12 col-md-2">
                                         <img src={PresuIcon} alt="icon" />
                                     </div>
-                                    <div className="col-12 col-md-10">
+                                    <div className="col-12 col-md-10 item-empresa">
                                         <h3>Presupuesto online</h3>
                                         <p>Calculá la cantidad y el precio de</p>
                                         <p>los materiales para realizar tu obra</p>
@@ -68,7 +68,7 @@ const Empresa = () => {
                                     <div className="col-12 col-md-2">
                                         <img src={FormaIcon} alt="icon" />
                                     </div>
-                                    <div className="col-12 col-md-10">
+                                    <div className="col-12 col-md-10 item-empresa">
                                         <h3>Forma de pago</h3>
                                         <p>Pagá con Mercado Pago</p>
                                         <p>o tarjeta de crédito</p>
@@ -78,7 +78,7 @@ const Empresa = () => {
                         </div>
                     </div>
                 </div>
-                <div className="row footer-image">
+                <div className="row footer-image empresa">
                     <div className="col-md-6 pl-2 d-flex align-items-center justify-content-end">
                         <p className="text-left">
                             <strong>Comienza ahora</strong> descargando <br /> nuestra aplicación mobile

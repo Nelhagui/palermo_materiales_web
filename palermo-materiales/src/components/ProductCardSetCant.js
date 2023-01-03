@@ -1,47 +1,63 @@
-import { useState, useContext, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
-import axios from 'axios'
 import CartContext from '../context/CartContext.js'
+import Spinner from './Spinner.js'
+import axios from 'axios'
 
 const ProductCardSetCant = () => {
   const [product, setProduct] = useState(null)
+  const {cart, addProduct } = useContext(CartContext)
+  const [sendingCotizacion, setSendingCotizacion] = useState(false)
   const [productStorege] = useState(
     JSON.parse(localStorage.getItem('producto-agregar')),
   )
-  const [cont, setCont] = useState(1)
+  const [cant, setCant] = useState(1)
 
   let { id } = useParams()
   const handleRest = () => {
-    if (cont > 0) {
-        setCont(cont - 1)
+    if (cant > 0) {
+        setCant(cant - 1)
     }
   }
 
   const handleAdd = () => {
-    setCont(cont + 1)
+    setCant(cant + 1)
   }
 
-  function fetchProducto() {
-    if (id) {
-      axios
-        .get(`https://api.palermomateriales.com.ar/api/productocombinado/${id}`)
-        .then((res) => {
-          setProduct(res?.data)
-        })
-    }
+
+  function cotizarSimpleProduct() {
+    setSendingCotizacion(true);
+    const cotizarBody = {
+      cantidad: cant,
+      producto_combinado_id: id,
+    };
+    axios
+      .post(
+        "https://test.api.palermomateriales.com.ar/api/cotizador/cotizar",
+        cotizarBody
+      )
+      .then((response) => {
+        console.log(response.data)
+        addProduct([... cart, response.data])
+        console.log(cart)
+      });
   }
 
   useEffect(() => {
+    let sendFecht = false;
     if (productStorege !== null) {
-      if (productStorege.id == id) {
-        setProduct(productStorege)
-      } else fetchProducto()
-    } else {
-      fetchProducto()
+        if (productStorege.id === id) {
+            setProduct(productStorege)
+        } else { sendFecht = true; }
+    } else { sendFecht = true; }
+    if(sendFecht) {
+        if (id) {
+            axios.get(`https://api.palermomateriales.com.ar/api/productocombinado/${id}`)
+                .then((res) => { setProduct(res?.data) })
+        }
     }
-  }, [productStorege])
+  }, [productStorege, id])
 
-  console.log(product)
 
   return (
     <div className="card-product">
@@ -59,14 +75,17 @@ const ProductCardSetCant = () => {
                 <div className='row contenedor-botones'>
                     <div className="col-12 col-md-5" >
                         <div className='contador'>
-                            <div className="button-change-count" onClick={() => handleRest()}> - </div>
-                            <div>{cont}</div>
-                            <div className="button-change-count" onClick={() => handleAdd()}> + </div>
+                            <div className="button-change-count" onClick={sendingCotizacion ? null : () => handleRest()}> - </div>
+                            <div>{cant}</div>
+                            <div className="button-change-count" onClick={sendingCotizacion ? null : () => handleAdd()}> + </div>
                         </div>
                     </div>
                     <div className='col-12 col-md-7'>
-                        <button className="btn-primary" onClick={()=>{console.log('cotizar')}}> AGREGAR AL CARRITO </button>
+                        <button className={sendingCotizacion ? "btn-primary disabled" : "btn-primary"} onClick={sendingCotizacion ? null : ()=> { cotizarSimpleProduct()}}>
+                            { sendingCotizacion ? <Spinner/> : <p>AGREGAR AL CARRITO</p> }
+                        </button>
                     </div>
+
                 </div>
             </div>
         </div>

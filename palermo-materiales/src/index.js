@@ -41,9 +41,7 @@ root.render(
         <Route path='/producto-techo/:id' element={<ProductoPared/>}/>
         <Route path='/producto/agregar/:id' element={<AgregarProducto/>}/>
       </Routes>
-      <hr />
       <Footer />
-      <hr />
       <TyC />
     </HashRouter>
     </CartState>

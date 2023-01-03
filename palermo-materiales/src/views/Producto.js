@@ -1,9 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import CartContext from '../context/CartContext.js'
-import { useContext } from 'react'
-import { useEffect } from 'react'
-import { useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 const Producto = () => {
@@ -26,9 +24,10 @@ const Producto = () => {
         .then((res) => setProduct(res.data))
   }
   const validoLocalStorage = () => {
-    if(product !== null)
+    if(product !== null){
         if(Number(product.id) !== Number(id))
             fetchProducto();
+    }
     else
         fetchProducto();
   }
@@ -53,7 +52,6 @@ const Producto = () => {
       )
       .then((response) => setProductCotizado(response.data));
   }
-  console.log(cart);
 
   return (
     <div className="container-fluid wrapper">

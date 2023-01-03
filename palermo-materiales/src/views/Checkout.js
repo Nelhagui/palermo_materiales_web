@@ -2,20 +2,22 @@ import React, { useEffect, useState } from 'react'
 import DetailIcon from '../assets/img/carrito_detalle.png'
 import DataIcon from '../assets/img/carrito_datos.png'
 import PaymentIcon from '../assets/img/FormDePago_negro.png'
+import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom'
 import { useContext } from 'react'
+import axios from "axios";
 import CartContext from '../context/CartContext.js'
 import ItemsCart from '../components/checkout/ItemsCart.js'
+import Spinner from '../components/Spinner.js';
 
 const Checkout = () => {
-  const { cart } = useContext(CartContext)
+  const { cart, addProduct } = useContext(CartContext)
   const [items, setItems] = useState([])
   const [totalPrice, setTotalPrice] = useState([])
-  console.log(cart)
-
-  const showProducs = () => {
-      console.log('click')
-  }
+  const [sendingOrder, setSendingOrder] = useState(false)
+  const [isLogged] = useState( JSON.parse(localStorage.getItem('user')) )
+  const ids_cotizaciones = cart.map( (item) =>item.cotizacion.id);
+  let navigate = useNavigate()
 
   useEffect(() => {
     cart.map((e) => {
@@ -28,6 +30,38 @@ const Checkout = () => {
   }, [items])
 
 
+  const sendCart = (()=> {
+    setSendingOrder(true);
+    if(ids_cotizaciones.length > 0 )
+    {
+        if(isLogged) {
+            let data = JSON.stringify({ "cotizaciones": ids_cotizaciones });
+            let config = {
+                method: 'post',
+                url: 'https://test.api.palermomateriales.com.ar/api/orden',
+                headers: { 
+                  'Content-Type': 'application/json', 
+                  'Authorization': 'Bearer '+isLogged.token
+                },
+                data : data
+            };
+            axios(config)
+            .then(function (response) {
+                localStorage.setItem('compra', JSON.stringify(response.data))
+                addProduct([]);
+                navigate('/checkout/payment')
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        } else {
+            navigate('/checkout/data')
+        }
+    } else {
+        navigate('/cotizar')
+    }
+  });
+  
   return (
     <div className="container-fluid wrapper">
         <div className="stepper-checkout">
@@ -64,12 +98,35 @@ const Checkout = () => {
                     <p>Costo total:</p>
                     <p>${totalPrice}</p>
                 </div>
-                <div className="button-container col-md-5 col-12 text-center">
-                    <div className="btn-secondary" >
-                        <p className="my-auto">AGREGAR MÁS PRODUCTOS</p>
-                    </div>
-                    <div className="btn-primary">
-                        <p> <Link to="/checkout/data">CONTINUAR</Link> </p>
+                <div className='col-md-5 col-12 d-flex'>
+                    <div className="button-container text-center">
+                        { sendingOrder 
+                            ?
+                            <div className="btn-primary disabled">
+                                <p> AGREGAR MÁS PRODUCTOS</p>
+                            </div>
+                            :
+                            <div className="btn-secondary">
+                                <p>
+                                    <Link to="/cotizar">AGREGAR MÁS PRODUCTOS</Link>
+                                </p>
+                            </div>
+                        }
+                        { isLogged 
+                            ?
+                            <div className={sendingOrder ? "btn-primary disabled" : "btn-primary"} onClick={sendingOrder ? null : ()=> {sendCart()}}>
+                                { sendingOrder
+                                    ?
+                                    <Spinner/>
+                                    :
+                                    <p>CONTINUAR</p>
+                                }
+                            </div>
+                           :
+                            <div className="btn-primary">
+                                <p> <Link to="/checkout/data">CONTINUAR</Link> </p>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>

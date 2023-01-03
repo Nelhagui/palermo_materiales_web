@@ -9,8 +9,76 @@ import MapView from '../components/MapView.js'
 
 const Contacto = () => {
   return (
-    <div className="wrapper">
-      <div style={{ backgroundColor: '#F6F6F6' }} className="info-body">
+    <div className="container-fluid wrapper">
+        <div className='row'>
+            <div className='col-12 col-lg-8 cont-form'>
+                <div>
+                    <h1> Dejanos tus consultas </h1>
+                    <p> Contanos con atención personalizada tanto para arquitectos y emprendedores. </p>
+                    <form action="" className='form-contacto' >
+                        <div className='row'>
+                            <div className='col-12 col-lg-6'>
+                                <div className='inputs-cols-1'>
+                                    <label htmlFor="nombre">Ingresa tu nombre</label>
+                                    <input type="text" name='nombre'/>
+                                </div>
+                            </div>
+                            <div className='col-12 col-lg-6'>
+                                <div className='inputs-cols-2'>
+                                    <label htmlFor="email">Ingresa tu email</label>
+                                    <input type="text" name='email'/>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='col-12'>
+                            <div>
+                                <label htmlFor="comentario">Comentario</label>
+                                <textarea name="comentario" id="comentario" cols="5" rows="5"></textarea>
+                            </div>
+                        </div>
+                        <div className='col-12 d-flex justify-content-center'>
+                            <button className="btn-primary">ENVIAR</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div className='col-12 col-lg-4 cont-info-boxes'>
+                <h2>Contactate con nosotros</h2>
+                <div className="box-item-contacto d-flex">
+                    <img src={TelefonoNaranja} className="mb-auto" style={{width: '1.5em', marginRight: '1em'}} alt="img" />
+                    <div>
+                        <h4>Nuestros telefonos</h4>
+                        <p>+549(011) 21849984 | 4899-0110</p>
+                    </div>
+                </div>
+                <div className="box-item-contacto d-flex">
+                    <img src={MailNaranja} className="mb-auto" style={{width: '1.5em', marginRight: '1em'}} alt="img" />
+                    <div>
+                        <h4>Consultas por email</h4>
+                        <p>ventas@palermomateriales.com.ar</p>
+                    </div>
+                </div>
+                <div className="box-item-contacto d-flex">
+                    <img src={HorarioNaranja} className="mb-auto" style={{width: '1.5em', marginRight: '1em'}} alt="img" />
+                    <div>
+                        <h4>Horarios de atencion</h4>
+                        <p>Lun. a Vier. de 07.30 a 12.00hs</p>
+                        <p>y 13.00 a 17.00hs</p>
+                    </div>
+                </div>
+                <div className="box-item-contacto d-flex">
+                    <img src={UbiNaranja} className="mb-auto" style={{width: '1.5em', marginRight: '1em'}} alt="img" />
+                    <div>
+                        <h4>Ubicacion</h4>
+                        <p>Av. Juan B. Justo 1700 (C1313BHB)</p>
+                        <p>CABA, Argentina</p>
+                        <p>Estacionamiento por J.A. Cabrera 5454</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      {/* <div style={{ backgroundColor: '#F6F6F6' }} className="info-body">
         <div className="contact-container">
           <div className="contact-title m-5">
             <h1>Dejanos tus consultas</h1>
@@ -45,40 +113,20 @@ const Contacto = () => {
         <aside className="contact-info col  ">
           <h1 className="mt-4 pt-3 px-3 h2">Contactate con nosotros</h1>
           <div className="container-info my-5">
-            <div className="info-box  ">
-              <img src={TelefonoNaranja} className="mb-auto" style={{width: '1.5em'}} alt="img" />
-              <div>
-                <h4>Nuestros telefonos</h4>
-                <h5>+549(011) 21849984 | 4899-0110</h5>
-              </div>
-            </div>
+            
+            
+            
+
             <div className="info-box ">
-              <img src={MailNaranja} className="mb-auto" style={{width: '1.5em'}} alt="img" />
+              
               <div>
-                <h4>Consultas por email</h4>
-                <h5>ventas@palermomateriales.com.ar</h5>
+                
               </div>
             </div>
-            <div className="info-box ">
-              <img src={HorarioNaranja} className="mb-auto" style={{width: '1.5em'}} alt="img" />
-              <div>
-                <h4>Horarios de atencion</h4>
-                <h5>Lun. a Vier. de 07.30 a 12.00hs</h5>
-                <h5>y 13.00 a 17.00hs</h5>
-              </div>
-            </div>
-            <div className="info-box ">
-              <img src={UbiNaranja} className="mb-auto" style={{width: '1.5em'}} alt="img" />
-              <div>
-                <h4>Ubicacion</h4>
-                <h5>Av. Juan B. Justo 1700 (C1313BHB)</h5>
-                <h5>CABA, Argentina</h5>
-                <h6>Estacionamiento por J.A. Cabrera 5454</h6>
-              </div>
-            </div>
+
           </div>
         </aside>
-      </div>
+      </div> */}
       <MapView/>
     </div>
   )

@@ -10,7 +10,7 @@ const Comprar = () => {
   const [catId, setCatId] = useState(1)
   const [subcategories, setSubCategories] = useState([])
   const [products, setProducts] = useState([]);
-  const [isSetCant, setIsSetCant] = useState(false);
+  const [isSetCant] = useState(false);
 
   const reorganizoData = (data) => {
       const prodOrganizados = [];
@@ -24,31 +24,16 @@ const Comprar = () => {
 
   const filterBySearch = (e) => {
     const query = e?.target?.value
-    // console.log(e?.target?.value)
-    // var updatedList = [...products]
-    if(e?.key == "Enter")
+    if(e?.key === "Enter")
     {
         if(query.length > 3)
         {
-            // https://test.api.palermomateriales.com.ar/api/productocombinado/simple/categorias/buscar?q=
-              axios
-              .get(`https://test.api.palermomateriales.com.ar/api/productocombinado/simple/categorias/buscar?q=${query}`)
+              axios.get(`https://test.api.palermomateriales.com.ar/api/productocombinado/simple/categorias/buscar?q=${query}`)
               .then((response) => {
                 reorganizoData(response.data);
               })
 
         }
-
-      // updatedList = updatedList.filter((item) => {
-      //   return item.titulo.toLowerCase().indexOf(query.toLowerCase()) !== -1
-      // })
-      // if (query) {
-      //   setProducts(updatedList)
-      // } else {
-      //   products.map((c) => {
-      //     setProducts(c)
-      //   })
-      // }
     }
   }
   useEffect(() => {
@@ -100,13 +85,15 @@ const Comprar = () => {
             </div>
         </div>      
       }
-      <div className="footer-image">
-        <p style={{ margin: '1em 0 0 10em' }}>
-          <strong>Descargate</strong> nuestra app
-        </p>
-        <br />
-        <p style={{ margin: '1.5em 0px 0px 13em' }}>y comenzá a comprar</p>
-      </div>
+        <div className="footer-image-cotizar">
+            <div>
+                  <p style={{ margin: '1em 0 0 5em' }}>
+                    <strong>Descargate</strong> nuestra app
+                  </p>
+                  <br />
+                  <p style={{ margin: '1.5em 0px 0px 8em' }}>y comenzá a operar</p>
+            </div>
+        </div>
     </div>
   )
 }
