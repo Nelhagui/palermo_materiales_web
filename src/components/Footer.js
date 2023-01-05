@@ -16,8 +16,8 @@ const Footer = () => {
                 <img src={logo} alt="logo" />
               </div>
               <div className="direction-container col">
-                <p>
-                  <strong>Av. Juan B. Justo 1700 (C1414BHB) CABA, Argentina</strong>
+                <p className="direction">
+                  Av. Juan B. Justo 1700 (C1414BHB) CABA, Argentina
                 </p>
                 <p>Lunes a Viernes de 7.30 a 12 y de 13 a 17hs</p>
               </div>
