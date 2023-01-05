@@ -4,6 +4,7 @@ import ProductCardSetCant from '../components/ProductCardSetCant.js';
 import ListCategories from '../components/comprar/ListCategories.js';
 import ListProducts from '../components/comprar/ListProducts.js';
 import axios from 'axios'
+import search from '../assets/img/Search_blanco.svg'
 
 const Comprar = () => {
   const [categories, setCategories] = useState([])
@@ -70,7 +71,10 @@ const Comprar = () => {
       <div className="img-container comprar text-center">
         <h3 className="fw-bold">BUSCAR PRODUCTOS</h3>
         <h5>¿Estás buscando un producto puntual? Utiliza nuestro buscador</h5>
-        <Input onKeyDown={filterBySearch} className=" mx-auto " />
+        <div className="busca-contain">
+          <Input onKeyDown={filterBySearch} className=" mx-auto input-busca" />
+          <button class="btn btn-primary input-group-btn btn-lg btn-search"><img src={search} alt="Search_blanco" /></button>
+        </div>
       </div>
       { isSetCant ? <ProductCardSetCant></ProductCardSetCant> :
         <div className="d-flex mt-5 mx-5 row">
@@ -86,13 +90,10 @@ const Comprar = () => {
         </div>      
       }
         <div className="footer-image-cotizar">
-            <div>
-                  <p style={{ margin: '1em 0 0 5em' }}>
-                    <strong>Descargate</strong> nuestra app
-                  </p>
-                  <br />
-                  <p style={{ margin: '1.5em 0px 0px 8em' }}>y comenzá a operar</p>
-            </div>
+          <div className="footer-text">
+            <p><strong>Descargate</strong> nuestra app</p>
+            <p>y comenzá a operar</p>
+          </div>
         </div>
     </div>
   )

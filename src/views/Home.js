@@ -43,7 +43,7 @@ const Home = () => {
             <h2 className="text-img">BUSCAR PRODUCTOS</h2>
             <h4 className="text-img">¿Estás buscando un producto puntual?</h4>
             <Link to="/comprar">
-                <button className="btn-primary"> BUSCAR POR PRODUCTOS </button>
+                <button className="btn-secondary white"> BUSCAR POR PRODUCTOS </button>
             </Link>
           </div>
         </div>
@@ -112,8 +112,10 @@ const Home = () => {
         </div>
       </div>
       <div className="footer-image">
-        <p style={{ margin: '.5em 0 0 5em' }}> Te acompañamos</p>
-        <p style={{ margin: '0 0px 0px 8em' }}> todos tus <strong>proyectos</strong> </p>
+        <div className="footer-text">
+          <p>Te acompañamos</p>
+          <p>todos tus <strong>proyectos</strong> </p>
+        </div>
       </div>
     </div>
   )

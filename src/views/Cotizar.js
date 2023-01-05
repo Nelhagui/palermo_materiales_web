@@ -88,13 +88,10 @@ const Cotizar = () => {
             </div>
         </div>
         <div className="footer-image-cotizar">
-            <div>
-              <p style={{ margin: '1em 0 0 5em' }}>
-                <strong>Descargate</strong> nuestra app
-              </p>
-              <br />
-              <p style={{ margin: '1.5em 0px 0px 8em' }}>y comenzá a operar</p>
-            </div>
+          <div className="footer-text">
+            <p><strong>Descargate</strong> nuestra app</p>
+            <p>y comenzá a operar</p>
+          </div>
         </div>
     </div>
   )

@@ -11,26 +11,26 @@ const Contacto = () => {
         <div className='row'>
             <div className='col-12 col-lg-8 cont-form'>
                 <div>
-                    <h1> Dejanos tus consultas </h1>
-                    <p> Contanos con atención personalizada tanto para arquitectos y emprendedores. </p>
+                    <h1 className="contacto-title"> Dejanos tus consultas </h1>
+                    <p className="contacto-desc"> Contanos con atención personalizada tanto para arquitectos y emprendedores. </p>
                     <form action="" className='form-contacto' >
                         <div className='row'>
                             <div className='col-12 col-lg-6'>
                                 <div className='inputs-cols-1'>
-                                    <label htmlFor="nombre">Ingresa tu nombre</label>
+                                    <label htmlFor="nombre" className="input-title">Ingresa tu nombre</label>
                                     <input type="text" name='nombre'/>
                                 </div>
                             </div>
                             <div className='col-12 col-lg-6'>
                                 <div className='inputs-cols-2'>
-                                    <label htmlFor="email">Ingresa tu email</label>
+                                    <label htmlFor="email" className="input-title">Ingresa tu email</label>
                                     <input type="text" name='email'/>
                                 </div>
                             </div>
                         </div>
                         <div className='col-12'>
                             <div>
-                                <label htmlFor="comentario">Comentario</label>
+                                <label htmlFor="comentario" className="input-title">Comentario</label>
                                 <textarea name="comentario" id="comentario" cols="5" rows="5"></textarea>
                             </div>
                         </div>
@@ -41,36 +41,38 @@ const Contacto = () => {
                 </div>
             </div>
             <div className='col-12 col-lg-4 cont-info-boxes'>
-                <h2>Contactate con nosotros</h2>
-                <div className="box-item-contacto d-flex">
-                    <img src={TelefonoNaranja} className="mb-auto" style={{width: '1.5em', marginRight: '1em'}} alt="img" />
-                    <div>
-                        <h4>Nuestros telefonos</h4>
-                        <p>+549(011) 21849984 | 4899-0110</p>
+                <div className="info-contain">
+                    <h2 className="contacto-title">Contactate con nosotros</h2>
+                    <div className="box-item-contacto d-flex">
+                        <img src={TelefonoNaranja} className="mb-auto" style={{width: '1.5em', marginRight: '1em'}} alt="img" />
+                        <div>
+                            <h5 className="contacto-data">Nuestros telefonos</h5>
+                            <p className="input-title">+549(011) 21849984 | 4899-0110</p>
+                        </div>
                     </div>
-                </div>
-                <div className="box-item-contacto d-flex">
-                    <img src={MailNaranja} className="mb-auto" style={{width: '1.5em', marginRight: '1em'}} alt="img" />
-                    <div>
-                        <h4>Consultas por email</h4>
-                        <p>ventas@palermomateriales.com.ar</p>
+                    <div className="box-item-contacto d-flex">
+                        <img src={MailNaranja} className="mb-auto" style={{width: '1.5em', marginRight: '1em'}} alt="img" />
+                        <div>
+                            <h5 className="contacto-data">Consultas por email</h5>
+                            <p className="input-title">ventas@palermomateriales.com.ar</p>
+                        </div>
                     </div>
-                </div>
-                <div className="box-item-contacto d-flex">
-                    <img src={HorarioNaranja} className="mb-auto" style={{width: '1.5em', marginRight: '1em'}} alt="img" />
-                    <div>
-                        <h4>Horarios de atencion</h4>
-                        <p>Lun. a Vier. de 07.30 a 12.00hs</p>
-                        <p>y 13.00 a 17.00hs</p>
+                    <div className="box-item-contacto d-flex">
+                        <img src={HorarioNaranja} className="mb-auto" style={{width: '1.5em', marginRight: '1em'}} alt="img" />
+                        <div>
+                            <h5 className="contacto-data">Horarios de atencion</h5>
+                            <p className="input-title">Lun. a Vier. de 07.30 a 12.00hs</p>
+                            <p className="input-title">y 13.00 a 17.00hs</p>
+                        </div>
                     </div>
-                </div>
-                <div className="box-item-contacto d-flex">
-                    <img src={UbiNaranja} className="mb-auto" style={{width: '1.5em', marginRight: '1em'}} alt="img" />
-                    <div>
-                        <h4>Ubicacion</h4>
-                        <p>Av. Juan B. Justo 1700 (C1313BHB)</p>
-                        <p>CABA, Argentina</p>
-                        <p>Estacionamiento por J.A. Cabrera 5454</p>
+                    <div className="box-item-contacto d-flex">
+                        <img src={UbiNaranja} className="mb-auto" style={{width: '1.5em', marginRight: '1em'}} alt="img" />
+                        <div>
+                            <h5 className="contacto-data">Ubicacion</h5>
+                            <p className="input-title">Av.Juan B.Justo 1700 (C1313BHB)</p>
+                            <p className="input-title">CABA, Argentina</p>
+                            <p className="input-title">Estacionamiento por J.A. Cabrera 5454</p>
+                        </div>
                     </div>
                 </div>
             </div>

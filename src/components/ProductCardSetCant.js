@@ -66,11 +66,11 @@ const ProductCardSetCant = () => {
                 <img src={product?.foto} alt="foto" style={{minWidth: '263px'}}/>
             </div>
             <div className='info-card-product col-12 col-md-7'>
-                <div className='col-12'>
-                    <h1>{product?.titulo}</h1>
-                    <p>${product?.productos_simples[0]?.precio_x_unidad}</p>
-                    <hr />
-                    <p>{product?.descripcion_corta}</p>
+                <div className='col-12 product-contain'>
+                    <h1 className="product-title">{product?.titulo}</h1>
+                    <p className="product-price">${product?.productos_simples[0]?.precio_x_unidad}</p>
+                    <div className="line"></div>
+                    <p className="product-desc">{product?.descripcion_corta}</p>
                 </div>
                 <div className='row contenedor-botones'>
                     <div className="col-12 col-md-5" >
@@ -85,9 +85,10 @@ const ProductCardSetCant = () => {
                             { sendingCotizacion ? <Spinner/> : <p>AGREGAR AL CARRITO</p> }
                         </button>
                     </div>
-
                 </div>
             </div>
+            <div className="line-dos"></div>
+            <p className="product-desc">{product?.descripcion_corta}</p>
         </div>
     </div>
   )

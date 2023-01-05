@@ -23,14 +23,14 @@ const ListCategories = ({categories, subcategories, setCatId}) => {
                         className="my-auto"
                         style={{ width: '1.5em' }}
                     />
-                    <p className="my-auto" onClick={()=>setCatId(c.id)} >
+                    <p className="my-auto side-text">
                         {c.titulo}
                     </p>
                     </div>
                     {[subcategories]?.map((s) => {
                     return (
-                        <div key={Math.random()} className="">
-                        <p style={{ marginLeft: '2em' }}>{s.titulo}</p>
+                        <div key={Math.random()}>
+                            <p style={{ marginLeft: '2em' }}>{s.titulo}</p>
                         </div>
                     )
                     })}
