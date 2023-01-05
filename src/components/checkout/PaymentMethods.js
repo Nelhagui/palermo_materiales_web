@@ -9,10 +9,10 @@ const PaymentMethods = ({setSelectedMethod, nextStep, selectedMethod }) => {
             <input type="radio" name="method" value="email" id="email" className='input-check' />
             Coordinar por email
         </label>
-        {/* <label htmlFor="mp" className='radio-payment mp' onClick={()=> setSelectedMethod('mp')}>
-            <input type="radio" name="method" value="mp" id="mp" className='input-check'  disabled/>
+        <label htmlFor="mp" className='radio-payment mp' onClick={()=> setSelectedMethod('mp')}>
+            <input type="radio" name="method" value="mp" id="mp" className='input-check' />
             Abonar con mercadopago
-        </label> */}
+        </label>
         <div className='cont-btn-action-payment'>
             <div className={selectedMethod !== '' ? "btn-primary" : "btn-primary disabled"} onClick={() => nextStep()}>
                 <p> CONTINUAR</p>

@@ -4,7 +4,7 @@ const ListCategories = ({categories, subcategories, setCatId}) => {
   return (
     <>
         {
-            categories.length == 0
+            categories.length === 0
             ?
             <>
                 <div className="btn-category loading"></div>

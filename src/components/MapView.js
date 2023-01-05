@@ -21,7 +21,7 @@ const MapView = () => {
                 />
                 <Marker position={[-34.587042395649874, -58.436573260808515]} icon={myIcon}>
                 <Popup>
-                    <a href="https://g.page/palermo-materiales?share" target="_blank" rel="noopener">Abrir ubicación</a>
+                    <a href="https://g.page/palermo-materiales?share" target="_blank" rel="noreferrer">Abrir ubicación</a>
                 </Popup>
                 </Marker>
             </MapContainer>

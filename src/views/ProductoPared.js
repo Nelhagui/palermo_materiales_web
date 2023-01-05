@@ -10,15 +10,14 @@ import CartContext from '../context/CartContext.js'
 
 const ProductoPared = () => {
   let { id } = useParams()
-  const [product, setProduct] = useState()
-  const [ancho, setAncho] = useState(1)
+  const [setProduct] = useState()
+  const [ancho] = useState(1)
   const [largo, setLargo] = useState(1)
   const [postRes, setPostRes] = useState([])
   const [total, setTotal] = useState([])
   const [item, setItem] = useState([])
   const [data, setData] = useState([])
 
-  let itemId = localStorage.getItem('item-id')
   const { cart, addProduct } = useContext(CartContext)
   const addToCart = () => {
     item.push({ id: data.id, title: data.title, price: data.price })
@@ -32,21 +31,10 @@ const ProductoPared = () => {
       document.querySelector('.cotizar-table').style.display = 'none'
     }
   }
-  const handleRestAncho = () => {
-    if (ancho > 0) {
-      setAncho(ancho - 1)
-      document.querySelector('.cotizar-table').style.display = 'none'
-    }
-  }
 
   const handleAddLargo = () => {
     document.querySelector('.cotizar-table').style.display = 'none'
     setLargo(largo + 1)
-  }
-
-  const handleAddAncho = () => {
-    document.querySelector('.cotizar-table').style.display = 'none'
-    setAncho(ancho + 1)
   }
 
   function fetchCategories() {
@@ -64,7 +52,7 @@ const ProductoPared = () => {
 
  
   function handleNull() {
-    if (ancho == 0 || largo == 0) {
+    if (ancho === 0 || largo === 0) {
       alert('Ingrese una cantidad mayor a 0')
     } else {
       document.querySelector('.cotizar-table').style.display = 'flex'
@@ -82,13 +70,11 @@ const ProductoPared = () => {
   }
 
   useEffect(() => {
-    {
       postRes.map((r) => {
         setData(r)
       })
-    }
   }, [postRes])
-  console.log('TOTAL', total)
+
   return (
     <div className="wrapper">
       <div className="text-center cotizar-title">

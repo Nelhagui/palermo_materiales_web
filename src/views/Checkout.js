@@ -5,8 +5,8 @@ import PaymentIcon from '../assets/img/FormDePago_negro.png'
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom'
 import { useContext } from 'react'
-import axios from "axios";
 import CartContext from '../context/CartContext.js'
+import axios from "axios";
 import ItemsCart from '../components/checkout/ItemsCart.js'
 import Spinner from '../components/Spinner.js';
 
@@ -34,7 +34,7 @@ const Checkout = () => {
     setSendingOrder(true);
     if(ids_cotizaciones.length > 0 )
     {
-        if(isLogged) {
+        if(isLogged?.token) {
             let data = JSON.stringify({ "cotizaciones": ids_cotizaciones });
             let config = {
                 method: 'post',

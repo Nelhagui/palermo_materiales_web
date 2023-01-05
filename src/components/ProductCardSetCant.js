@@ -37,9 +37,9 @@ const ProductCardSetCant = () => {
         cotizarBody
       )
       .then((response) => {
-        console.log(response.data)
-        addProduct([... cart, response.data])
-        console.log(cart)
+        const result = cart.filter(item => item.producto_combinado_id !== response.data.producto_combinado_id);
+        addProduct([... result, response.data])
+        setSendingCotizacion(false);
       });
   }
 
@@ -63,7 +63,7 @@ const ProductCardSetCant = () => {
     <div className="card-product">
         <div className='row'>
             <div className='img-conte col-12 col-md-5'>
-                <img src={product?.foto} alt="foto" />
+                <img src={product?.foto} alt="foto" style={{minWidth: '263px'}}/>
             </div>
             <div className='info-card-product col-12 col-md-7'>
                 <div className='col-12'>

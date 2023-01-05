@@ -53,7 +53,7 @@ const Pago = () => {
                         <p className='date-order'>{`${fecha}  ${hora}hs`}</p>
                     </div>
                     <div className="col-md-4 col-12">
-                        <a href={`https://test.api.palermomateriales.com.ar/uploads/${orden.pdf}`} download target="_blank">Descargar orden</a>
+                        <a href={`https://test.api.palermomateriales.com.ar/uploads/${orden.pdf}`} download target="_blank" rel="noreferrer">Descargar orden</a>
                     </div>
                 </div>
                 <div className="row cont-payment-method">

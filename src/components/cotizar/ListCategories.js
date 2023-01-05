@@ -5,7 +5,7 @@ const ListCategories = ({categories, selectCategory, idCategorySelected}) => {
     return (
         <>
             {   
-                categories.length == 0 
+                categories.length === 0 
                 ? 
                     <>
                         <CategoryCardLoading/>

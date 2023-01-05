@@ -1,6 +1,4 @@
 import React from 'react'
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap'
-
 import TelefonoNaranja from '../assets/img/telefono_naranja.svg'
 import MailNaranja from '../assets/img/Mail_naranja.svg'
 import HorarioNaranja from '../assets/img/Horario_naranja.svg'

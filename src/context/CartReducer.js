@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+// import React, { useReducer } from 'react'
 
 function cartReducer(state, action) {
   switch (action.type) {
