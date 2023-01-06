@@ -1211,7 +1211,10 @@ input[type="radio"]:checked {
     background-color: #ff9817;
     z-index: 0;
 }
-
+.cont-categories.selected
+{
+  flex-wrap: wrap;
+}
 .cont-filters {
     flex-wrap: nowrap;
     overflow-x: scroll;
