@@ -89,15 +89,15 @@ const Datos = () => {
         <div className="stepper-checkout">
             <div>
                 <img src={DetailIcon} style={{ fill: '#FF9817' }} alt="icon" />
-                <p>Detalle</p>
+                <p className="pago-text">Detalle</p>
             </div>
             <div className="active">
                 <img src={DataIcon} alt="icon" />
-                <p>Datos</p>
+                <p className="pago-text">Datos</p>
             </div>
             <div>
                 <img style={{ height: '30px' }} src={PaymentIcon} alt="icon" />
-                <p>Pago</p>
+                <p className="pago-text">Pago</p>
             </div>
         </div>
         <div className="row cont-login-register">
@@ -109,13 +109,13 @@ const Datos = () => {
                     <form action="" className="form-login">
                         <div className='col-12'>
                             <div className='inputs-cols-2'>
-                                <label htmlFor="email">Ingresa tu email</label>
+                                <label className="pago-text" htmlFor="email">Ingresa tu email</label>
                                 <input type="text" name='email' onChange={(e) => setUser(e.target.value)}/>
                             </div>
                         </div>
                         <div className='col-12'>
                             <div className='inputs-cols-2'>
-                                <label htmlFor="pass">Ingresa tu contraseña</label>
+                                <label className="pago-text" htmlFor="pass">Ingresa tu contraseña</label>
                                 <input onChange={(e) => setPassword(e.target.value)} type="password" name='pass'/>
                             </div>
                         </div>
@@ -130,50 +130,50 @@ const Datos = () => {
                             </button>
                         </div>
                         <div className='col-12 d-flex justify-content-center' style={{color: 'red'}}>
-                            <p>{msjError}</p>
+                            <p className="pago-text">{msjError}</p>
                         </div>
                         {/* <div className="col-12 d-flex justify-content-center">
-                            <a href="#">Olvidé mi contraseña</a>
+                            <a href="#" className="pago-text">Olvidé mi contraseña</a>
                         </div> */}
                     </form>
                 </div>
             </div>
             <div className="col-12 col-lg-7 cont-register">
                 <div>
-                    <div className="register-title fw-bold" >
+                    <div className="register-title fw-bold pago-text" >
                         Registrarme
                     </div>
                     <form action="" className="form-register">
                         <div className="row">
                             <div className='col-12 col-lg-6'>
                                 <div className='inputs-cols-2'>
-                                    <label htmlFor="nombre">Ingresa tu nombre y apellido</label>
+                                    <label className="pago-text" htmlFor="nombre">Ingresa tu nombre y apellido</label>
                                     <input type="text" name='nombre' onChange={(e) => setNameRegister(e.target.value)} />
                                 </div>
                             </div>
                             <div className='col-12 col-lg-6'>
                                 <div className='inputs-cols-2'>
-                                    <label htmlFor="telefono">Ingresa tu telefono/celular</label>
+                                    <label className="pago-text" htmlFor="telefono">Ingresa tu telefono/celular</label>
                                     <input type="text" name='telefono' onChange={(e) => setPhoneRegister(e.target.value)}/>
                                 </div>
                             </div>
                         </div>
                         <div className='col-12'>
                             <div className='inputs-cols-2'>
-                                <label htmlFor="email">Ingresa tu email</label>
+                                <label className="pago-text" htmlFor="email">Ingresa tu email</label>
                                 <input type="text" name='email' onChange={(e) => setEmailRegister(e.target.value)}/>
                             </div>
                         </div>
                         <div className="row">
                             <div className='col-12 col-lg-6'>
                                 <div className='inputs-cols-2'>
-                                    <label htmlFor="pass">Ingresa tu contraseña</label>
+                                    <label className="pago-text" htmlFor="pass">Ingresa tu contraseña</label>
                                     <input type="password" name='pass' onChange={(e) => setPasswordRegister(e.target.value)}/>
                                 </div>
                             </div>
                             <div className='col-12 col-lg-6'>
                                 <div className='inputs-cols-2'>
-                                    <label htmlFor="pass_confirmation">Repetir contraseña</label>
+                                    <label className="pago-text" htmlFor="pass_confirmation">Repetir contraseña</label>
                                     <input type="password" name='pass_confirmation' onChange={(e) => setPasswordConfirmationRegister(e.target.value)}/>
                                 </div>
                             </div>
@@ -184,12 +184,12 @@ const Datos = () => {
                                     ?
                                     <Spinner/>
                                     :
-                                    <p>REGISTRARSE</p>
+                                    <p className="pago-text">REGISTRARSE</p>
                                 }
                             </button>
                         </div>
                         <div className='col-12 d-flex justify-content-center' style={{color: 'red'}}>
-                            <p>{msjErrorRegister}</p>
+                            <p className="pago-text">{msjErrorRegister}</p>
                         </div>
                     </form>
                 </div>
@@ -198,7 +198,7 @@ const Datos = () => {
 
       {/* <div className="log-window">
         <div className="login-container col-4 px-5 pb-5 mx-5 card">
-          <div className="login-title h1 my-5 fw-bold" style={{ color: "#FF9817" }} >
+          <div className="login-title h1 my-5 fw-bold pago-text" style={{ color: "#FF9817" }} >
             Iniciar sesion
           </div>
           <div className="login-form">
@@ -219,18 +219,18 @@ const Datos = () => {
                 <Button  className="btn-primary mx-auto mt-5" >
                     Ingresar
                 </Button>
-              <p className="text-center mt-5">Olvidé mi contraseña</p>
+              <p className="text-center mt-5 pago-text">Olvidé mi contraseña</p>
             </Form>
           </div>
         </div>
         <div className="login-container col-6 px-5  mx-5 card">
-            <div className="login-title h1 my-5 fw-bold" style={{ color: "#FF9817" }}> 
+            <div className="login-title h1 my-5 fw-bold pago-text" style={{ color: "#FF9817" }}> 
                 Registrarme 
             </div>
             <div className="login-form">
                 <Form className="row">
                   <FormGroup className="col-6">
-                    <Label for="name">Ingresa tu nombre y apellido</Label>
+                    <Label for="name" className="pago-text">Ingresa tu nombre y apellido</Label>
                     <Input
                       style={{ height: "3em" }}
                       type="name"
@@ -238,7 +238,7 @@ const Datos = () => {
                     />
                   </FormGroup>
                   <FormGroup className="col-6">
-                    <Label for="email">Ingresa tu telefono/celular</Label>
+                    <Label for="email" className="pago-text">Ingresa tu telefono/celular</Label>
                     <Input
                       style={{ height: "3em" }}
                       type="email"
@@ -246,7 +246,7 @@ const Datos = () => {
                     />
                   </FormGroup>
                   <FormGroup className="col-6">
-                    <Label for="name">Ingresa tu email</Label>
+                    <Label for="name" className="pago-text">Ingresa tu email</Label>
                     <Input
                       style={{ height: "3em" }}
                       type="name"
@@ -254,7 +254,7 @@ const Datos = () => {
                     />
                   </FormGroup>
                   <FormGroup className="col-6">
-                    <Label for="email">Ingresa tu contraseña</Label>
+                    <Label for="email" className="pago-text">Ingresa tu contraseña</Label>
                     <Input
                       style={{ height: "3em" }}
                       type="email"
@@ -262,7 +262,7 @@ const Datos = () => {
                     />
                   </FormGroup>
 
-                  <Button className="btn-secondary mx-auto mt-5">
+                  <Button className="btn-secondary mx-auto mt-5 pago-text">
                     Registrarse
                   </Button>
                 </Form>

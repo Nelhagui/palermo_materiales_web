@@ -41,7 +41,7 @@ const Empresa = () => {
                             </div>
                         </div>
                         <div className="row cont-boxes">
-                            <div className="col-md-4">
+                            <div className="col-md-4 cont-boxes-desc">
                                 <div className="row box-empresa ">
                                     <div className="box-contain">
                                         <div className="empresa-img">
@@ -55,7 +55,7 @@ const Empresa = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-md-4">
+                            <div className="col-md-4 cont-boxes-desc">
                                 <div className="row box-empresa">
                                     <div className="box-contain">
                                         <div className="empresa-img">
@@ -69,7 +69,7 @@ const Empresa = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-md-4">
+                            <div className="col-md-4 cont-boxes-desc">
                                 <div className="row box-empresa">
                                     <div className="box-contain">
                                         <div className="empresa-img">

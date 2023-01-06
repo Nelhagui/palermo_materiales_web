@@ -29,7 +29,7 @@ const ProductCombinadoCard = (props) => {
       <div className="img-card-container">
         <img alt="producto" src={(props?.foto) ? props?.foto : SinImagen} />
       </div>
-      <div className="produc-card-info" >
+      <div className="produc-card-info-cotizar" >
         <p className="title">{props?.title}</p>
         <button onClick={handleClick} className="btn-secondary">
           {props.buttonTitle}

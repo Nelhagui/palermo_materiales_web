@@ -34,31 +34,31 @@ const Pago = () => {
             <div className="stepper-checkout">
                 <div>
                     <img src={DetailIcon} style={{ fill: '#FF9817' }} alt="icon" />
-                    <p>Detalle</p>
+                    <p className="pago-text">Detalle</p>
                 </div>
                 <div>
                     <img src={DataIcon} alt="icon" />
-                    <p>Datos</p>
+                    <p className="pago-text">Datos</p>
                 </div>
                 <div className="active">
                     <img style={{ height: '30px' }} src={PaymentIcon} alt="icon" />
-                    <p>Pago</p>
+                    <p className="pago-text">Pago</p>
                 </div>
             </div>
             <div className='card order'>
                 <div className='row order-top'>
                     <div className="col-md-8 col-12 cont-detal-order">
-                        <p className="fw-bold">{`Numero de orden: #${orden.id}`}</p>
+                        <p className="fw-bold pago-text">{`Numero de orden: #${orden.id}`}</p>
                         <div className="vl didesk"></div>
-                        <p className='date-order'>{`${fecha}  ${hora}hs`}</p>
+                        <p className='date-order pago-text'>{`${fecha}  ${hora}hs`}</p>
                     </div>
                     <div className="col-md-4 col-12">
                         <a href={`https://test.api.palermomateriales.com.ar/uploads/${orden.pdf}`} download target="_blank" rel="noreferrer">Descargar orden</a>
                     </div>
                 </div>
                 <div className="row cont-payment-method">
-                    <p className="h3">Forma de pago</p>
-                    <p>Para coordinar la entrega deberás constacarte a través de nuestro Whatsapp (011) 2184-9984 de Lunes a Viernes. </p>
+                    <p className="h3 pago-text fw-bold">Forma de pago</p>
+                    <p className="pago-text">Para coordinar la entrega deberás constacarte a través de nuestro Whatsapp (011) 2184-9984 de Lunes a Viernes. </p>
                     <div className="cont-options-method row">
                         {   showMethodMp 
                             ? <MpMethods previousStep={previousStep}/>

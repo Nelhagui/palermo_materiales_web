@@ -77,12 +77,12 @@ const Comprar = () => {
         </div>
       </div>
       { isSetCant ? <ProductCardSetCant></ProductCardSetCant> :
-        <div className="d-flex mt-5 mx-5 row">
-            <div className="categories-filter col-12 col-md-2">
-                <h4>Categorías</h4>
+        <div className="d-flex row comprar-items-contain">
+            <div className="comprar-items col-2">
+                <h4 className="fw-bold cot-title">Categorías</h4>
                 <ListCategories categories={categories} subcategories={subcategories} setCatId={setCatId}></ListCategories>
             </div>
-            <div className="col-12 col-md-10">
+            <div className="col-12 col-md-10 comprar-produ">
                 <div className="products d-flex flex-wrap justify-content-center">
                 <ListProducts products={products}></ListProducts>
                 </div>
