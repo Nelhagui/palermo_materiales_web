@@ -5,7 +5,7 @@ import PaymentIcon from '../assets/img/FormDePago_negro.png'
 import { useState } from 'react'
 import ModalEmailMethod from '../components/checkout/ModalEmailMethod.js';
 import PaymentMethods from '../components/checkout/PaymentMethods.js';
-import MpMethod from '../components/checkout/MpMethod.js';
+import MpMethods from '../components/checkout/MpMethods.js'
 
 const Pago = () => {
     const [selectedMethod, setSelectedMethod] = useState('email')
@@ -61,7 +61,7 @@ const Pago = () => {
                     <p>Para coordinar la entrega deberás constacarte a través de nuestro Whatsapp (011) 2184-9984 de Lunes a Viernes. </p>
                     <div className="cont-options-method row">
                         {   showMethodMp 
-                            ? <MpMethod previousStep={previousStep}/>
+                            ? <MpMethods previousStep={previousStep}/>
                             : <PaymentMethods setSelectedMethod={setSelectedMethod} selectedMethod={selectedMethod} nextStep={nextStep} />
                         }
                     </div>
