@@ -290,7 +290,6 @@ div.categories-container .mx-auto
 {
   font-family: 'gotham-b';
   font-size: 2rem;
-  margin-bottom: 2rem;
 }
 .categories {
   display: flex;
@@ -298,7 +297,7 @@ div.categories-container .mx-auto
   width: 100%;
   overflow: scroll;
   gap: 3em;
-  margin: 1em 0;
+  margin-bottom: 1rem;
 }
 .categories::-webkit-scrollbar {
   display: none;
@@ -371,7 +370,7 @@ div.categorie-items p
 .produc-card-info-cotizar
 {
   width: 100%;
-  height: 175px;
+  height: 200px;
   padding: 1rem;
   padding: 1rem 1rem 0 1rem;
 }
@@ -1173,7 +1172,7 @@ input[type="radio"]:checked {
     box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
     justify-content: space-around;
     align-items: center;
-    margin-right: 0.8rem;
+    margin: 1rem 0;
     overflow: hidden;
     margin-left: 1rem;
 }
@@ -1236,7 +1235,6 @@ input[type="radio"]:checked {
     cursor: pointer;
 }
 .cont-items-best {
-    flex-wrap: nowrap;
     overflow-y: scroll;
 }
 .cat-contain{
@@ -1258,13 +1256,18 @@ input[type="radio"]:checked {
     padding-bottom: 1.5rem;
     max-width: 100vw;
     box-sizing: border-box;
+    flex-wrap: wrap;
 }
 .cont-sub-result {
     margin-top: 1.5rem;
 
 }
   /* cotizar */
-
+.resultados-contain
+{
+  display: flex;
+  flex-wrap: wrap;
+}
 .card-product {
   display: flex;
   justify-content: center;
@@ -1673,7 +1676,6 @@ span.close-modal-email:hover {
         padding-left: inherit;
     }
     .cont-sucategory-results {
-        flex-wrap: nowrap;
         overflow-x: scroll;
     }
     .cant-contain,
@@ -1787,6 +1789,11 @@ span.close-modal-email:hover {
         padding-right: 2em;
         padding-left: 2rem;
         flex-wrap: wrap;
+        display: block;
+      }
+      .categorie-items
+      {
+        margin: 1rem 0;
       }
       .categories-loading {
         gap: 1rem;
@@ -1830,7 +1837,7 @@ span.close-modal-email:hover {
       width: 100% !important;
     }
 }
-@media (max-width: 640px){
+@media (max-width: 920px){
   .product-card
   {
     width: 100% !important;
