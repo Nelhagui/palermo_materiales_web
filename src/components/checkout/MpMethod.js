@@ -66,7 +66,7 @@ const MpMethod = ({previousStep}) => {
             
 
             <form id="form-checkout">
-                <div className="form-control">
+                <div className="form-control pago-text">
                     <input
                         type="tel"
                         name="cardNumber"
@@ -75,7 +75,7 @@ const MpMethod = ({previousStep}) => {
                         onFocus={handleInputFocus}
                     />
                 </div>
-                <div className="form-control">
+                <div className="form-control pago-text">
                     <input
                         type="tel"
                         name="cardExpirationMonth"
@@ -98,7 +98,7 @@ const MpMethod = ({previousStep}) => {
                         onFocus={handleInputFocus}
                     />
                 </div>
-                <div className="form-control">
+                <div className="form-control pago-text">
                     <input
                         type="text"
                         name="cardholderName"
@@ -113,7 +113,7 @@ const MpMethod = ({previousStep}) => {
                         onFocus={handleInputFocus}
                     />
                 </div>
-                <div className="form-control">
+                <div className="form-control pago-text">
                     <select
                         name="issuer"
                         id="form-checkout__issuer"
@@ -124,21 +124,21 @@ const MpMethod = ({previousStep}) => {
                         id="form-checkout__identificationType"
                     ></select>
                 </div>
-                <div className="form-control">
+                <div className="form-control pago-text">
                     <input
                         type="text"
                         name="identificationNumber"
                         id="form-checkout__identificationNumber"
                     />
                 </div>
-                <div className="form-control">
+                <div className="form-control pago-text">
                     <select
                         name="installments"
                         id="form-checkout__installments"
                     ></select>
                 </div>
-                <div className="form-control">
-                    <button type="submit" id="form-checkout__submit">
+                <div className="form-control pago-text">
+                    <button className="pago-text btn-primary" type="submit" id="form-checkout__submit">
                         Pagar
                     </button>
                 </div>
@@ -147,8 +147,8 @@ const MpMethod = ({previousStep}) => {
                 </progress>
             </form>
             {resultPayment && <p>{JSON.stringify(resultPayment)}</p>}
-                     <div className="btn-secondary" onClick={() => previousStep()}>
-                 <p> REGRESAR </p>
+                     <div className="btn-secondary btn-back" onClick={() => previousStep()}>
+                 <p className="pago-text">REGRESAR </p>
              </div>
         </div>
     );

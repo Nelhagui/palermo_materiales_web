@@ -1,0 +1,379 @@
+@media (max-width: 920px) {
+  .nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: .8em 1em;
+    align-items: center;
+    height: var(--heigth-navbar);
+  }
+  .navbar-xl {
+    display: none;
+  }
+  .navbar-sm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background: #ff9817eb;
+    height: calc(100vh - var(--heigth-navbar));
+    width: 100%;
+    z-index: 9999;
+    transform: translate(100%, 0%);
+    transition-duration: .2s;
+  }
+  .nav-hamburger {
+    display: inline-block;
+  }
+  
+  .navbar-sm.show {
+    transform: translate(0%, 0%);
+    transition-duration: .2s;
+  }
+    .images-container .img1,
+    .images-container .img2 {
+        width: 100% !important;
+  }
+  .footer {
+    margin: 2em 0;
+    display: flex;
+    text-align: center;
+    gap: 1em;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer-image,
+  .footer-image-cotizar {
+    display: none;
+  }
+  .footer .pay-methods img {
+    width: 42px;
+  }
+}
+@media (max-width: 900px) {
+  .products {
+    width: 100%;
+  }
+  .tyc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0em;
+  }
+}
+@media (max-width: 920px) {
+  /* empresa */
+
+    .box{
+      margin: 0.5rem 0;
+      padding: 1.5rem 1rem;
+    }
+    .info-boxes {
+      padding: 1.5rem 1rem;
+    }
+    .cont-boxes {
+        text-align: center;
+    }
+    .cont-boxes > div:nth-child(2) > div {
+      margin: 0;
+    }
+    .about-text {
+      padding: 2.5rem 1rem;;
+    }
+    .app-titles
+    {
+      text-align: center;
+    }
+  /* fin empresa */
+
+  /* cotizar */
+  .cotizar-title{
+    display: none !important;
+  }
+  /* fin cotizar */
+}
+@media (min-width: 920px){
+    .cotizar-subitems {
+        width: max-content !important;
+    }
+}
+@media (min-width: 922px){
+
+    .cont-login-register {
+        padding: 0 10%;
+    }
+    .cont-login > div, .cont-register > div {
+        padding: 1.3rem 2.5rem !important;
+    }
+    .form-contacto {
+        padding: 2rem 3.5rem !important;
+    }
+    .form-contacto .btn-primary, .form-login .btn-primary, .form-register .btn-secondary{
+        max-width: max-content;
+        padding: 0.7rem 5rem;
+    }
+    .cont-form > div {
+        width: 80% !important;
+    }
+    .cont-form {
+        display: flex;
+        justify-content: center;
+        padding: 3.5rem 0 !important;
+    }
+    .inputs-cols-1 {
+        margin-right: .5rem;
+    }
+    
+    .inputs-cols-2 {
+        margin-left: .5rem;
+    }
+}
+@media (max-width: 920px) {
+  .info-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .cont-items-best
+  {
+    flex-wrap: wrap !important;
+    justify-content: center;
+  }
+}
+@media (max-width: 992px) {
+  .cont-info-boxes
+  {
+    height: 500px;
+  }
+}
+@media (max-width: 920px) {
+     /*footer*/
+    .logo-container
+    {
+      width: 100% !important;
+    }
+    .didesk {display: none;}
+    /* navbar */
+    .playstore.navbar{
+        /*display: none;*/
+    }
+    /* fin navbar */
+    /* comprar */
+    .comprar-items
+    {
+      width: 90% !important;
+      margin: auto;
+    }
+    .categories-filter
+    {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100% !important;
+      flex-wrap: wrap;
+    }
+    .compra-contain
+    {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .search-compra
+    {
+      width: 100% !important;
+    }
+   /* cotizar */
+    .cont-categories {
+        display: block;
+    }
+    div.cont-categories .cotizar-items
+    {
+        width: 100% !important;  
+    }
+    .cont-text-category {
+        text-align: center;
+        margin: 1.5rem 0;
+    }
+    .cotizar-subitems:first-child {
+        margin-left: 1rem;
+    }
+    .cont-text-filters {
+        padding-left: 1rem;
+    }
+    .item-filter:first-child {
+        margin-left: 1rem;
+    }
+    .cont-sucategory-results {
+        padding: 0rem 1rem 1rem 0;
+    }
+    .cont-best-sellers {
+        padding-left: inherit;
+    }
+    .cont-sucategory-results {
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+    }
+    .cant-contain,
+    .btn-cotizar-contain,
+    .btn-agregar-contain
+    {
+      width: 100% !important;
+    }
+    #btn-agregar
+    {
+      width: 100%;
+    }
+    .contenedor-botones
+    {
+      display: block;
+    }
+
+   /* fin cotizar */
+
+   /* producto */
+    .card-product {
+        width: 90%;
+        padding: 1rem;
+    }
+    .info-card-product {
+        padding-left: inherit;
+    }
+    .cotizar-table {
+        width: 90%;
+    }
+    .header, .cotizar-table .items-container, .cotizar-table .table-footer {
+        padding: 0.8rem;
+        grid-template-columns: 52% 20% 26%;
+    }
+   /* fin producto */
+
+   /* checkout */
+       .cont-gral-table-resumen {
+            margin: 0 1rem;
+        }
+        .button-container {
+            padding-left: 0;
+            margin-top: 1rem;
+            flex-direction: column;
+        }
+        .stepper-checkout {
+            padding: 1.2rem 1em;
+        }
+        .stepper-checkout > div {
+            padding-right: 1.2rem;
+        }
+        .table-container.checkout {
+            font-size: .7rem;
+        }
+        .cont-detal-order {
+            flex-direction: column;
+            text-align: center;
+        }
+        .card.order {
+            padding: 1rem;
+        }
+        .cont-detal-order p:first-child {
+            padding-right: 0;
+        }
+        .date-order {
+            padding-left: 0rem;
+        }
+        .order-top div:last-child {
+            text-align: center;
+            padding-right: inherit;
+            margin-top: 1rem;
+        }
+        .cont-options-method {
+            flex-direction: column;
+        }
+        .cont-btn-action-payment {
+            display: block;
+            max-width: inherit;
+            margin-top: .5rem;
+        }
+        label.radio-payment {
+            width: 100%;
+            margin: .5rem 0 !important;
+            padding: 1rem;
+        }
+        .cont-modal-email {
+            width: 90vw;
+            margin-top: 2rem;
+        }
+   /* fin checkout */
+      
+      .btn-secondary,
+      .btn-primary {
+        width: 20%;
+        text-align: center;
+      }
+      
+      .cont-img {
+        height: 13rem;
+        width: 13rem;
+        margin: auto;
+        margin-bottom: 1rem;
+      }
+      .image-titles {
+        padding: 1rem 0;
+      }
+      .images-container .text-img:first-child {
+        /*display: none;*/
+      }
+      .categories {
+        padding-right: 2em;
+        padding-left: 2rem;
+        flex-wrap: wrap;
+      }
+      .categories-loading {
+        gap: 1rem;
+      }
+      .footer {
+        padding: 1em 0.5em;
+      }
+      .img-container Input {
+        width: 80%;
+      }
+
+    .cont-btn-actions .btn-action:first-child {
+        padding-right: 0;
+    }
+    .contenedor-botones div:last-child {
+        padding-left: 0;
+    }
+    .contenedor-botones .btn-primary {
+        margin-top: 1rem;
+    }
+    .about-text
+    {
+      width: 100%;
+      text-align: center;
+    }
+    .cont-boxes
+    {
+      display: block;
+    }
+    div.cont-boxes .cont-boxes-desc
+    {
+      width: 100%;
+      padding: 1rem 0;
+    }
+    .box-empresa
+    {
+      margin: initial !important;
+    }
+    .about-image
+    {
+      width: 100% !important;
+    }
+}
+@media (max-width: 640px){
+  .product-card
+  {
+    width: 100% !important;
+  }
+} 

@@ -78,9 +78,9 @@ const ProductoPared = () => {
   return (
     <div className="wrapper">
       <div className="text-center cotizar-title">
-        <h1 className="fw-bold">CALCULAR PRODUCTOS</h1>
-        <h4>¿Querés saber cuánto material necesitás cubrir?</h4>
-        <h4>Comienza eligiendo una categoria</h4>
+        <h1 className="fw-bold cot-title">CALCULAR PRODUCTOS</h1>
+            <h4 className="cot-subt">¿Querés saber cuánto material necesitás cubrir?</h4>
+            <h4 className="cot-subt">Comienza eligiendo una categoria</h4>
       </div>
       <div className="card-product pared">
         <div className='row'>
@@ -90,11 +90,11 @@ const ProductoPared = () => {
             </div>
             <div className='info-card-product col-12 col-md-8'>
                 <div className='titulo-pared'>
-                    <h1>Construcción Húmeda</h1>
+                    <h1 className="cot-subt">Construcción Húmeda</h1>
                 </div>
                 <div className="row cont-btn-actions">
                     <div className='col-md-6 col-12 btn-action '>
-                        <p>Ingresar Altura:</p>
+                        <p className="cot-subt">Ingresar Altura:</p>
                         <div className="button-container mt-2">    
                             <div className="contador col-12 col-md-5" style={{ minWidth: 'fit-content' }} >
                                 <div className="button-change-count" onClick={() => handleRestLargo()}> - </div>
@@ -104,7 +104,7 @@ const ProductoPared = () => {
                         </div>
                     </div> 
                     <div className='col-md-6 col-12 btn-action '>
-                        <p>Ingresar Ancho:</p>
+                        <p className="cot-subt">Ingresar Ancho:</p>
                         <div className="button-container mt-2">    
                             <div className="contador col-12 col-md-5" style={{ minWidth: 'fit-content' }} >
                                 <div className="button-change-count" onClick={() => console.log('hola')}> - </div>

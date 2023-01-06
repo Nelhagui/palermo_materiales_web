@@ -60,17 +60,17 @@ const Cotizar = () => {
     <div className="container-fluid wrapper">
         <div className="row">
             <div className="text-center cotizar-title">
-                <h1 className="fw-bold">CALCULAR PRODUCTOS</h1>
-                <h4>¿Querés saber cuánto material necesitás cubrir?</h4>
-                <h4>Comienza eligiendo una categoria</h4>
+                <h1 className="fw-bold cot-title">CALCULAR PRODUCTOS</h1>
+                <h4 className="cot-subt">¿Querés saber cuánto material necesitás cubrir?</h4>
+                <h4 className="cot-subt">Comienza eligiendo una categoria</h4>
             </div>
         </div>
-        <div className="row">
+        <div className="row cat-contain">
             <div className="col-md-12 cont-gral-category">
                 <div className="row cont-text-category">
                     <div className="col-md-12">
-                        <h1 className="fw-bold">Nuestras categorias</h1>
-                        <h4>Seleccioná el tipo de proyecto a realizar</h4>
+                        <h1 className="fw-bold cot-title">Nuestras categorias</h1>
+                        <h4 className="cot-subt-search">Seleccioná el tipo de proyecto a realizar</h4>
                     </div>
                 </div>
                 <div className={styleCategories}>

@@ -67,15 +67,15 @@ const Checkout = () => {
         <div className="stepper-checkout">
             <div className="active">
                 <img src={DetailIcon} style={{ fill: '#FF9817' }} alt="icon" />
-                <p>Detalle</p>
+                <p className="pago-text">Detalle</p>
             </div>
             <div>
                 <img src={DataIcon} alt="icon" />
-                <p>Datos</p>
+                <p className="pago-text">Datos</p>
             </div>
             <div>
                 <img style={{ height: '30px' }} src={PaymentIcon} alt="icon" />
-                <p>Pago</p>
+                <p className="pago-text">Pago</p>
             </div>
         </div>
         <div className='cont-gral-table-resumen'>
@@ -95,19 +95,19 @@ const Checkout = () => {
             </div>
             <div className="row checkout-container fw-bold">
                 <div className="price-container col-md-7 col-12">
-                    <p>Costo total:</p>
-                    <p>${totalPrice}</p>
+                    <p className="pago-text">Costo total:</p>
+                    <p className="pago-text">${totalPrice}</p>
                 </div>
                 <div className='col-md-5 col-12 d-flex'>
                     <div className="button-container text-center">
                         { sendingOrder 
                             ?
                             <div className="btn-primary disabled">
-                                <p> AGREGAR MÁS PRODUCTOS</p>
+                                <p className="pago-text"> AGREGAR MÁS PRODUCTOS</p>
                             </div>
                             :
                             <div className="btn-secondary">
-                                <p>
+                                <p className="pago-text">
                                     <Link to="/cotizar">AGREGAR MÁS PRODUCTOS</Link>
                                 </p>
                             </div>
@@ -119,12 +119,12 @@ const Checkout = () => {
                                     ?
                                     <Spinner/>
                                     :
-                                    <p>CONTINUAR</p>
+                                    <p className="pago-text">CONTINUAR</p>
                                 }
                             </div>
                            :
                             <div className="btn-primary">
-                                <p> <Link to="/checkout/data">CONTINUAR</Link> </p>
+                                <p className="pago-text"> <Link to="/checkout/data">CONTINUAR</Link> </p>
                             </div>
                         }
                     </div>

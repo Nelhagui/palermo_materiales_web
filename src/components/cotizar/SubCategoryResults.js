@@ -10,7 +10,7 @@ const SubCategoryResults = ({subcategories, selectSubcategory, subcategoriesIsLo
             <>
                 <div className="row cont-text-filters">
                     <div className="col-md-12">
-                        <h3>Seleccioná el tipo de construcción</h3>
+                         <h3 className="cot-title">Seleccioná el tipo de construcción</h3>
                     </div>
                 </div> 
                 <div className="row cont-sucategory-results">
@@ -29,11 +29,11 @@ const SubCategoryResults = ({subcategories, selectSubcategory, subcategoriesIsLo
             return (
                 <>
                     <div className="row cont-text-filters">
-                        <div className="col-md-12">
-                            <h3>Seleccioná el tipo de construcción</h3>
+                        <div className="col-md-12 cont-best-sellers">
+                            <h3 className="cot-title sub-tit">Seleccioná el tipo de construcción</h3>
                         </div>
                     </div> 
-                    <div className="row cont-sucategory-results">
+                    <div className="row cont-sucategory-results cont-best-sellers">
                         <>
                             <ListSubCategories subcategories={subcategories} selectSubcategory={selectSubcategory}/>
                          </>

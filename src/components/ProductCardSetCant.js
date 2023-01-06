@@ -73,7 +73,7 @@ const ProductCardSetCant = () => {
                     <p className="product-desc">{product?.descripcion_corta}</p>
                 </div>
                 <div className='row contenedor-botones'>
-                    <div className="col-12 col-md-5" >
+                    <div className="col-12 col-md-5 cant-contain" >
                         <div className='contador'>
                             <div className="button-change-count" onClick={sendingCotizacion ? null : () => handleRest()}> - </div>
                             <div>{cant}</div>
@@ -81,7 +81,7 @@ const ProductCardSetCant = () => {
                         </div>
                     </div>
                     <div className='col-12 col-md-7'>
-                        <button className={sendingCotizacion ? "btn-primary disabled" : "btn-primary"} onClick={sendingCotizacion ? null : ()=> { cotizarSimpleProduct()}}>
+                        <button id="btn-agregar" className={sendingCotizacion ? "btn-primary disabled" : "btn-primary"} onClick={sendingCotizacion ? null : ()=> { cotizarSimpleProduct()}}>
                             { sendingCotizacion ? <Spinner/> : <p>AGREGAR AL CARRITO</p> }
                         </button>
                     </div>

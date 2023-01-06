@@ -3,8 +3,8 @@ const ListBestSellers = ({products}) => {
 
     return (
         <>
-            <div className="m-3"> 
-                <h2>Productos más buscados</h2>
+            <div> 
+                <h2 className="cot-title sub-tit">Productos más buscados</h2>
             </div>
             <div className="row cont-items-best">
                 {products.map((p) => {

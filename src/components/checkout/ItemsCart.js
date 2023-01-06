@@ -16,21 +16,21 @@ const ItemsCart = ({item}) => {
     return (
         <>
             <div className={tabActive ? "table accordion active" : "table accordion" } onClick={()=> changeTabActive()}>
-                <div>{item.producto_combinado.titulo}</div>
-                <div>{item.producto_combinado.unidad}</div>
-                <div>-</div>
-                <div>-</div>
-                <div>${item.subtotal}</div>
+                <div className="pago-text">{item.producto_combinado.titulo}</div>
+                <div className="pago-text">{item.producto_combinado.unidad}</div>
+                <div className="pago-text">-</div>
+                <div className="pago-text">-</div>
+                <div className="pago-text">${item.subtotal}</div>
             </div>
             <div className="panel" style={{ maxHeight: styleMaxHeight }}>
                 {item?.producto_combinado?.productos_simples?.map((p) => {
                     return (
                         <div className="item-panel" key={Math.random()}>
-                            <div>{p.alias}</div>
-                            <div>-</div>
-                            <div>{p.cantidad}</div>
-                            <div>${p.precio_x_unidad}</div>
-                            <div>${p.subtotal}</div>
+                            <div className="pago-text">{p.alias}</div>
+                            <div className="pago-text">-</div>
+                            <div className="pago-text">{p.cantidad}</div>
+                            <div className="pago-text">${p.precio_x_unidad}</div>
+                            <div className="pago-text">${p.subtotal}</div>
                         </div>
                     )
                 })}
