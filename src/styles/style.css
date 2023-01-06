@@ -290,6 +290,7 @@ div.categories-container .mx-auto
 {
   font-family: 'gotham-b';
   font-size: 2rem;
+  text-align: center;
 }
 .categories {
   display: flex;
@@ -356,7 +357,7 @@ div.categorie-items p
   justify-content: center;
   height: auto;
   width: 15em;
-  margin-right: 1em;
+  margin: 1rem 1rem 1rem 0;
   margin-bottom: 1rem;
   border-radius: 5px;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
@@ -682,7 +683,7 @@ div.img-container h5
   .box-empresa{
     border: 1px solid #ff9817;
     border-radius: 5px;
-    height: 150px;
+    height: 170px;
     min-height: 100px;
     position: relative;
   }
@@ -732,12 +733,24 @@ div.img-container h5
 @media (max-width: 920px) 
 {
   /* empresa */
-
+    .box-contain
+    {
+      display: block;
+      position: initial;
+      top: initial;
+      transform: none;
+      padding: 1rem 0;
+    }
+    .empresa-img
+    {
+      margin: auto;
+    }
     .box{
       margin: 0.5rem 0;
       padding: 1.5rem 1rem;
     }
     .info-boxes {
+      width: 90%;
       padding: 1.5rem 1rem;
     }
     .cont-boxes {
@@ -1174,7 +1187,7 @@ input[type="radio"]:checked {
     align-items: center;
     margin: 1rem 0;
     overflow: hidden;
-    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .cont-text-filters {
@@ -1215,9 +1228,10 @@ input[type="radio"]:checked {
 {
   flex-wrap: wrap;
 }
-.cont-filters {
-    flex-wrap: nowrap;
-    overflow-x: scroll;
+.cont-filters
+{
+  width: 80%;
+  margin: auto;
 }
 .item-filter {
     border: 0.5px solid gray;
@@ -1230,9 +1244,9 @@ input[type="radio"]:checked {
     display: flex;
     align-items: center;
 }
-.item-filter:first-child {
+/*.item-filter:first-child {
     margin-left: 10rem;
-}
+}*/
 .close-item-filter {
     padding: 0 1rem 0 .8rem;
     cursor: pointer;
@@ -1242,11 +1256,6 @@ input[type="radio"]:checked {
 }
 .cat-contain{
   justify-content: center;
-}
-.cont-best-sellers
-{
-  width: 80%;
-  margin: auto;
 }
 .cont-text-category {
 }
@@ -1263,7 +1272,8 @@ input[type="radio"]:checked {
 }
 .cont-sub-result {
     margin-top: 1.5rem;
-
+    width: 80%;
+    margin: auto;
 }
   /* cotizar */
 .resultados-contain
@@ -1597,11 +1607,17 @@ span.close-modal-email:hover {
 {
   .cont-info-boxes
   {
-    height: 500px;
+    height: 550px;
   }
 }
 @media (max-width: 920px) 
 {
+    /*home*/
+    .images-container .img1, .images-container .img2 {
+        height: 304px;
+        min-height: 250px;
+        text-align: center;
+    }
      /*footer*/
     .logo-container
     {
@@ -1610,7 +1626,7 @@ span.close-modal-email:hover {
     .didesk {display: none;}
     /* navbar */
     .playstore.navbar{
-        /*display: none;*/
+        display: none;
     }
     /* fin navbar */
     /* comprar */
@@ -1623,6 +1639,7 @@ span.close-modal-email:hover {
     .side-categories
     {
       justify-content: center;
+      min-width: max-content;
     }
     .categories-filter
     {
@@ -1631,6 +1648,9 @@ span.close-modal-email:hover {
       justify-content: space-between;
       width: 100% !important;
       flex-wrap: wrap;
+    }
+    .cont-filters{
+      justify-content: center;
     }
     .compra-contain
     {
@@ -1663,9 +1683,9 @@ span.close-modal-email:hover {
         text-align: center;
         margin: 1.5rem 0;
     }
-    .cotizar-subitems:first-child {
+    /*.cotizar-subitems:first-child {
         margin-left: 1rem;
-    }
+    }*/
     .cont-text-filters {
         padding-left: 1rem;
     }
@@ -1680,6 +1700,11 @@ span.close-modal-email:hover {
     }
     .cont-sucategory-results {
         overflow-x: scroll;
+    }
+    .resultados-contain
+    {
+      justify-content: center;
+      margin-right: initial;
     }
     .cant-contain,
     .btn-cotizar-contain,
@@ -1837,13 +1862,25 @@ span.close-modal-email:hover {
     }
     .about-image
     {
+      display: none;
       width: 100% !important;
     }
+    div.info-contain .contacto-title
+    {
+      margin-top: 1rem;
+      text-align: center;
+    }
 }
-@media (max-width: 920px){
+@media (max-width: 640px){
   .product-card
   {
     width: 100% !important;
+    margin:  0 2rem 1rem;
+  }
+  .busca-contain
+  {
+    width: 90%;
+    margin: auto;
   }
 } 
 .card-product .foto-cotizar {

@@ -9,8 +9,9 @@ const SubCategoryCardLoading = () => {
         alignItems: 'center',
         display: 'flex',
         overflow: 'hidden',
-        marginLeft: '1rem',
-        marginRight: '0.8rem'
+        marginRight: '1rem',
+        marginTop : '1rem',
+        marginBottom : '1rem'
       };
      const styleCircle = {
         backgroundColor: '#cecece'
