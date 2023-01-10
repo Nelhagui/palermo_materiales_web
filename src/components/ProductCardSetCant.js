@@ -88,7 +88,7 @@ const ProductCardSetCant = () => {
                 </div>
             </div>
             <div className="line-dos"></div>
-            <p className="product-desc">{product?.descripcion_corta}</p>
+            <p className="product-desc product-contain">{product?.descripcion_corta}</p>
         </div>
     </div>
   )
