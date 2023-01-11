@@ -1,14 +1,16 @@
-import MercadoPagoForm from "./mercadopago/MercadoPagoForm.js";
+import React, {useState} from 'react'
+import MercadoPagoBricks from "./mercadopago/bricks/MercadoPagoBricks.js";
+
 
 const MpMethods = ({previousStep}) => {
+    const [isDisabledBtnPreviousStep, setIsDisabledBtnPreviousStep] = useState(false)
 
     return (
         <>
-
-            <MercadoPagoForm></MercadoPagoForm>
-            <div className="btn-secondary" onClick={() => previousStep()}>
+            <MercadoPagoBricks setIsDisabledBtnPreviousStep={setIsDisabledBtnPreviousStep}></MercadoPagoBricks>
+            <button className={isDisabledBtnPreviousStep ? "btn-secondary disabled" : "btn-secondary"} onClick={ isDisabledBtnPreviousStep ? null : () => previousStep()}>
                 <p> REGRESAR </p>
-            </div>
+            </button>
         </>
         
     );

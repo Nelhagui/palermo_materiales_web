@@ -18,7 +18,7 @@ const AgregarProductoComprar = () => {
             <h5>¿Estás buscando un producto puntual? Utiliza nuestro buscador</h5>
             <div className="busca-contain">
               <Input onKeyDown={filterBySearch} className=" mx-auto input-busca" />
-              <button class="btn btn-primary input-group-btn btn-lg btn-search"><img src={search} alt="Search_blanco" /></button>
+              <button className="btn btn-primary input-group-btn btn-lg btn-search"><img src={search} alt="Search_blanco" /></button>
         </div>
         </div>
         <div className="d-flex">

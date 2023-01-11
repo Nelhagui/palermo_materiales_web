@@ -3,7 +3,7 @@ import useMercadoPago from "./hooks/useMercadoPago.js";
 
 
 
-export default function MercadoPagoForm() {
+export default function MercadoPagoFormApi() {
 
     const resultPayment = useMercadoPago();
     return (

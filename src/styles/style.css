@@ -1422,6 +1422,31 @@ label.radio-payment:active {
 .radio-payment.mp {
     margin: 0 1rem;
 }
+.res-pago {
+    display: flex;
+    justify-content: center;
+    height: 45px;
+    border: .5px solid;
+    border-radius: 5px;
+    align-items: center;
+    margin: 1rem 0;
+}
+.btn-primary.pago-ok {
+    background: #27c25f;
+    cursor: inherit;
+    border: none;
+}
+
+.btn-primary.pago-ok:hover {
+    color: white;
+    border: none;
+}
+.msj_error_mp {
+    display: flex;
+    color: red;
+    padding: 1rem;
+}
+
 #btn-cont
 {
   margin-top: 1rem;

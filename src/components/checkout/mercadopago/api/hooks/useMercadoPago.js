@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import UseScript from "../../../../utils/UseScript.js";
+import UseScript from "../../../../../utils/UseScript.js";
 import { formConfig } from "../formConfig.js";
 
 export default function useMercadoPago() {
