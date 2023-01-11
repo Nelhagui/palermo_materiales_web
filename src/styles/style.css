@@ -1389,6 +1389,7 @@ input[type="radio"]:checked {
 .card.order {
     padding: 2.5rem;
     width: 80%;
+    max-width: 920px;
     margin: auto;
 }
 .order-top div:last-child {
@@ -1825,7 +1826,11 @@ span.close-modal-email:hover {
         width: 20%;
         text-align: center;
       }
-      
+      div.cont-options-method .btn-primary,
+      div.cont-options-method .btn-secondary
+      {
+        width: 100% !important;
+      }
       .cont-img {
         height: 13rem;
         width: 13rem;
