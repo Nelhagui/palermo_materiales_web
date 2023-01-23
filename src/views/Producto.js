@@ -2,13 +2,16 @@ import axios from 'axios'
 import React from 'react'
 import CartContext from '../context/CartContext.js'
 import { useContext, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom';
+import Spinner from '../components/Spinner.js';
 
 const Producto = () => {
   let {id} = useParams();
   const [product, setProduct] = useState(JSON.parse(localStorage.getItem('producto')))
   const {cart, addProduct } = useContext(CartContext)
   const [cont, setCont] = useState(1)
+  const [isLoading, setIsLoading] = useState(true)
+  const [sendingCotizacion, setSendingCotizacion] = useState(false)
   const [productCotizado, setProductCotizado] = useState([])
 
   const handleRest = () => {
@@ -21,19 +24,14 @@ const Producto = () => {
 
   const fetchProducto = () => {
     axios.get(`https://test.api.palermomateriales.com.ar/api/productocombinado/${id}`)
-        .then((res) => setProduct(res.data))
-  }
-  const validoLocalStorage = () => {
-    if(product !== null){
-        if(Number(product.id) !== Number(id))
-            fetchProducto();
-    }
-    else
-        fetchProducto();
+        .then((res) => {
+            setProduct(res.data)
+            setIsLoading(false)
+        })
   }
   
   useEffect(() => {
-    validoLocalStorage();
+    fetchProducto();
   }, [id])
 
   const addToCart = () => {    
@@ -41,6 +39,7 @@ const Producto = () => {
   }
 
   function handleNull() {
+    setSendingCotizacion(true)
     const cotizarBody = {
       cantidad: cont,
       producto_combinado_id: id,
@@ -50,7 +49,10 @@ const Producto = () => {
         "https://test.api.palermomateriales.com.ar/api/cotizador/cotizar",
         cotizarBody
       )
-      .then((response) => setProductCotizado(response.data));
+      .then((response) => {
+        setSendingCotizacion(false)
+        setProductCotizado(response.data)
+    });
   }
 
   return (
@@ -63,9 +65,14 @@ const Producto = () => {
       
         <div className="card-product">
             <div className='row'>
-                <div className='img-conte col-12 col-md-5'>
-                    <img src={product?.foto} alt="foto" />
-                </div>
+                { isLoading 
+                  ?
+                    <div className='img-product loading'></div>
+                  :
+                    <div className='img-conte col-12 col-md-5'>
+                        <img src={product?.foto} alt="foto" />
+                    </div>
+                }
                 <div className='info-card-product col-12 col-md-7'>
                     <div>
                         <h1 className="fw-bold cot-title">{product?.titulo}</h1>
@@ -84,7 +91,9 @@ const Producto = () => {
                                 </div>
                             </div>
                             <div className='col-12 col-md-7'>
-                                <button className="btn-primary btn-cotizar" onClick={handleNull}> COTIZAR </button>
+                                <button className={sendingCotizacion ? "btn-primary btn-cotizar disabled" : "btn-primary btn-cotizar"} onClick={sendingCotizacion ? null : handleNull}>
+                                    { sendingCotizacion ? <Spinner/> : "COTIZAR" }
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -92,6 +101,7 @@ const Producto = () => {
             </div>
         </div>
         { productCotizado.hasOwnProperty('cotizacion') ?
+                sendingCotizacion ? "" :
                 <>
                     <div className="cotizar-table container">
                         <div className="header fw-bold">

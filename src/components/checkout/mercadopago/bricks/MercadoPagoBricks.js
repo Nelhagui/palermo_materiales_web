@@ -1,10 +1,13 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
+import CartContext from '../../../../context/CartContext.js';
 import UseScript from '../../../../utils/UseScript.js';
 import Spinner from '../../../Spinner.js';
 import ProcessResponse from './hooks/ProcessResponse.js';
 
+
 const MercadoPagoBricks = ({setIsDisabledBtnPreviousStep}) => {
     const [sendingPayment, setSendingPayment] = useState(false)
+    const { addProduct } = useContext(CartContext)
     const [msjErrorMp, setMsjErrorMp] = useState('')
     const [canPay, setCanPay] = useState(true)
     const [isPaid, setIsPaid] = useState(false)
@@ -13,23 +16,17 @@ const MercadoPagoBricks = ({setIsDisabledBtnPreviousStep}) => {
         setIsDisabledBtnPreviousStep(true)
         window.cardPaymentBrickController.getFormData()
             .then((cardFormData) => {
-                fetch("https://test.api.palermomateriales.com.ar/api/orden/process_payment", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(cardFormData),
-                })
+                fetch("https://test.api.palermomateriales.com.ar/api/orden/process_payment", { method: "POST", headers: { "Content-Type": "application/json", }, body: JSON.stringify(cardFormData), })
                 .then((response) => response.json())
                 .then((data) => {
-                    console.log(data)
+                    setIsDisabledBtnPreviousStep(false)
+                    setSendingPayment(false)
                     if(data.status === "approved") {
                         setIsPaid(true);
                         setCanPay(false);
+                        setMsjErrorMp('')
                     }
                     else if(data.status === "rejected") {
-                        setSendingPayment(false)
-                        setIsDisabledBtnPreviousStep(false)
                         const msjError = ProcessResponse(data.status_detail);
                         setMsjErrorMp(`*${msjError}`)
                     }
@@ -81,6 +78,13 @@ const MercadoPagoBricks = ({setIsDisabledBtnPreviousStep}) => {
         }
     }, [MercadoPago]);
 
+
+    useEffect (()=>{
+        if(isPaid === true){
+            addProduct([]);
+        }
+    }, [isPaid])
+
     return (
         <>
             <div id="cardPaymentBrick_container">
@@ -106,7 +110,6 @@ const MercadoPagoBricks = ({setIsDisabledBtnPreviousStep}) => {
                             <button  className="btn-primary disabled">
                                 <p>PAGAR</p>
                             </button>
-
             }
         </>
         

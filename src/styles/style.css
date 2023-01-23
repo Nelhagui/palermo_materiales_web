@@ -2034,3 +2034,6 @@ span.close-modal-email:hover {
 {
   width: 80%;
 }
+.img-product.loading {
+    width: 301px;
+}

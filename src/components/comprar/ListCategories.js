@@ -7,10 +7,10 @@ const ListCategories = ({categories, subcategories, setCatId}) => {
             categories.length === 0
             ?
             <>
-                <div className="btn-category loading"></div>
-                <div className="btn-category loading"></div>
-                <div className="btn-category loading"></div>
-                <div className="btn-category loading"></div>
+                <div className="btn-category loading"></div> <br/>
+                <div className="btn-category loading"></div> <br/>
+                <div className="btn-category loading"></div> <br/>
+                <div className="btn-category loading"></div> <br/>
             </>
             :
             categories?.map((c, idx) => {
