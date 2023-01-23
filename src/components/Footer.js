@@ -28,7 +28,9 @@ const Footer = () => {
                 <img src={Visa} alt="visa" />
                 <img src={Amex} alt="amex" />
                 <div className="vl"></div>
-                <img src={Playstore} alt="playstore" className="playstore" />
+                <a href="https://play.google.com/store/apps/details?id=rd.corralon.rc" target="_blank">
+                    <img src={Playstore} alt="playstore" className="playstore" />
+                </a>
               </div>
             </div>
         <hr />

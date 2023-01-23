@@ -14,7 +14,8 @@ import TyC from './components/TyC.js'
 import Checkout from './views/Checkout.js'
 import Datos from './views/Datos.js'
 import Pago from './views/Pago.js'
-
+import TerminosCondiciones from './views/TerminosCondiciones.js'
+import PoliticasPrivacidad from './views/PoliticasPrivacidad.js'
 import CartState from './context/CartState.js'
 import Producto from './views/Producto.js'
 import AgregarProducto from './views/AgregarProducto.js'
@@ -40,6 +41,8 @@ root.render(
         <Route path='/producto/:id' element={<Producto/>}/>
         <Route path='/producto-techo/:id' element={<ProductoPared/>}/>
         <Route path='/producto/agregar/:id' element={<AgregarProducto/>}/>
+        <Route path='/terminos-condiciones' element={<TerminosCondiciones/>}/>
+        <Route path='/politicas-privacidad' element={<PoliticasPrivacidad/>}/>
       </Routes>
       <Footer />
       <TyC />

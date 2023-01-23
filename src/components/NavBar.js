@@ -55,7 +55,9 @@ const NavBar = () => {
           </div>
           <div className="playstore navbar">
             <img src={playstore} alt="playstore-logo" />
-            <p>DESCARGAR APP</p>
+            <a href="https://play.google.com/store/apps/details?id=rd.corralon.rc" target="_blank">
+                DESCARGAR APP
+            </a>
           </div>
         </div>
       </div>

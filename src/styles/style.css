@@ -2078,3 +2078,10 @@ span.close-modal-email:hover {
 .img-product.loading {
     width: 301px;
 }
+.cont-gral-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 4rem;
+}
