@@ -1,11 +1,8 @@
-import { useContext } from 'react'
 import SinImagen from '../assets/img/no-img.png';
-import CartContext from '../context/CartContext.js'
 import { useNavigate } from 'react-router-dom'
 
 const ProductSimpleCard = (props) => {
   let navigate = useNavigate()
-  const { cart, addProduct } = useContext(CartContext)
 
   function handleClick() {
     localStorage.setItem("producto-agregar", JSON.stringify(props.producto))

@@ -2085,3 +2085,27 @@ span.close-modal-email:hover {
     flex-direction: column;
     padding: 4rem;
 }
+.popup-add-cart {
+    position: absolute;
+    background-color: #ff9818;
+    border: 1px solid #ffffff;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+    max-width: max-content;
+    padding: 1rem;
+    z-index: 999;
+    right: -18px;
+    margin-right: 0rem;
+    margin-top: 4rem;
+    opacity: 0;
+    transition-duration: .2s;
+}
+.popup-add-cart.show {
+    right: 2rem;
+    opacity: 1;
+    transition-duration: .2s;
+}
+.image-titles .btn-primary {
+    max-width: 63%;
+}

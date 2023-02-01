@@ -35,7 +35,8 @@ const Producto = () => {
   }, [id])
 
   const addToCart = () => {    
-    addProduct([... cart, productCotizado])
+    const result = cart.filter(item => item.producto_combinado_id !== productCotizado.producto_combinado_id);
+    addProduct([... result, productCotizado])
   }
 
   function handleNull() {

@@ -1,14 +1,14 @@
-import React from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import '../styles/style.css'
 import { Link } from 'react-router-dom'
 import carrito from '../assets/img/carrito.svg'
 import playstore from '../assets/img/playstore.svg'
 import logo from '../assets/img/logo_informacion.png'
 import CartContext from '../context/CartContext.js'
-import { useContext, useState } from 'react'
 import NavBarSm from './navBar/NavBarSm.js'
 
 const NavBar = () => {
+    const [showMsjAdd, setShowMsjAdd] = useState(false)
     const { cart } = useContext(CartContext)
     let cartLength = cart.length
     let classNameIconCartCount = 'cart-circle';
@@ -18,11 +18,22 @@ const NavBar = () => {
         setIsShowNavBarSm(!isShowNavBarSm)
     })
 
+    useEffect(() => {
+      if(cart.length > 0){
+        setShowMsjAdd(true);
+        setTimeout(function(){setShowMsjAdd(false)}, 5000);
+      }
+    }, [cart])
+    
+
   return (
     <div className="nav-root ">
+        <div  className={showMsjAdd ? "popup-add-cart show" : "popup-add-cart" }>¡AGREGADO AL CARRITO!</div>   
       <div className="nav-container container">
         <div className="logo-container ">
-          <img src={logo} alt="logo" />
+            <Link to={'/'}>
+                <img src={logo} alt="logo" />
+            </Link>
         </div>
 
         <div className="navbar-xl  ">
@@ -44,7 +55,7 @@ const NavBar = () => {
                 >
                   {cartLength}
                 </div>
-              <img src={carrito} alt="carrito" />
+                <img src={carrito} alt="carrito" />
             </Link>
             :
             <img src={carrito} alt="carrito" />

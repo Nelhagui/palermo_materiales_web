@@ -20,13 +20,14 @@ const Checkout = () => {
   let navigate = useNavigate()
 
   useEffect(() => {
-    cart.map((e) => {
-      setItems(e.cotizacion.subtotal)
+    const valores = cart.map((e) => {
+        return e.cotizacion.subtotal
     })
+    setItems(valores);
   }, [cart])
-
+  
   useEffect(() => {
-    setTotalPrice([items].reduce((a, b) => a + b, 0))
+    setTotalPrice(items.reduce((a, b) => a + b, 0))
   }, [items])
 
 
