@@ -2109,3 +2109,29 @@ span.close-modal-email:hover {
 .image-titles .btn-primary {
     max-width: 63%;
 }
+
+.cont-validate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25%;
+    margin-top: 25% !important;
+}
+
+.valida-fallo, .valida-ok {
+    text-align: center;
+    font-size: 2rem;
+}
+.valida-fallo {
+    color: #c11919;
+}
+.valida-ok {
+    color: #ff791d;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] { -moz-appearance:textfield; }

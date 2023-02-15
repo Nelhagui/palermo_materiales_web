@@ -21,6 +21,7 @@ import Producto from './views/Producto.js'
 import AgregarProducto from './views/AgregarProducto.js'
 import AgregarProductoComprar from './views/AgregarProductoComprar.js'
 import ProductoPared from './views/ProductoPared.js'
+import ValidarRegistro from './views/ValidarRegistro.js'
 
 const root = createRoot(document.getElementById('root'))
 root.render(
@@ -43,6 +44,7 @@ root.render(
         <Route path='/producto/agregar/:id' element={<AgregarProducto/>}/>
         <Route path='/terminos-condiciones' element={<TerminosCondiciones/>}/>
         <Route path='/politicas-privacidad' element={<PoliticasPrivacidad/>}/>
+        <Route path='/validar_registro/:token' element={<ValidarRegistro/>}/>
       </Routes>
       <Footer />
       <TyC />

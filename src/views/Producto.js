@@ -22,6 +22,13 @@ const Producto = () => {
     setCont(cont + 1)
   }
 
+
+
+  const changeValue = (event) => {
+    if(event.target.value > 0 )
+        setCont(event.target.value)
+  }
+
   const fetchProducto = () => {
     axios.get(`https://test.api.palermomateriales.com.ar/api/productocombinado/${id}`)
         .then((res) => {
@@ -55,6 +62,7 @@ const Producto = () => {
         setProductCotizado(response.data)
     });
   }
+  
 
   return (
     <div className="container-fluid wrapper">
@@ -87,7 +95,9 @@ const Producto = () => {
                             <div className="col-12 col-md-5 cant-contain" >
                                 <div className='contador'>
                                     <div className="button-change-count" onClick={() => handleRest()}> - </div>
-                                    <div>{cont}</div>
+                                    <div className='input-cant'>
+                                        <input type="number" value={cont} onChange={changeValue}/>
+                                    </div>
                                     <div className="button-change-count" onClick={() => handleAdd()}> + </div>
                                 </div>
                             </div>

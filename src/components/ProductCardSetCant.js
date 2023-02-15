@@ -23,6 +23,10 @@ const ProductCardSetCant = () => {
     setCant(cant + 1)
   }
 
+  const changeValue = (event) => {
+    if(event.target.value > 0 )
+        setCant(event.target.value)
+  }
 
   function cotizarSimpleProduct() {
     setSendingCotizacion(true);
@@ -75,7 +79,9 @@ const ProductCardSetCant = () => {
                     <div className="col-12 col-md-5 cant-contain" >
                         <div className='contador'>
                             <div className="button-change-count" onClick={sendingCotizacion ? null : () => handleRest()}> - </div>
-                            <div>{cant}</div>
+                            <div className='input-cant'>
+                                <input type="number" value={cant} onChange={changeValue}/>
+                            </div>
                             <div className="button-change-count" onClick={sendingCotizacion ? null : () => handleAdd()}> + </div>
                         </div>
                     </div>
