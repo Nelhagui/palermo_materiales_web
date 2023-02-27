@@ -36,7 +36,7 @@ const Cotizar = () => {
 
     const fetchSubCategories = ((category_id) => {
         setSubcategoriesIsLoading(true);
-        axios.get(`https://test.api.palermomateriales.com.ar/api/categoria/cotizable/${category_id}`)
+        axios.get(`${process.env.REACT_APP_API_URL}/categoria/cotizable/${category_id}`)
             .then((res) => {setSubCategories(res.data); setSubcategoriesIsLoading(false)} )
     })
 
@@ -50,9 +50,9 @@ const Cotizar = () => {
     })
 
     useEffect(() => {
-        axios.get(`https://test.api.palermomateriales.com.ar/api/categoria/1/mas-vendidos`)
+        axios.get(`${process.env.REACT_APP_API_URL}/categoria/1/mas-vendidos`)
             .then((response) => setBestSellers(response?.data))
-        axios.get('https://test.api.palermomateriales.com.ar/api/categoria')
+        axios.get(`${process.env.REACT_APP_API_URL}/categoria`)
             .then((response) => setCategories(response.data))
     }, []);
 

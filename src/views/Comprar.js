@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Input } from 'reactstrap'
 import ProductCardSetCant from '../components/ProductCardSetCant.js';
-// import ListCategories from '../components/comprar/ListCategories.js';
 import ListProducts from '../components/comprar/ListProducts.js';
 import axios from 'axios'
 import search from '../assets/img/Search_blanco.svg'
@@ -17,7 +16,7 @@ const Comprar = () => {
         {
             if(query.length > 1)
             {
-                axios.get(`https://test.api.palermomateriales.com.ar/api/productocombinado/simple/categorias/buscar?q=${query}`)
+                axios.get(`${process.env.REACT_APP_API_URL}/productocombinado/simple/categorias/buscar?q=${query}`)
                 .then((response) => {
                     setProducts(response.data)
                 })
@@ -34,7 +33,7 @@ const Comprar = () => {
     }, [])
 
     useEffect(() => {
-        axios.get('https://test.api.palermomateriales.com.ar/api/categoria')
+        axios.get(`${process.env.REACT_APP_API_URL}/categoria`)
         .then((response) => {
             setCatId(response?.data[0].id)
         })
@@ -42,7 +41,7 @@ const Comprar = () => {
 
     useEffect(() => {
         if(catId > 0 ){
-            axios.get(`https://test.api.palermomateriales.com.ar/api/categoria/${catId}/comprar`)
+            axios.get(`${process.env.REACT_APP_API_URL}/categoria/${catId}/comprar`)
             .then((response) => setProducts(response.data))
         }
     }, [catId])

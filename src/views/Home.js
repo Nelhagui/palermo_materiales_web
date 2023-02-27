@@ -21,7 +21,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get('https://test.api.palermomateriales.com.ar/api/categoria')
+      .get(`${process.env.REACT_APP_API_URL}/categoria`)
       .then((response) => {
         setCategories(response.data)
         setIsLoadingCategories(false);
@@ -31,7 +31,7 @@ const Home = () => {
   useEffect(() => {
     setIsLoading(true);
     axios
-      .get(`https://test.api.palermomateriales.com.ar/api/categoria/${catId}/mas-vendidos`)
+      .get(`${process.env.REACT_APP_API_URL}/categoria/${catId}/mas-vendidos`)
       .then((response) => setProducts(response.data))
   }, [catId])
 

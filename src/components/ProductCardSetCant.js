@@ -36,7 +36,7 @@ const ProductCardSetCant = () => {
     };
     axios
       .post(
-        "https://test.api.palermomateriales.com.ar/api/cotizador/cotizar",
+        `${process.env.REACT_APP_API_URL}/cotizador/cotizar`,
         cotizarBody
       )
       .then((response) => {
@@ -48,7 +48,7 @@ const ProductCardSetCant = () => {
 
   useEffect(() => {
     if (id) {
-        axios.get(`https://api.palermomateriales.com.ar/api/productocombinado/${id}`)
+        axios.get(`${process.env.REACT_APP_API_URL}/productocombinado/${id}`)
         .then((res) => { 
             setIsLoading(false);
             setProduct(res?.data) 
