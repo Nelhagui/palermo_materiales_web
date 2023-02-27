@@ -5,12 +5,14 @@ import Spinner from '../../../Spinner.js';
 import ProcessResponse from './hooks/ProcessResponse.js';
 
 
-const MercadoPagoBricks = ({setIsDisabledBtnPreviousStep}) => {
+const MercadoPagoBricks = ({setIsDisabledBtnPreviousStep, total}) => {
     const [sendingPayment, setSendingPayment] = useState(false)
     const { addProduct } = useContext(CartContext)
     const [msjErrorMp, setMsjErrorMp] = useState('')
     const [canPay, setCanPay] = useState(true)
     const [isPaid, setIsPaid] = useState(false)
+    const [totalPrice] = useState( JSON.parse(localStorage.getItem('compra')).monto_total )
+
     const createPayment = () => {
         setSendingPayment(true)
         setIsDisabledBtnPreviousStep(true)
@@ -48,7 +50,7 @@ const MercadoPagoBricks = ({setIsDisabledBtnPreviousStep}) => {
             const renderCardPaymentBrick = async (bricksBuilder) => {
                 const settings = {
                   initialization: {
-                    amount: 100, // monto a ser pago
+                    amount: totalPrice, // monto a ser pago
                     payer: {
                       email: "",
                     },
@@ -68,7 +70,6 @@ const MercadoPagoBricks = ({setIsDisabledBtnPreviousStep}) => {
                     },
                     onError: (error) => {
                       // callback llamado para todos los casos de error de Brick
-                      console.log('callback error', error)
                     },
                   },
                 };

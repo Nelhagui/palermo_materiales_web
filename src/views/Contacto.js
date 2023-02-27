@@ -13,13 +13,10 @@ const Contacto = () => {
     });
     const handleChange = (event) => {
         event.preventDefault();
-        // console.log(event.target.name)                                                                                             .xz/,.s,../;
-        // console.log(event.target.value)
         setInitialState({ ...initialState, [event.target.name] : event.target.value })
     }
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(initialState);
     }
     
     return (

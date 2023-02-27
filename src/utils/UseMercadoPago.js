@@ -59,7 +59,6 @@ export default function useMercadoPago() {
                 callbacks: {
                   onFormMounted: error => {
                     if (error) return console.warn("Form Mounted handling error: ", error);
-                    console.log("Form mounted");
                   },
                   onSubmit: event => {
                     event.preventDefault();
@@ -98,7 +97,6 @@ export default function useMercadoPago() {
                     });
                   },
                   onFetching: (resource) => {
-                    console.log("Fetching resource: ", resource);
           
                     // Animate progress bar
                     const progressBar = document.querySelector(".progress-bar");

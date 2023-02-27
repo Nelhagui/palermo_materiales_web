@@ -20,12 +20,10 @@ const ValidarRegistro = () => {
           
           axios(config)
           .then(function (response) {
-            console.log(JSON.stringify(response.data));
             setValidando(false)
             setRespuestaOk(true);
           })
           .catch(function (error) {
-            console.log('error', error);
             setValidando(false)
             setRespuestaOk(false);
           })

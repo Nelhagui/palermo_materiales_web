@@ -53,7 +53,6 @@ const Checkout = () => {
                 navigate('/checkout/payment')
             })
             .catch(function (error) {
-                console.log(error);
             });
         } else {
             navigate('/checkout/data')
