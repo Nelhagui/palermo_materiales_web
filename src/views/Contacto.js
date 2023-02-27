@@ -4,6 +4,8 @@ import MailNaranja from '../assets/img/Mail_naranja.svg'
 import HorarioNaranja from '../assets/img/Horario_naranja.svg'
 import UbiNaranja from '../assets/img/icon-ubicacion.svg'
 import MapView from '../components/MapView.js'
+import Spinner from '../components/Spinner.js'
+import axios from 'axios'
 
 const Contacto = () => {
     const [initialState, setInitialState] = useState({
@@ -11,12 +13,40 @@ const Contacto = () => {
         email: "",
         comentario: ""
     });
+    const [isSending, setIsSending] = useState(false)
+    const [msj, setMsj] = useState(false)
     const handleChange = (event) => {
         event.preventDefault();
         setInitialState({ ...initialState, [event.target.name] : event.target.value })
     }
     const handleSubmit = (event) => {
         event.preventDefault();
+        sendFetch()
+    }
+    const sendFetch = () => {
+        if(initialState.email !== '' && initialState.comentario !== "" && initialState.nombre !== '')
+        {
+            setIsSending(true)
+            
+            let config = { method: 'post', maxBodyLength: Infinity,
+              url: `${process.env.REACT_APP_API_URL}/contacto/email`,
+              headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+              data : JSON.stringify(initialState)
+            };
+
+            axios(config)
+            .then(function (response) {
+              setMsj('Enviado!!')
+              setIsSending(false)
+            })
+            .catch(function (error) {
+                setIsSending(false)
+            });
+            
+
+        } else {
+            alert('Complete los campos obligatorios');
+        }
     }
     
     return (
@@ -47,8 +77,13 @@ const Contacto = () => {
                                     <textarea name="comentario" cols="5" rows="5" defaultValue={initialState?.comentario} onChange={handleChange}></textarea>
                                 </div>
                             </div>
+                            <span>
+                                {msj}
+                            </span>
                             <div className='col-12 d-flex justify-content-center'>
-                                <button className="btn-primary" type='submit'>ENVIAR</button>
+                                <button className="btn-primary" type='submit' onSubmit={handleSubmit}>
+                                    { isSending ? <Spinner/> : <p>ENVIAR</p> }
+                                </button>
                             </div>
                         </form>
                     </div>
