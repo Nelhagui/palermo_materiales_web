@@ -5,7 +5,7 @@ import Spinner from '../../../Spinner.js';
 import ProcessResponse from './hooks/ProcessResponse.js';
 
 
-const MercadoPagoBricks = ({setIsDisabledBtnPreviousStep, total}) => {
+const MercadoPagoBricks = ({setIsDisabledBtnPreviousStep}) => {
     const [sendingPayment, setSendingPayment] = useState(false)
     const { addProduct } = useContext(CartContext)
     const [msjErrorMp, setMsjErrorMp] = useState('')
@@ -63,6 +63,10 @@ const MercadoPagoBricks = ({setIsDisabledBtnPreviousStep, total}) => {
                         theme: 'default', // | 'dark' | 'bootstrap' | 'flat'
                       }
                     },
+                    paymentMethods: {
+                        minInstallments: 1,
+                        maxInstallments: 1,
+                    },
                   },
                   callbacks: {
                     onReady: () => {
@@ -99,7 +103,7 @@ const MercadoPagoBricks = ({setIsDisabledBtnPreviousStep, total}) => {
                     canPay 
                     ?
                         <button  className="btn-primary" onClick={()=> createPayment()}>
-                            <p>PAGAR</p>
+                            <p> PAGAR (${totalPrice}) </p>
                         </button>
                     :
                         isPaid
@@ -109,7 +113,7 @@ const MercadoPagoBricks = ({setIsDisabledBtnPreviousStep, total}) => {
                             </button>
                         :
                             <button  className="btn-primary disabled">
-                                <p>PAGAR</p>
+                                <p>PAGAR (${totalPrice}) </p>
                             </button>
             }
         </>
