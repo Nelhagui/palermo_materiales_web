@@ -932,7 +932,7 @@ div.img-container h5
   width: 40%;
   background: white;
 }
-.form-contacto input[type="text"], .form-contacto textarea, .form-login input, .form-register input {
+.form-contacto input[type="text"], .form-contacto input[type="email"], .form-contacto textarea, .form-login input, .form-register input {
     width: 100%;
     border: .5px solid #d9d8d8;
     border-radius: 5px;
