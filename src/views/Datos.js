@@ -5,6 +5,7 @@ import DetailIcon from "../assets/img/carrito_detalle.png";
 import DataIcon from "../assets/img/carrito_datos.png";
 import PaymentIcon from "../assets/img/FormDePago_negro.png";
 import Spinner from "../components/Spinner.js";
+import { Link } from "react-router-dom";
 
 const Datos = () => {
   const [logged, setLogged] = useState(null);
@@ -30,7 +31,7 @@ const Datos = () => {
   const loginPost = () => {
     setSendingLoginFetch(true);
     setMsjError('')
-    axios.post( "https://test.api.palermomateriales.com.ar/api/auth/login", credentials )
+    axios.post( `${process.env.REACT_APP_API_URL}/auth/login`, credentials )
         .then((response) => {
             setLogged(response.data)
             setSendingLoginFetch(false) 
@@ -47,7 +48,7 @@ const Datos = () => {
 
     let config = {
         method: 'post',
-        url: `https://test.api.palermomateriales.com.ar/api/user/crear?nombre=${nameRegister}&password=${passwordRegister}&password_confirmation=${passwordConfirmationRegister}&email=${emailRegister}`,
+        url: `${process.env.REACT_APP_API_URL}/user/crear?nombre=${nameRegister}&password=${passwordRegister}&password_confirmation=${passwordConfirmationRegister}&email=${emailRegister}`,
         headers: { }
     };
 
@@ -132,9 +133,9 @@ const Datos = () => {
                         <div className='col-12 d-flex justify-content-center' style={{color: 'red'}}>
                             <p className="pago-text">{msjError}</p>
                         </div>
-                        {/* <div className="col-12 d-flex justify-content-center">
-                            <a href="#" className="pago-text">Olvidé mi contraseña</a>
-                        </div> */}
+                        <div className="col-12 d-flex justify-content-center">
+                            <Link to="/recuperar_password" className="pago-text">Olvidé mi contraseña</Link>
+                        </div>
                     </form>
                 </div>
             </div>

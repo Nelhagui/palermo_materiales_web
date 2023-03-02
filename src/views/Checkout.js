@@ -39,7 +39,7 @@ const Checkout = () => {
             let data = JSON.stringify({ "cotizaciones": ids_cotizaciones });
             let config = {
                 method: 'post',
-                url: 'https://test.api.palermomateriales.com.ar/api/orden',
+                url: `${process.env.REACT_APP_API_URL}/orden`,
                 headers: { 
                   'Content-Type': 'application/json', 
                   'Authorization': 'Bearer '+isLogged.token
@@ -61,6 +61,7 @@ const Checkout = () => {
         navigate('/cotizar')
     }
   });
+  console.log(cart)
   
   return (
     <div className="container-fluid wrapper">

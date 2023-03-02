@@ -42,7 +42,7 @@ const ProductoPared = () => {
       alert('Ingrese una cantidad mayor a 0')
     } else {
       axios
-        .get(`https://api.palermomateriales.com.ar/api/cotizador/cotizar_techo?ancho=${ancho}&largo=${largo}`, )
+        .get(`${process.env.REACT_APP_API_URL}/cotizador/cotizar_techo?ancho=${ancho}&largo=${largo}`, )
         .then(
           (response) => (
             setProductCotizado(response.data)
@@ -63,7 +63,7 @@ const ProductoPared = () => {
             <div className='row'>
                 <div className='img-conte col-12 col-md-4'>
                     {/* <img src={product?.foto} alt="foto" /> */}
-                    <img src="https://api.palermomateriales.com.ar/images/productos/cotizables/CONST_HUMEDA.jpg" alt="foto" />
+                    <img src={`${process.env.REACT_APP_URL}/images/productos/cotizables/CONST_HUMEDA.jpg`} alt="foto" />
                 </div>
                 <div className='info-card-product col-12 col-md-8'>
                     <div className='titulo-pared'>

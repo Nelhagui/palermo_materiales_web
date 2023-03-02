@@ -14,7 +14,7 @@ import TyC from './components/TyC.js'
 import Checkout from './views/Checkout.js'
 import Datos from './views/Datos.js'
 import Pago from './views/Pago.js'
-import TerminosCondiciones from './views/TerminosCondiciones.js'
+// import TerminosCondiciones from './views/TerminosCondiciones.js'
 import PoliticasPrivacidad from './views/PoliticasPrivacidad.js'
 import CartState from './context/CartState.js'
 import Producto from './views/Producto.js'
@@ -22,6 +22,8 @@ import AgregarProducto from './views/AgregarProducto.js'
 import AgregarProductoComprar from './views/AgregarProductoComprar.js'
 import ProductoPared from './views/ProductoPared.js'
 import ValidarRegistro from './views/ValidarRegistro.js'
+import RecuperarPass from './views/RecuperarPass.js'
+import ValidaRecuperarPass from './views/ValidaRecuperarPass.js'
 
 const root = createRoot(document.getElementById('root'))
 root.render(
@@ -31,6 +33,7 @@ root.render(
       <NavBar style={{ boxShadow: ' 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important' }} />
       <Routes>
         <Route path="" element={<Home />} />
+        <Route path='/recuperar_password' element={<RecuperarPass/>}/>
         <Route path="/sobre-nosotros" element={<Empresa />} />
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/comprar" element={<Comprar />} />
@@ -42,9 +45,11 @@ root.render(
         <Route path='/producto/:id' element={<Producto/>}/>
         <Route path='/producto-techo/:id' element={<ProductoPared/>}/>
         <Route path='/producto/agregar/:id' element={<AgregarProducto/>}/>
-        <Route path='/terminos-condiciones' element={<TerminosCondiciones/>}/>
+        {/* <Route path='/terminos-condiciones' element={<TerminosCondiciones/>}/> */}
         <Route path='/politicas-privacidad' element={<PoliticasPrivacidad/>}/>
         <Route path='/validar_registro/:token' element={<ValidarRegistro/>}/>
+        <Route path='/recuperar_password/validar/:token' element={<ValidaRecuperarPass/>}/>
+        
       </Routes>
       <Footer />
       <TyC />

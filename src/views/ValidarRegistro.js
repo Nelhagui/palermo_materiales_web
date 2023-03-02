@@ -14,7 +14,7 @@ const ValidarRegistro = () => {
     const sendPeticion = () => {
         var config = {
             method: 'post',
-            url: `https://test.api.palermomateriales.com.ar/api/user/valida_token?token=${token}`,
+            url: `${process.env.REACT_APP_API_URL}/user/valida_token?token=${token}`,
             headers: { }
           };
           
