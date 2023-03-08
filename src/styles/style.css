@@ -223,9 +223,10 @@ div.image-titles a
 .btn-secondary {
   width: 100%;
   min-width: max-content;
-  padding: 0.8rem;
+  padding: 0.4rem 0rem;
   margin-bottom: 1rem;
   cursor: pointer;
+  box-sizing: border-box;
 }
 .btn-primary.disabled, .btn-primary.disabled:hover {
     background: #f2b467;
@@ -372,6 +373,7 @@ div.categorie-items p
   overflow: scroll;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 1rem;
 }
 .products::-webkit-scrollbar {
   display: none;
@@ -383,17 +385,22 @@ div.categorie-items p
   justify-content: center;
   height: auto;
   width: 15em;
-  margin: 1rem 1rem 1rem 0;
-  margin-bottom: 1rem;
   border-radius: 5px;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 0 10px 0 rgb(0 0 0 / 20%);
+  max-width: 200px;
 }
 .produc-card-info {
   width: 100%;
   height: 220px;
   padding: 1rem;
   padding: 1rem 1rem 0 1rem;
+  position: relative;
 }
+
+.img-conte.col-12.col-md-5 {
+  overflow: hidden;
+}
+
 .produc-card-info-cotizar
 {
   width: 100%;
@@ -401,11 +408,15 @@ div.categorie-items p
   padding: 1rem;
   padding: 1rem 1rem 0 1rem;
 }
-.product-card .btn-secondary {
-  width: 100%;
+.product-card .btn-secondary 
+{
+  width: 90%;
   border-radius: 5px;
-  position: relative;
-  top: 2rem;
+  position: absolute;
+  bottom: 0.6rem;
+  margin-bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
 }
 .product-card .img-card-container {
   width: 100%;
@@ -416,11 +427,14 @@ div.categorie-items p
   background: white;
   border-radius: 5px 5px 0 0;
   border-bottom: 0.5px solid #dfdfdf;
+  box-sizing: border-box;
+  padding: 0.8rem;
+  max-width: 200px;
 }
 .product-card .price {
   margin-top: 0.3rem;
   margin-bottom: 0.4rem !important;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-family: 'gotham-l';
   font-weight: 700;
 }
@@ -435,7 +449,10 @@ div.categorie-items p
 }
 .text-contain
 {
-  height: 100px;
+    height: 100px;
+    height: fit-content;
+    margin-bottom: 1rem;
+    position: relative;
 }
 .comprar-items-contain
 {
@@ -1329,8 +1346,8 @@ input[type="radio"]:checked {
   justify-content: center;
   align-content: center;
   width: 70%;
-  padding: 3rem;
-  margin: 5em auto;
+  padding: 1.5rem;
+  margin: 2em auto;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
 .contenedor-botones div:last-child {
@@ -2144,4 +2161,18 @@ input[type=number] { -moz-appearance:textfield; }
     max-width: 80px;
     border: none;
     border-bottom: 1px solid #cdcdcd;
+}
+
+.img-conte.col-12.col-md-5 img
+{
+  min-width: 143px !important;
+    max-width: 220px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.img-conte.col-12.col-md-5 
+{
+  overflow: hidden;
 }
