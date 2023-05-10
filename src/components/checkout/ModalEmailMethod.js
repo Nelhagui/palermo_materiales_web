@@ -17,8 +17,8 @@ const ModalEmailMethod = ({setShowMethodEmail}) => {
                     También podés hacerlo a través de nuestro WhatSapp (011)2184-9984 de Lunes a Viernes.
                 </p>
                 <div className='cont-btn-action-new-purchase'>
-                    <div className="btn-primary pago-text">
-                        <Link to="/cotizar">REALIZAR UNA NUEVA COMPRA</Link>
+                    <div className="btn-primary pago-text" style={{minWidth: 'max-content', padding:'.5rem 1rem'}}>
+                        <Link to="/cotizar">Realizar una nueva compra</Link>
                     </div>
                 </div>
             </div>

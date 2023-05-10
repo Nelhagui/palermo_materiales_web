@@ -16,7 +16,7 @@ const ItemsCart = ({item}) => {
     let cantItemsGrupo = 0;
     const listItems =  item?.producto_combinado?.productos_simples?.map((p) => {
         cantItemsGrupo = cantItemsGrupo+p.cantidad;
-            return <>
+            return (
                 <div className="item-panel" key={Math.random()}>
                     <div className="pago-text"> - {p.alias}</div>
                     <div className="pago-text">-</div>
@@ -24,7 +24,7 @@ const ItemsCart = ({item}) => {
                     <div className="pago-text">${p.precio_x_unidad}</div>
                     <div className="pago-text">${p.subtotal}</div>
                 </div>
-            </>
+            )
     })
 
 

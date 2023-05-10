@@ -7,7 +7,7 @@ const MpMethods = ({previousStep}) => {
 
     return (
         <>
-            <MercadoPagoBricks setIsDisabledBtnPreviousStep={setIsDisabledBtnPreviousStep}></MercadoPagoBricks>
+            {/* <MercadoPagoBricks setIsDisabledBtnPreviousStep={setIsDisabledBtnPreviousStep}></MercadoPagoBricks> */}
             <button className={isDisabledBtnPreviousStep ? "btn-secondary disabled" : "btn-secondary"} onClick={ isDisabledBtnPreviousStep ? null : () => previousStep()}>
                 <p> REGRESAR </p>
             </button>

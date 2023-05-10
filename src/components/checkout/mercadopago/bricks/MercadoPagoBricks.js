@@ -18,7 +18,14 @@ const MercadoPagoBricks = ({setIsDisabledBtnPreviousStep}) => {
         setIsDisabledBtnPreviousStep(true)
         window.cardPaymentBrickController.getFormData()
             .then((cardFormData) => {
-                fetch(`${process.env.REACT_APP_API_URL}/orden/process_payment`, { method: "POST", headers: { "Content-Type": "application/json", }, body: JSON.stringify(cardFormData), })
+                fetch("https://test.cartasimple.com.ar/testing/mp-bric/", { 
+                            method: "POST",
+                            headers: {
+                                "Accept": "application/json",
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify(cardFormData), 
+                        })
                 .then((response) => response.json())
                 .then((data) => {
                     setIsDisabledBtnPreviousStep(false)
@@ -43,7 +50,10 @@ const MercadoPagoBricks = ({setIsDisabledBtnPreviousStep}) => {
     useEffect(() => {
         if (MercadoPago) 
         {
-            const mp = new MercadoPago("APP_USR-9a50cf8c-da4a-4a6d-9485-d30478fd7087", {
+            // const mp = new MercadoPago("APP_USR-9a50cf8c-da4a-4a6d-9485-d30478fd7087", {
+            //     locale: 'es-AR',
+            // });
+            const mp = new MercadoPago("TEST-1228f104-bb7c-4706-a8c0-35997f1c4135", {
                 locale: 'es-AR',
             });
             const bricksBuilder = mp.bricks();
@@ -63,10 +73,10 @@ const MercadoPagoBricks = ({setIsDisabledBtnPreviousStep}) => {
                         theme: 'default', // | 'dark' | 'bootstrap' | 'flat'
                       }
                     },
-                    paymentMethods: {
-                        minInstallments: 1,
-                        maxInstallments: 1,
-                    },
+                    // paymentMethods: {
+                    //     minInstallments: 1,
+                    //     maxInstallments: 3,
+                    // },
                   },
                   callbacks: {
                     onReady: () => {
@@ -94,6 +104,7 @@ const MercadoPagoBricks = ({setIsDisabledBtnPreviousStep}) => {
         <>
             <div id="cardPaymentBrick_container">
             </div>
+            <div id="wallet_container"></div>
             <div className='msj_error_mp'>{msjErrorMp}</div>
             {
                 sendingPayment 

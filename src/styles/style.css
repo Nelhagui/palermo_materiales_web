@@ -227,6 +227,13 @@ div.image-titles a
   margin-bottom: 1rem;
   cursor: pointer;
   box-sizing: border-box;
+  text-align: center;
+}
+div.svelte-4trrml {
+    width: auto !important;
+}
+.svelte-4trrml button {
+    min-width: 'max-content' !important;
 }
 .btn-primary.disabled, .btn-primary.disabled:hover {
     background: #f2b467;
@@ -284,7 +291,18 @@ div.image-titles a
   border: solid 1px #ff9817;
   transition: all 0.2s ease-out !important;
 }
-
+.btn-secondary.mp {
+    background-color: #019ee3;
+    border-color: #019ee3;
+    opacity: .5;
+    color: #ffffff;
+}
+.btn-secondary.mp:hover {
+    background-color: #019ee3;
+    border-color: #019ee3;
+    opacity: .5;
+    color: #ffffff;
+}
 .btn-primary:hover {
   background: #fff;
   color: #ff9817;
