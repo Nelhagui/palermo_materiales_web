@@ -2,9 +2,10 @@ import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom';
 import { Wallet } from "@mercadopago/sdk-react";
 import ModalEmailMethod from './ModalEmailMethod.js';
+import { precio } from '../../utils/precio.js';
 
-const PaymentMethods = () => {
-    const [orderData, setOrderData] = useState({ quantity: "1", price: JSON.parse(localStorage.compra).monto_total, amount: JSON.parse(localStorage.compra).monto_total, description: "Compra online Palermo Materiales" });
+const PaymentMethods = ({mpDisabled}) => {
+    const [orderData, setOrderData] = useState({ quantity: "1", price:  JSON.parse(localStorage.compra).monto_total, amount: JSON.parse(localStorage.compra).monto_total, description: "Compra online Palermo Materiales" });
     const [preferenceId, setPreferenceId] = useState(null)
     const [showMethodEmail, setShowMethodEmail] = useState(false)
     const [isReady, setIsReady] = useState(false);
@@ -33,7 +34,7 @@ const PaymentMethods = () => {
         return (
             <Wallet 
                 customization={customization}
-                disabled='true'
+                disabled={mpDisabled}
                 initialization={{ preferenceId: preferenceId, redirectMode: 'modal' }}
                 onReady={handleOnReady} 
             />
@@ -42,11 +43,13 @@ const PaymentMethods = () => {
 
     //mercadopago
     const getPreferenceMp = () => {
-
-        // fetch(`http://localhost/proyectos/palermo-materiales/pelermo_mp_pagos/mp-pro/`, {
-            fetch(`https://test.cartasimple.com.ar/testing/mp-pro/`, {
+            fetch(`https://palermomateriales.cartasimple.com.ar/payment/`, {
             method: "POST",
-          body: JSON.stringify(orderData),
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(orderData),
         })
           .then((response) => {
             return response.json();
@@ -68,9 +71,9 @@ const PaymentMethods = () => {
                 <div className='row'>
                     <div className='col-lg-4' style={{padding: '0px 5px'}}>
                         {
-                            renderCheckoutButton(preferenceId)
+                            mpDisabled ? <div id="btn-cont" className="btn-secondary mp" style={{marginTop: '16px', height: '48px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '5px', width: '100%'}}> <p className="pago-text" title='Aceptar términos y condiciones' style={{marginBottom: '1.3rem'}}>Pagar con Mercado Pago</p> </div>   : renderCheckoutButton(preferenceId)
                             ? 
-                                renderCheckoutButton(preferenceId)  
+                                mpDisabled ? <div id="btn-cont" className="btn-secondary mp" style={{marginTop: '16px', height: '48px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '5px', width: '100%'}}> <p className="pago-text" title='Aceptar términos y condiciones' style={{marginBottom: '1.3rem'}}>Pagar con Mercado Pago</p> </div>   : renderCheckoutButton(preferenceId)
                             :
                                 <div id="btn-cont" className="btn-secondary mp" style={{marginTop: '16px', height: '48px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '5px', width: '100%'}}>
                                     <p className="pago-text">Cargando...</p>

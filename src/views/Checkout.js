@@ -9,6 +9,7 @@ import CartContext from '../context/CartContext.js'
 import axios from "axios";
 import ItemsCart from '../components/checkout/ItemsCart.js'
 import Spinner from '../components/Spinner.js';
+import { precio } from '../utils/precio.js';
 
 const Checkout = () => {
   const { cart, addProduct } = useContext(CartContext)
@@ -30,6 +31,10 @@ const Checkout = () => {
     setTotalPrice(items.reduce((a, b) => a + b, 0))
   }, [items])
 
+  const deleteItem = ( (item_id) => {
+        const result = cart.filter(item => item.producto_combinado_id !== item_id);
+        addProduct(result);
+  })
 
   const sendCart = (()=> {
     setSendingOrder(true);
@@ -62,91 +67,67 @@ const Checkout = () => {
     }
   });
   console.log(cart)
-  
-  return (
-    <div className="container-fluid wrapper">
-        <div className="stepper-checkout">
-            <div className="active">
-                <img src={DetailIcon} style={{ fill: '#FF9817' }} alt="icon" />
-                <p className="pago-text">Detalle</p>
-            </div>
-            <div>
-                <img src={DataIcon} alt="icon" />
-                <p className="pago-text">Datos</p>
-            </div>
-            <div>
-                <img style={{ height: '30px' }} src={PaymentIcon} alt="icon" />
-                <p className="pago-text">Pago</p>
-            </div>
-        </div>
-        <div className='cont-gral-table-resumen'>
-            <div className="table-container checkout">
-                <div className="header fw-bold">
-                    <div className='item-head'>Productos simples</div>
-                    <div className='item-head'>Superf</div>
-                    <div className='item-head'>Cant</div>
-                    <div className='item-head'>Precio Un</div>
-                    <div className='item-head'>Precio Final</div>
+
+  if(cart.length > 0)
+  {
+      return (
+        <div className="container-fluid wrapper">
+            <div className="stepper-checkout">
+                <div className="active">
+                    <img src={DetailIcon} style={{ fill: '#FF9817' }} alt="icon" />
+                    <p className="pago-text">Detalle</p>
                 </div>
+                <div>
+                    <img src={DataIcon} alt="icon" />
+                    <p className="pago-text">Datos</p>
+                </div>
+                <div>
+                    <img style={{ height: '30px' }} src={PaymentIcon} alt="icon" />
+                    <p className="pago-text">Pago</p>
+                </div>
+            </div>
+            <div className='cont-gral-table-resumen'>
+                <div className="table-container checkout">
+                    <div className="header fw-bold">
+                        <div className='item-head'>Productos simples</div>
+                        {/* <div className='item-head'></div> */}
+                        <div className='item-head'>Cant</div>
+                        <div className='item-head'>Precio Un</div>
+                        <div className='item-head'>Precio Final</div>
+                        <div className='item-head'></div>
+                    </div>
+                        
+                    {cart.map((c) => {
+                        return  <ItemsCart item={c} key={Math.random()} deleteItem={deleteItem}></ItemsCart>
+                    })}
                     
-                {cart.map((c) => {
-                    return  <ItemsCart item={c} key={Math.random()}></ItemsCart>
-                })}
-                
-            </div>
-            <div className="row checkout-container fw-bold">
-                <div className="price-container col-lg-6 p-3">
-                    <p className="pago-text">Costo total:</p>
-                    <p className="pago-text">${totalPrice}</p>
                 </div>
-                <div className='col-lg-3 p-1' style={{display: 'flex', alignItems: 'center'}}>
-                    { sendingOrder 
-                        ?
-                        <div className="btn-primary disabled" style={{marginBottom: '0', padding: '.5rem', width: '100%'}}>
-                            <p className="pago-text"> AGREGAR MÁS PRODUCTOS</p>
-                        </div>
-                        :
-                        <div className="btn-secondary" style={{marginBottom: '0', padding: '.5rem', width: '100%'}}>
-                            <p className="pago-text">
-                                <Link to="/cotizar">AGREGAR MÁS PRODUCTOS</Link>
+                <div className="row checkout-container fw-bold">
+                    <div className="price-container col-lg-6 p-3">
+                        <p className="pago-text">Costo total:</p>
+                        <p className="pago-text">
+                        ${precio(totalPrice, 2, ',', '.')}
+                            
                             </p>
-                        </div>
-                    }
-                </div>
-                <div className='col-lg-3 p-1' style={{display: 'flex', alignItems: 'center'}}>
-                    { isLogged 
-                        ?
-                        <div className={sendingOrder ? "btn-primary disabled" : "btn-primary"} onClick={sendingOrder ? null : ()=> {sendCart()}} style={{marginBottom: '0', padding: '.5rem', width: '100%'}}>
-                            { sendingOrder
-                                ?
-                                <Spinner/>
-                                :
-                                <p className="pago-text">CONTINUAR</p>
-                            }
-                        </div>
-                       :
-                        <div className="btn-primary" style={{marginBottom: '0', padding: '.5rem', width: '100%'}}>
-                            <p className="pago-text"> <Link to="/checkout/data">CONTINUAR</Link> </p>
-                        </div>
-                    }
-                </div>
-                {/* <div className='col-md-5 col-12 d-flex'>
-                    <div className="button-container text-center">
+                    </div>
+                    <div className='col-lg-3 p-1' style={{display: 'flex', alignItems: 'center'}}>
                         { sendingOrder 
                             ?
-                            <div className="btn-primary disabled">
+                            <div className="btn-primary disabled" style={{marginBottom: '0', padding: '.5rem', width: '100%'}}>
                                 <p className="pago-text"> AGREGAR MÁS PRODUCTOS</p>
                             </div>
                             :
-                            <div className="btn-secondary">
+                            <div className="btn-secondary" style={{marginBottom: '0', padding: '.5rem', width: '100%'}}>
                                 <p className="pago-text">
                                     <Link to="/cotizar">AGREGAR MÁS PRODUCTOS</Link>
                                 </p>
                             </div>
                         }
+                    </div>
+                    <div className='col-lg-3 p-1' style={{display: 'flex', alignItems: 'center'}}>
                         { isLogged 
                             ?
-                            <div className={sendingOrder ? "btn-primary disabled" : "btn-primary"} onClick={sendingOrder ? null : ()=> {sendCart()}}>
+                            <div className={sendingOrder ? "btn-primary disabled" : "btn-primary"} onClick={sendingOrder ? null : ()=> {sendCart()}} style={{marginBottom: '0', padding: '.5rem', width: '100%'}}>
                                 { sendingOrder
                                     ?
                                     <Spinner/>
@@ -155,16 +136,19 @@ const Checkout = () => {
                                 }
                             </div>
                            :
-                            <div className="btn-primary">
+                            <div className="btn-primary" style={{marginBottom: '0', padding: '.5rem', width: '100%'}}>
                                 <p className="pago-text"> <Link to="/checkout/data">CONTINUAR</Link> </p>
                             </div>
                         }
                     </div>
-                </div> */}
+                </div>
             </div>
         </div>
-    </div>
-  )
+      )
+  }
+  else{
+    navigate('/cotizar')
+  }
 }
 
 export default Checkout

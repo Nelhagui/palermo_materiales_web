@@ -11,11 +11,11 @@ const ModalEmailMethod = ({setShowMethodEmail}) => {
             </div>
             <div className='info'>
                 <p className="pago-text">
-                    Escribinos a pedidos@palermomateriales.com.ar, haciendo referencia a tu número <br /> de orden con 72 hs. de anticipación para poder coordinar la forma de pago y la entrega.
+                    En la brevedad se estarán contactando con usted
                 </p>
-                <p className="pago-text">
+                {/* <p className="pago-text">
                     También podés hacerlo a través de nuestro WhatSapp (011)2184-9984 de Lunes a Viernes.
-                </p>
+                </p> */}
                 <div className='cont-btn-action-new-purchase'>
                     <div className="btn-primary pago-text" style={{minWidth: 'max-content', padding:'.5rem 1rem'}}>
                         <Link to="/cotizar">Realizar una nueva compra</Link>

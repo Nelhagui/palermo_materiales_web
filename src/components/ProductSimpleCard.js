@@ -1,15 +1,16 @@
 import SinImagen from '../assets/img/no-img.png';
 import { useNavigate } from 'react-router-dom'
+import { precio } from '../utils/precio.js';
 
 const ProductSimpleCard = (props) => {
   let navigate = useNavigate()
 
   function handleClick() {
     localStorage.setItem("producto-agregar", JSON.stringify(props.producto))
-    if (props?.seccion == "home") {
+    if (props?.seccion === "home") {
         navigate(`/producto/agregar/${props.producto.id}`)
     }
-    else if(props?.seccion == "comprar")
+    else if(props?.seccion === "comprar")
     {
       navigate(`/comprar/agregar/${props.producto.id}`)
     }
@@ -29,9 +30,9 @@ const ProductSimpleCard = (props) => {
       </div>
       <div className="produc-card-info">
         <div className="text-contain">
-          <p className="title-data">Techo / Construcción húmeda</p>
-          <p className="price">${props?.producto?.productos_simples[0]?.precio_x_unidad}</p>
-          <p className="title">{props?.producto?.productos_simples[0]?.alias?.toLowerCase()}</p>
+          {/* <p className="title-data">Techo / Construcción húmeda</p> */}
+          <p className="price">${precio(props?.producto?.productos_simples[0]?.precio_x_unidad, 2, ',', '.')}</p>
+          <p className="title">{props?.producto?.productos_simples[0]?.titulo}</p>
         </div>
         <button onClick={handleClick} className="btn-secondary">
           {props.buttonTitle}

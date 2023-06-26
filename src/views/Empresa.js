@@ -4,8 +4,8 @@ import EcommerceIcon from '../assets/img/Ecommerce_naranja.svg'
 import PresuIcon from '../assets/img/Presu_naranja.svg'
 import FormaIcon from '../assets/img/FormDePago_naranja.svg'
 
-import IosDownload from '../assets/img/ios store.svg'
-import AndroidDownload from '../assets/img/playstore2.png'
+// import IosDownload from '../assets/img/ios store.svg'
+// import AndroidDownload from '../assets/img/playstore2.png'
 
 const Empresa = () => {
   return (
@@ -86,7 +86,13 @@ const Empresa = () => {
                         </div>
                     </div>
                 </div>
-                <div className="row footer-image empresa">
+                <div className="footer-image">
+                    <div className="footer-text">
+                      <p>Te acompañamos</p>
+                      <p>en todos tus <strong>proyectos</strong> </p>
+                    </div>
+                </div>
+                {/* <div className="row footer-image empresa">
                     <div className="footer-empresa">
                         <div className="footer-text-empresa">
                             <p className="">
@@ -98,7 +104,7 @@ const Empresa = () => {
                             <img style={{ width: '10em' }} src={AndroidDownload} alt='android'/>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </>
   )

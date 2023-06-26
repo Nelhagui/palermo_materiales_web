@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react'
 import '../styles/style.css'
 import { Link } from 'react-router-dom'
 import carrito from '../assets/img/carrito.svg'
-import playstore from '../assets/img/playstore.svg'
+// import playstore from '../assets/img/playstore.svg'
 import logo from '../assets/img/logo_informacion.png'
 import CartContext from '../context/CartContext.js'
 import NavBarSm from './navBar/NavBarSm.js'
@@ -11,6 +11,7 @@ const NavBar = () => {
     const [showMsjAdd, setShowMsjAdd] = useState(false)
     const { cart } = useContext(CartContext)
     let cartLength = cart.length
+    const [lenghInitial, setLenghInitial] = useState(cart?.length)
     let classNameIconCartCount = 'cart-circle';
     if (cartLength > 0) { classNameIconCartCount += ' active'; }
     const [isShowNavBarSm, setIsShowNavBarSm] = useState(false);
@@ -19,10 +20,14 @@ const NavBar = () => {
     })
 
     useEffect(() => {
-      if(cart.length > 0){
-        setShowMsjAdd(true);
-        setTimeout(function(){setShowMsjAdd(false)}, 5000);
-      }
+        if(cart.length !== lenghInitial && cart.length < lenghInitial){
+            console.log('Estoy descontando')
+        } 
+        else if(cart.length > 0) {
+            setTimeout(function(){setShowMsjAdd(false)}, 5000);
+            setShowMsjAdd(true);
+        }
+        setLenghInitial(cart.length);
     }, [cart])
     
 
@@ -60,16 +65,16 @@ const NavBar = () => {
             :
             <img src={carrito} alt="carrito" />
           }
-          <div className="vl"></div>
+          {/* <div className="vl"></div> */}
           <div className='nav-hamburger' onClick={()=>changeIsShowNavBarSm()}>
             <label className="toggle-button"></label>
           </div>
-          <div className="playstore navbar">
+          {/* <div className="playstore navbar">
             <img src={playstore} alt="playstore-logo" />
             <a href="https://play.google.com/store/apps/details?id=rd.corralon.rc" target="_blank">
                 DESCARGAR APP
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
       <NavBarSm changeIsShowNavBarSm={changeIsShowNavBarSm} isShowNavBarSm={isShowNavBarSm}/>

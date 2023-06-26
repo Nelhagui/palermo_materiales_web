@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react'
 import { Input } from 'reactstrap'
 import ProductCardSetCant from '../components/ProductCardSetCant.js';
+import ProductCardLoading from '../components/ProductCardLoading.js';
+import ProductSimpleCard from '../components/ProductSimpleCard.js';
 import ListProducts from '../components/comprar/ListProducts.js';
 import axios from 'axios'
 import search from '../assets/img/Search_blanco.svg'
 
 const Comprar = () => {
-    const [catId, setCatId] = useState('')
     const [products, setProducts] = useState([]);
+    const [bestProducts, setBestProducts] = useState([]);
+    const [isLoading, setIsLoading] = useState(true)
     const [isSetCant] = useState(false);
     const [query, setQuery] = useState('')
 
@@ -33,19 +36,14 @@ const Comprar = () => {
     }, [])
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_API_URL}/categoria`)
-        .then((response) => {
-            setCatId(response?.data[0].id)
-        })
+        setIsLoading(true);
+        axios
+        .get(`${process.env.REACT_APP_API_URL}/categoria/1/mas-vendidos`)
+        .then((response) => setBestProducts(response.data))
+        .finally(()=> setIsLoading(false));
     }, [])
 
-    useEffect(() => {
-        if(catId > 0 ){
-            axios.get(`${process.env.REACT_APP_API_URL}/categoria/${catId}/comprar`)
-            .then((response) => setProducts(response.data))
-        }
-    }, [catId])
-
+    
     return (
         <div className="wrapper">
             <div className="img-container comprar text-center">
@@ -67,10 +65,37 @@ const Comprar = () => {
                     </div>
                 </div>      
             }
-            <div className="footer-image-cotizar">
+      <div className="categories-container">
+        <h1 className="mx-auto">Productos más buscados</h1>
+        <div className="products">
+          {
+            isLoading 
+            ?  
+              <>
+                <ProductCardLoading />
+                <ProductCardLoading />
+                <ProductCardLoading />
+                <ProductCardLoading />
+              </>
+            : 
+            bestProducts?.map((p) => {
+              return (
+                <ProductSimpleCard
+                  producto={p}
+                  seccion={"home"}
+                  key={Math.random()}
+                  buttonTitle={"AGREGAR AL CARRITO"}
+                  className="col"
+                />
+              )
+            })
+          }
+        </div>
+      </div>
+            <div className="footer-image">
                 <div className="footer-text">
-                    <p><strong>Descargate</strong> nuestra app</p>
-                    <p>y comenzá a operar</p>
+                  <p>Te acompañamos</p>
+                  <p>en todos tus <strong>proyectos</strong> </p>
                 </div>
             </div>
         </div>

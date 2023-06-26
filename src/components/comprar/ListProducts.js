@@ -6,7 +6,7 @@ const ListProducts = ({products}) => {
             {products?.map((p) => {
               return (
                 <ProductSimpleCard
-                  key={p.id}
+                  key={Math.random()}
                   seccion={"comprar"}
                   producto={p}
                   buttonTitle={"AGREGAR AL CARRITO"}

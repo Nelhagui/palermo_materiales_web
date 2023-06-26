@@ -402,6 +402,7 @@ div.categorie-items p
   align-items: center;
   justify-content: center;
   height: auto;
+  margin: 0.5rem;
   width: 15em;
   border-radius: 5px;
   box-shadow: 0 0 10px 0 rgb(0 0 0 / 20%);
@@ -421,10 +422,11 @@ div.categorie-items p
 
 .produc-card-info-cotizar
 {
-  width: 100%;
-  height: 200px;
-  padding: 1rem;
-  padding: 1rem 1rem 0 1rem;
+    position: relative;
+    width: 100%;
+    height: 200px;
+    padding: 1rem;
+    padding: 1rem 1rem 0 1rem;
 }
 .product-card .btn-secondary 
 {
@@ -436,6 +438,7 @@ div.categorie-items p
   left: 50%;
   transform: translate(-50%);
 }
+
 .product-card .img-card-container {
   width: 100%;
 }
@@ -1044,7 +1047,6 @@ hr {
 .accordion {
   background-color: #ffffff;
   color: #444;
-  cursor: pointer;
   padding: 18px;
   width: 100%;
   text-align: left;
@@ -2053,7 +2055,7 @@ span.close-modal-email:hover {
 }
 .product-desc
 {
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 /*palermo empresa y contacto*/
@@ -2112,7 +2114,12 @@ span.close-modal-email:hover {
   width: 80%;
 }
 .img-product.loading {
-    width: 301px;
+    width: 300px;
+    height: 300px;
+}
+.descrip-card.loading {
+    width: 100%;
+    height: 3rem;
 }
 .cont-gral-text {
     display: flex;
@@ -2193,4 +2200,26 @@ input[type=number] { -moz-appearance:textfield; }
 .img-conte.col-12.col-md-5 
 {
   overflow: hidden;
+}
+
+.img-card-container {
+    width: 200px;
+    height: 200px;
+}
+
+.img-card-container img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.cont-items-best .product-card {
+    margin-right: .5rem;
+}
+.cant-contain {
+    min-width: max-content;
+}
+.table.accordion.active {
+    border-top: .5px solid #d0d1d1;
+    border-bottom: .5px solid #d0d1d1;
 }

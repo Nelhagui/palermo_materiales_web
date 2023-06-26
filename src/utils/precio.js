@@ -1,0 +1,2 @@
+ export const precio = function(l,k,h,f){var k=isNaN(k=Math.abs(k))?2:k,h=h==undefined?",":h,f=f==undefined?".":f,g=l<0?"-":"",e=String(parseInt(l=Math.abs(Number(l)||0).toFixed(k))),b=(b=e.length)>3?b%3:0; return g+(b?e.substr(0,b)+f:"")+e.substr(b).replace(/(\d{3})(?=\d)/g,"$1"+f)+(k?h+Math.abs(l-e).toFixed(k).slice(2):"");}
+  

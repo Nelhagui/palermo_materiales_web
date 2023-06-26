@@ -1,12 +1,15 @@
 import axios from 'axios'
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 import CartContext from '../context/CartContext.js'
 import { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import Spinner from '../components/Spinner.js';
+import { precio } from '../utils/precio.js';
 
 const Producto = () => {
   let {id} = useParams();
+  let navigate = useNavigate()
   const [product, setProduct] = useState(JSON.parse(localStorage.getItem('producto')))
   const {cart, addProduct } = useContext(CartContext)
   const [cont, setCont] = useState(1)
@@ -15,18 +18,17 @@ const Producto = () => {
   const [productCotizado, setProductCotizado] = useState([])
 
   const handleRest = () => {
-    if (cont > 0)
+    if (cont > 1)
         setCont(cont - 1)
   }
   const handleAdd = () => {
-    setCont(cont + 1)
+    if(cont+1 <= product?.productos_simples[0]['stock'])
+        setCont(cont + 1)
   }
 
-
-
   const changeValue = (event) => {
-    if(event.target.value > 0 )
-        setCont(event.target.value)
+    if(event.target.value > 0 && event.target.value <= product?.productos_simples[0]['stock'])
+        setCont(Number(event.target.value))  
   }
 
   const fetchProducto = () => {
@@ -44,23 +46,28 @@ const Producto = () => {
   const addToCart = () => {    
     const result = cart.filter(item => item.producto_combinado_id !== productCotizado.producto_combinado_id);
     addProduct([... result, productCotizado])
+    navigate('/')
   }
 
   function handleNull() {
-    setSendingCotizacion(true)
-    const cotizarBody = {
-      cantidad: cont,
-      producto_combinado_id: id,
-    };
-    axios
-      .post(
-        `${process.env.REACT_APP_API_URL}/cotizador/cotizar`,
-        cotizarBody
-      )
-      .then((response) => {
-        setSendingCotizacion(false)
-        setProductCotizado(response.data)
-    });
+    if (cont === 0 || cont === '') {
+        alert('Ingrese una cantidad mayor a 0')
+    } else {
+        setSendingCotizacion(true)
+        const cotizarBody = {
+          cantidad: cont,
+          producto_combinado_id: id,
+        };
+        axios
+          .post(
+            `${process.env.REACT_APP_API_URL}/cotizador/cotizar`,
+            cotizarBody
+          )
+          .then((response) => {
+            setSendingCotizacion(false)
+            setProductCotizado(response.data)
+        });
+    }
   }
   
 
@@ -73,7 +80,7 @@ const Producto = () => {
         </div>
       
         <div className="card-product">
-            <div className='row'>
+            <div className='row w-100' >
                 { isLoading 
                   ?
                     <div className='img-product loading'></div>
@@ -84,10 +91,21 @@ const Producto = () => {
                 }
                 <div className='info-card-product col-12 col-md-7'>
                     <div>
-                        <h1 className="fw-bold cot-title">{product?.titulo}</h1>
-                        <p className="cotizar-desc">numero id</p>
-                        <hr />
-                        <p className="cotizar-desc">{product?.descripcion_corta}</p>
+                        {
+                            isLoading
+                            ? 
+                                <>
+                                    <div className='loading mt-2' style={{width: "100%", height: '40px'}}></div>
+                                    <div className='loading mt-2' style={{width: "100%", height: '150px'}}></div>
+                                </>
+                            :
+                                <>
+                                    <h1 className="fw-bold cot-title">{product?.titulo}</h1>
+                                    <p className="cotizar-desc">#{product?.id}</p>
+                                    <hr />
+                                    <p className="cotizar-desc">{product?.descripcion_corta}</p>
+                                </>
+                        }   
                     </div>
                     <div className="mt-5">
                         <p className="cotizar-desc">Ingresar metro cuadrado:</p>
@@ -102,7 +120,7 @@ const Producto = () => {
                                 </div>
                             </div>
                             <div className='col-12 col-md-7'>
-                                <button className={sendingCotizacion ? "btn-primary btn-cotizar disabled" : "btn-primary btn-cotizar"} onClick={sendingCotizacion ? null : handleNull}>
+                                <button style={{height: '100%'}} className={sendingCotizacion ? "btn-primary btn-cotizar disabled" : "btn-primary btn-cotizar"} onClick={sendingCotizacion ? null : handleNull}>
                                     { sendingCotizacion ? <Spinner/> : "COTIZAR" }
                                 </button>
                             </div>
@@ -123,18 +141,18 @@ const Producto = () => {
                         {productCotizado?.producto_combinado?.productos_simples.map((p) => {
                             return (
                                 <div className="items-container" style={{ backgroundColor: '#F7F7F7 !important' }}  key={Math.random()}>
-                                    <div className="productos-simples-items">{p?.alias}</div>
+                                    <div className="productos-simples-items">{p?.titulo}</div>
                                     <div className="productos-cantidad-cotizar">
                                         {p?.cantidad}
                                     </div>
-                                    <div className='productos-subtotal'> $ {p?.subtotal}</div>
+                                    <div className='productos-subtotal'> $ {precio(p?.subtotal, 2, ",", ".")}</div>
                                 </div>
                             )})
                         }
                         <div className="table-footer fw-bold">
                             <div className="productos-simples"> TOTAL</div>
                             <div className="cotizar-cantidad">{productCotizado?.cotizacion.cantidad}</div>
-                            <div className="cotizar-precio">${productCotizado?.cotizacion.subtotal}</div>
+                            <div className="cotizar-precio">${ precio(productCotizado?.cotizacion.subtotal, 2, ",", ".")}</div>
                         </div>
                     </div>
                     <div className="button-add">

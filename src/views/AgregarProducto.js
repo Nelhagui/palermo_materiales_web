@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import search from '../assets/img/Search_blanco.svg'
 
 import ProductCardSetCant from '../components/ProductCardSetCant.js';
 
@@ -12,8 +13,12 @@ const AgregarProducto = () => {
                     <div className="image-titles">
                         <h2>BUSCAR PRODUCTOS</h2>
                         <h4>¿Estás buscando un producto puntual?</h4>
+                        
                         <button className="btn-primary">
-                            <Link to="/comprar">BUSCAR POR PRODUCTOS</Link>
+                            <Link to="/comprar">
+                                <img src={search} alt="Search_blanco" style={{width: "1.4rem", marginRight: "1rem"}}/>
+                                BUSCAR POR PRODUCTOS
+                            </Link>
                         </button>
                     </div>
                 </div>
@@ -22,7 +27,8 @@ const AgregarProducto = () => {
                         <h2>CALCULAR PRODUCTOS</h2>
                         <h4>¿Querés saber cuánto material necesitás cubrir?</h4>
                         <button className="btn-secondary white">
-                        <Link to="/cotizar">BUSCAR POR CATEGORIAS</Link>
+                            <img src={search} alt="Search_blanco" style={{width: "1.4rem", marginRight: "1rem"}}/>
+                            <Link to="/cotizar">BUSCAR POR CATEGORIAS</Link>
                         </button>
                     </div>
                 </div>

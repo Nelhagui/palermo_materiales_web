@@ -84,14 +84,24 @@ const Cotizar = () => {
         <div className="row cont-sub-result">
             <SubCategoryResults subcategories={subcategories} selectSubcategory={selectSubcategory} subcategoriesIsLoading={subcategoriesIsLoading} />
             <div className="col-md-12 cont-best-sellers">
-                { bestSellers.length > 0 && subcategories.length === 0 && subcategoriesIsLoading === false ?   <ListBestSellers products={bestSellers}/> : "" }
+                { 
+                    bestSellers.length > 0 && subcategories.length === 0 && subcategoriesIsLoading === false 
+                    ? <ListBestSellers products={bestSellers}/> 
+                    : "" 
+                }
             </div>
         </div>
-        <div className="footer-image-cotizar">
+        {/* <div className="footer-image-cotizar">
           <div className="footer-text">
             <p><strong>Descargate</strong> nuestra app</p>
             <p>y comenzá a operar</p>
           </div>
+        </div> */}
+        <div className="footer-image">
+            <div className="footer-text">
+              <p>Te acompañamos</p>
+              <p>en todos tus <strong>proyectos</strong> </p>
+            </div>
         </div>
     </div>
   )

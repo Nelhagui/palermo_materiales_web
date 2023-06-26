@@ -5,7 +5,7 @@ import Visa from '../assets/img/visa.svg'
 import Ahora12 from '../assets/img/ahora12.svg'
 import Mastercard from '../assets/img/mastercard.svg'
 import Amex from '../assets/img/amex.svg'
-import Playstore from '../assets/img/playstore2.png'
+// import Playstore from '../assets/img/playstore2.png'
 
 const Footer = () => {
   return (
@@ -27,10 +27,10 @@ const Footer = () => {
                 <img src={Mastercard} alt="mastercard" />
                 <img src={Visa} alt="visa" />
                 <img src={Amex} alt="amex" />
-                <div className="vl"></div>
-                <a href="https://play.google.com/store/apps/details?id=rd.corralon.rc" target="_blank">
+                {/* <div className="vl"></div> */}
+                {/* <a href="https://play.google.com/store/apps/details?id=rd.corralon.rc" target="_blank">
                     <img src={Playstore} alt="playstore" className="playstore" />
-                </a>
+                </a> */}
               </div>
             </div>
         <hr />

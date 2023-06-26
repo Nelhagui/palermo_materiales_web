@@ -3,37 +3,41 @@ import axios from 'axios'
 import ProductSimpleCard from '../components/ProductSimpleCard.js'
 import { Link } from 'react-router-dom'
 import ProductCardLoading from '../components/ProductCardLoading.js'
+import search from '../assets/img/Search_blanco.svg'
 
 const Home = () => {
-  const [categories, setCategories] = useState([])
-  const [catId, setCatId] = useState(0)
-  const [products, setProducts] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
-  const [isLoadingCategories, setIsLoadingCategories] = useState(true)
 
-  useEffect(() => {
-    setCatId(categories[0]?.id);
-  }, [categories])
+    const [products, setProducts] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
 
-  useEffect(() => {
-    products.length > 0 ? setIsLoading(false) : setIsLoading(true);
-  }, [products])
+    useEffect(() => {
+        products.length > 0 ? setIsLoading(false) : setIsLoading(true);
+    }, [products])
 
-  useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/categoria`)
-      .then((response) => {
-        setCategories(response.data)
-        setIsLoadingCategories(false);
-      })
-  }, [])
+    useEffect(() => {
+        setIsLoading(true);
+        axios
+        .get(`${process.env.REACT_APP_API_URL}/categoria/1/mas-vendidos`)
+        .then((response) => setProducts(response.data))
+    }, [])
 
-  useEffect(() => {
-    setIsLoading(true);
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/categoria/${catId}/mas-vendidos`)
-      .then((response) => setProducts(response.data))
-  }, [catId])
+
+    // para funcionalidad más buscados en categorías
+    //   const [categories, setCategories] = useState([])
+    //   const [catId, setCatId] = useState(0)
+    //   const [isLoadingCategories, setIsLoadingCategories] = useState(true)
+    //   useEffect(() => {
+    //     setCatId(categories[0]?.id);
+    //   }, [categories])
+
+    //   useEffect(() => {
+    //     axios
+    //       .get(`${process.env.REACT_APP_API_URL}/categoria`)
+    //       .then((response) => {
+    //         setCategories(response.data)
+    //         setIsLoadingCategories(false);
+    //       })
+    //   }, [])
 
   return (
     <div className="wrapper">
@@ -43,7 +47,10 @@ const Home = () => {
             <h2 className="text-img">BUSCAR PRODUCTOS</h2>
             <h4 className="text-img">¿Estás buscando un producto puntual?</h4>
             <Link to="/comprar">
-                <button className="btn-secondary white"> BUSCAR POR PRODUCTOS </button>
+                <button className="btn-secondary white"> 
+                    <img src={search} alt="Search_blanco" style={{width: "1.4rem", marginRight: "1rem"}}/>
+                    BUSCAR POR PRODUCTOS 
+                </button>
             </Link>
           </div>
         </div>
@@ -53,6 +60,7 @@ const Home = () => {
             <h4 className="text-img">¿Querés saber cuánto material necesitás cubrir?</h4>
                 <Link to="/cotizar">
                     <button className="btn-secondary white">
+                        <img src={search} alt="Search_blanco" style={{width: "1.4rem", marginRight: "1rem"}}/>
                         BUSCAR POR CATEGORIAS
                     </button>
                 </Link>
@@ -62,7 +70,7 @@ const Home = () => {
       <br />
       <div className="categories-container">
         <h1 className="mx-auto">Productos más buscados</h1>
-        <div className={isLoadingCategories ? "categories categories-loading" : "categories"}>
+        {/* <div className={isLoadingCategories ? "categories categories-loading" : "categories"}>
           {
             isLoadingCategories
             ?
@@ -85,7 +93,7 @@ const Home = () => {
               )
             })
           }
-        </div>
+        </div> */}
         <div className="products">
           {
             isLoading 
@@ -114,7 +122,7 @@ const Home = () => {
       <div className="footer-image">
         <div className="footer-text">
           <p>Te acompañamos</p>
-          <p>todos tus <strong>proyectos</strong> </p>
+          <p>en todos tus <strong>proyectos</strong> </p>
         </div>
       </div>
     </div>
