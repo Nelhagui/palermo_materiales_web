@@ -30,6 +30,11 @@ const NavBar = () => {
         setLenghInitial(cart.length);
     }, [cart])
     
+    const isUserLoggedIn = !!localStorage.user; // Validar si existen datos de usuario en localStorage
+
+    const handleLogout = () => {
+        localStorage.removeItem('user'); // Eliminar datos de usuario del localStorage
+    };
 
   return (
     <div className="nav-root ">
@@ -65,16 +70,14 @@ const NavBar = () => {
             :
             <img src={carrito} alt="carrito" />
           }
-          {/* <div className="vl"></div> */}
           <div className='nav-hamburger' onClick={()=>changeIsShowNavBarSm()}>
             <label className="toggle-button"></label>
           </div>
-          {/* <div className="playstore navbar">
-            <img src={playstore} alt="playstore-logo" />
-            <a href="https://play.google.com/store/apps/details?id=rd.corralon.rc" target="_blank">
-                DESCARGAR APP
-            </a>
-          </div> */}
+          {isUserLoggedIn && (
+            <div>
+              <label htmlFor="" style={{cursor: 'pointer'}} onClick={handleLogout}>Cerrar Sesión</label>
+            </div>
+          )}
         </div>
       </div>
       <NavBarSm changeIsShowNavBarSm={changeIsShowNavBarSm} isShowNavBarSm={isShowNavBarSm}/>

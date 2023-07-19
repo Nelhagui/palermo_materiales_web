@@ -16,7 +16,7 @@ const ProductCardSetCant = () => {
 
 
   const handleRest = () => {
-    if (cant > 0) {
+    if (cant - 1 > 0) {
         setCant(cant - 1)
     }
   }
@@ -27,7 +27,7 @@ const ProductCardSetCant = () => {
   }
 
   const changeValue = (event) => {
-    if(event.target.value > 0 && event.target.value <= product?.productos_simples[0]['stock'])
+    if(event.target.value > 0 && event.target.value <= product?.productos_simples[0]['stock'] && event.target.value > 0)
         setCant(event.target.value)
   }
 

@@ -83,7 +83,7 @@ const PaymentMethods = ({mpDisabled}) => {
 
                     <div className='col-lg-4' style={{padding: '0px 4px'}}>
                         <div id="btn-cont" className="btn-secondary" onClick={() => setShowMethodEmail(true)} style={{marginTop: '16px', height: '48px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '5px'}}>
-                            <p className="pago-text"> Coorinar por email</p>
+                            <p className="pago-text"> Coordinar por email</p>
                         </div>
                     </div>
                     

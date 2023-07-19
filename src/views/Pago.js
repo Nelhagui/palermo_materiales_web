@@ -47,7 +47,7 @@ const Pago = () => {
                 </div>
                 <div className="row cont-payment-method">
                     <p className="h3 pago-text fw-bold">Forma de pago</p>
-                    <p className="pago-text">Para coordinar la entrega deberás constacarte al (011) 2184-9984 Opcion 4 de Lunes a Viernes de 7.30hs a 12hs y de 13hs a 17 hs. </p>
+                    <p className="pago-text">Para coordinar la entrega deberás contactarte al (011) 2184-9984 Opcion 4 de Lunes a Viernes de 7.30hs a 12hs y de 13hs a 17 hs. </p>
                     <div className="cont-options-method row">
                         <PaymentMethods mpDisabled={mpDisabled} />
                     </div>

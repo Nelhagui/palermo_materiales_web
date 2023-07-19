@@ -18,7 +18,8 @@ const Producto = () => {
   const [productCotizado, setProductCotizado] = useState([])
 
   const handleRest = () => {
-    if (cont > 1)
+    console.log(cont - 1 > 0)
+    if (cont - 1 > 0)
         setCont(cont - 1)
   }
   const handleAdd = () => {
@@ -27,7 +28,7 @@ const Producto = () => {
   }
 
   const changeValue = (event) => {
-    if(event.target.value > 0 && event.target.value <= product?.productos_simples[0]['stock'])
+    if(event.target.value > 0 && event.target.value <= product?.productos_simples[0]['stock'] && event.target.value > 0 )
         setCont(Number(event.target.value))  
   }
 
